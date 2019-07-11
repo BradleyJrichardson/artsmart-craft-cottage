@@ -10,14 +10,14 @@
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100px;
+  height: 5.5rem;
   background: var(--main-background);
 }
 
 .brandContainer {
   /* border: black solid 1px; */
   display: flex;
-  height: 100px;
+  height: 5.5rem;
   width: 40vw;
   flex-direction: column;
   justify-content: center;
@@ -35,4 +35,26 @@
   text-align: center;
   font-family: 'Alex Brush', cursive;
   color: var(--white)
+}
+
+.navLinksContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 5.5rem;
+}
+
+.iconSpacing {
+  display: flex;
+  width: 10vw;
+  height: 5.5rem;
+  margin-right: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cartIcon {
+  font-size: 4rem;
+  color: var(--white);
 }

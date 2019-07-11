@@ -1,33 +1,24 @@
-.App {
-  text-align: center;
+body{
+  font-family: 'Oxygen', sans-serif !important;
+}
+.text-title{
+  font-family: 'Alex Brush', cursive;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.cart-button{
+  font-size: 1rem;
+  background: transparent;
+  border: 0.05rem solid rgb(187, 183, 183);
+  color: rgb(0,0,0,0.5);
+  border-radius: 0.5rem;
+  padding :0.2rem 0.5rem;
+  cursor: pointer;
+  margin-left: 0.2rem;
+  transition: all 0.5s ease-in-out;
+  text-decoration: none
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-button:hover{
+  background: rgb(73, 102, 100);
+  color: rgba(241, 236, 236, 0.5);
+  text-decoration: none
 }

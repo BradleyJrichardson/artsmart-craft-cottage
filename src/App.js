@@ -4,6 +4,7 @@ import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ProductSection from "./components/ProductSection";
 
 export default class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/products" component={ProductSection} />
           {/* <Route path="/newrelease" component={NewReleaseDetails} /> */}
         </Switch>
         <Footer />

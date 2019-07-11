@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import ProductCards from "./ProductCards";
+import ProductConsumer from "../context/Context";
 
-export default class ProductList extends Component {
+export default class ProductSection extends Component {
   render() {
     return (
-      // <div>
-      //   {array.map(value => {
-      //     <ProductCards value={value} />;
-      //   })}
-      // </div>
-      null
+      <section>
+        <ProductConsumer>
+          {/* {globalState => {
+            globalState.products.map(product => (
+              <ProductCards product={product} />
+            ));
+          }} */}
+          {value => console.log(value)}
+          <h1>hello</h1>
+        </ProductConsumer>
+      </section>
     );
   }
 }

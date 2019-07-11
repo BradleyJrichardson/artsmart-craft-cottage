@@ -13,6 +13,9 @@ export default class Navbar extends Component {
           <Link to="/checkout">
             <span>Checkout</span>
           </Link>{" "}
+          <Link to="/products">
+            <span>All products</span>
+          </Link>{" "}
         </h1>
       </nav>
     );

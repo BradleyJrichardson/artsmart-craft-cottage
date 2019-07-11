@@ -1,36 +1,33 @@
-import React, { Component } from "react";
-import { Switch, Route } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './components/Navbar';
-import ProductList from './components/ProductList';
-import Details from './components/Details';
-import Cart from './components/Cart';
-import PageNotFound from './components/PageNotFound';
-import { Elements, StripeProvider } from "react-stripe-elements";
-import CheckoutForm from "./CheckoutForm";
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-class App extends Component {
+export default class App extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Navbar />
         <Switch>
-         
-          <Route exact path="/" component={ProductList} />
-          <Route path="/details" component={Details} />
-          <Route path="/cart" component={Cart} />
-          <Route component={PageNotFound} />
+          <Route exact path="/" component={Home} />
+          <Route path="/checkout" component={Checkout} />
+          {/* <Route path="/newrelease" component={NewReleaseDetails} /> */}
         </Switch>
+        <Footer />
       </React.Fragment>
-      
-        
-      // <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
-      //   <Elements>
-      //     <CheckoutForm />
-      //   </Elements>
-      // </StripeProvider>
     );
   }
 }
 
-export default App;
+// import { Elements, StripeProvider } from "react-stripe-elements";
+// import CheckoutForm from "./components/CheckoutForm";
+{
+  /* <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
+<Elements>
+  <CheckoutForm />
+</Elements>
+</StripeProvider>
+; */
+}

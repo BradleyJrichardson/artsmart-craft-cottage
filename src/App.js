@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 export default class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="wrapper">
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -16,7 +16,7 @@ export default class App extends React.Component {
           {/* <Route path="/newrelease" component={NewReleaseDetails} /> */}
         </Switch>
         <Footer />
-      </React.Fragment>
+      </div>
     );
   }
 }

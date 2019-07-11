@@ -11,8 +11,7 @@
 .wrapper {
   max-width: 1440px;
   height: 100vh;
-  padding: 20px 50px;
-  margin: 0 auto;
+  margin: 3rem auto;
   display: flex;
   justify-content: center;
   align-items: center;

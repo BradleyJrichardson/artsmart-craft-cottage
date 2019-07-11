@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import './Navbar.css'
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav>
+      <nav className='navContainer'>
+        <div className='brandContainer'>
+          <h1 className='brand'>Artsmart Craft Cottage</h1>
+          <h1 className='nameLibby'>Designs by Libby Richardson</h1>
+        </div>
         <h1>
           Navbar -------------{" "}
           <Link to="/">

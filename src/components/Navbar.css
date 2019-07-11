@@ -1,0 +1,38 @@
+:root {
+  --main-background: #9FBCCA;
+  --white: white;
+  --brown: rgb(47, 23, 23);
+}
+
+.navContainer {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100px;
+  background: var(--main-background);
+}
+
+.brandContainer {
+  /* border: black solid 1px; */
+  display: flex;
+  height: 100px;
+  width: 40vw;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.brand {
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.nameLibby {
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Alex Brush', cursive;
+  color: var(--white)
+}

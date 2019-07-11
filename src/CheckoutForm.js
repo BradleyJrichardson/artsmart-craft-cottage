@@ -49,7 +49,12 @@ class CheckoutForm extends Component {
       .then(({ token }) => {
         const order = {
           currency: "aud",
-          items: [],
+          items: [
+            {
+              type: "sku",
+              parent: "sku_FPJ7mIuOhwa02Q"
+            }
+          ],
           email: state.email,
           shipping: {
             name: state.name,

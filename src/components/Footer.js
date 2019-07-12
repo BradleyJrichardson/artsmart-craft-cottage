@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styles from "../App.css";
+import './Footer.css'
+import ContactMeForm from './ContactMeForm'
 
 class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Footer</h1>
-        <p>.......</p>
+        <div className='footer-container'>
+          <div className='contact-me'>
+            < ContactMeForm />
+          </div>
+          <div className='bio-blog'>bio</div>
+          <div className='lilly-image'>image</div>
+        </div>
       </React.Fragment>
     );
   }

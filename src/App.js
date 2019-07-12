@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProductSection from "./components/ProductSection";
 import axios from "axios";
+import { Elements, StripeProvider } from "react-stripe-elements";
+import ProductDetails from "./components/ProductDetails";
 
 export default class App extends React.Component {
   state = {
@@ -30,25 +32,42 @@ export default class App extends React.Component {
     }
     console.log("from App.js", this.state.products);
   }
+
+  // addToCart = () => {};
+  // increment = () => {};
+  // decrement = () => {};
+  // getTotals = () => {};
+  // addTotals = () => {};
+  // removeItem = id => {};
+  // clearCart = () => {
+  //   this.setState(() => {
+  //     return { cart: [] };
+  //   });
+
   render() {
     if (this.state.products != null) {
       return (
         <Router>
-          <ThemeProvider value={this.state}>
-            <div className="wrapper">
-              <Navbar />
+          <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
+            <ThemeProvider value={this.state}>
+              <div className="wrapper">
+                <Navbar />
 
-              <div className="container">
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/checkout" component={Checkout} />
-                  <Route path="/products" component={ProductSection} />
-                </Switch>
+                <div className="container">
+                  <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/products" component={ProductSection} />
+                    <Route path="/productdetails" component={ProductDetails} />
+                    <Elements>
+                      <Route path="/checkout" component={Checkout} />
+                    </Elements>
+                  </Switch>
+                </div>
+
+                <Footer />
               </div>
-
-              <Footer />
-            </div>
-          </ThemeProvider>
+            </ThemeProvider>
+          </StripeProvider>
         </Router>
       );
     } else {

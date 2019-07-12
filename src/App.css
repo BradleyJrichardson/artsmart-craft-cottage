@@ -1,14 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  text-decoration: none;
-  color: inherit;
-}
-
-.wrapper {
+.container {
   max-width: 1440px;
   height: 100vh;
   margin: 3rem auto;
@@ -16,15 +6,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 
-section {
+.card-container {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 960px;
-  background: whitesmoke;
-  padding: 50px 0;
-  margin: 50px 0;
+}
+
+.card {
+  width: 330px;
+  padding: 40px;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.9);
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
-
 import axios from "axios";
 
 // https://stripe.com/docs/recipes/elements-react
@@ -10,6 +9,7 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      total: 69,
       fetching: false,
       complete: false,
       coupon: "",
@@ -147,7 +147,10 @@ class CheckoutForm extends Component {
           "Placing order..."
         )}
         Price:
-        {(100).toLocaleString("en-US", { style: "currency", currency: "aud" })}
+        {this.state.total.toLocaleString("en-US", {
+          style: "currency",
+          currency: "aud"
+        })}
       </form>
     );
   }

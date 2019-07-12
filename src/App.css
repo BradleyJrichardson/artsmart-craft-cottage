@@ -1,7 +1,12 @@
 .container {
   max-width: 1440px;
-  padding: 8rem;
-  margin: 0 auto;
+  height: 100vh;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 .card-container {

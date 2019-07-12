@@ -39,32 +39,32 @@ export default class Navbar extends Component {
         <div className='second-nav'>
           <div>
             <Link>
-              <h1>Wholesale</h1>
+              <h1 className='second-nav-font'>Wholesale</h1>
             </Link>
           </div>
           <div>
             <Link>
-              <h1>Quilts</h1>
+              <h1 className='second-nav-font'>Quilts</h1>
             </Link>
           </div>
           <div>
             <Link>
-              <h1>BOM Quilts</h1>
+              <h1 className='second-nav-font'>BOM Quilts</h1>
             </Link>
           </div>
           <div>
             <Link>
-              <h1>Stitcheries</h1>
+              <h1 className='second-nav-font'>Stitcheries</h1>
             </Link>
           </div>
           <div>
             <Link>
-              <h1>Christmas</h1>
+              <h1 className='second-nav-font'>Christmas</h1>
             </Link>
           </div>
           <div>
             <Link>
-              <h1>Bits & Pieces</h1>
+              <h1 className='second-nav-font'>Bits & Pieces</h1>
             </Link>
           </div>
         </div>

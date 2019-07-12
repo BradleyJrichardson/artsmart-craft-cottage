@@ -1,0 +1,22 @@
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 250px;
+  border: black solid 1px;
+}
+
+.contact-me {
+  width: 35vw;
+}
+
+.bio-blog {
+  width: 45vw;
+  border: pink solid 1px;
+}
+
+.lilly-image {
+  width: 20vw;
+  border: orangered solid 1px;
+}

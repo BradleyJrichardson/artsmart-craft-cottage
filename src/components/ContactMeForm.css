@@ -1,0 +1,79 @@
+:root {
+  --main-background: #9FBCCA;
+  --white: white;
+  --brown: rgb(47, 23, 23);
+}
+.contactFormContainer {
+  display: flex;
+  background: var(--main-background);
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 250px;
+}
+
+.brandTitle {
+  margin-left: 1rem;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 200;
+}
+
+.nameTitleAlignment {
+  display: flex;
+  flex-direction: row;
+}
+
+.nameTitle {
+  margin-left: 2px;
+  font-family: 'Alex Brush', cursive;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+/* .nameTitleLibby {
+  margin-left: 1rem;
+  font-family: 'Alex Brush', cursive;
+  font-weight: 200;
+  font-size: 4rem;
+  color: var(--brown);
+} */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 35vw;
+  height: 250px;
+}
+
+.namesContainer {
+  display: flex;
+  width: 35vw;
+  justify-content: space-around;
+}
+
+.textField {
+  margin: 0 2px;
+  height: 25px;
+  width: 30vw;
+  font-size: 16px;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-color: var(--brown); 
+}
+
+.messageField {
+  margin: 0 2px;
+  height: 100px;
+  font-size: 16px;
+  border-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-color: var(--brown); 
+}
+
+.submitField {
+  width: 20rem;
+  align-self: center;
+}

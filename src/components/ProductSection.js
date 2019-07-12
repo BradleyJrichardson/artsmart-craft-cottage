@@ -5,7 +5,7 @@ import { ThemeConsumer } from "../context/theme";
 export default class ProductSection extends Component {
   render() {
     return (
-      <section>
+      <section className="card-container">
         <ThemeConsumer>
           {value => {
             console.log("from product section", value);

@@ -1,7 +1,7 @@
 :root {
   --main-background: #9FBCCA;
   --white: white;
-  --brown: rgb(47, 23, 23);
+  --brown: rgb(68, 28, 28);
 }
 .contactFormContainer {
   display: flex;

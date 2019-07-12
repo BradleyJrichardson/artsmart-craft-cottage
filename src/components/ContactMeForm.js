@@ -29,7 +29,7 @@ export default class ContactForm extends Component {
           </div>
           <div className='namesContainer'>
             <input placeholder='Email:' className='textField' type='text' value={this.state.email} onChange={this.handleChange} name='email' />
-            <input placeholder='Phone:' className='textField' type='number' value={this.state.phone} onChange={this.handleChange} name='phone' />
+            <input placeholder='Phone:' className='textField' type='tel' value={this.state.phone} onChange={this.handleChange} name='phone' />
           </div>
           <textarea placeholder='Message:' className='messageField' type='text' value={this.state.message} onChange={this.handleChange} name='message' />
           <input type="submit" className='submitField' value="Send Message"  />

@@ -1,8 +1,7 @@
-
 * {
   margin: 0;
   text-decoration: none;
-  font-family: 'Oxygen', sans-serif;
+  font-family: "Oxygen", sans-serif;
   font-size: 16px;
 }
 
@@ -28,7 +27,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 .card-container {
@@ -41,6 +39,7 @@ body {
 }
 
 .card {
+  margin-top: 300px;
   width: 330px;
   padding: 40px;
 }
@@ -48,4 +47,9 @@ body {
 .card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.9);
+}
+
+.btn {
+  background: red;
+  padding: 5px;
 }

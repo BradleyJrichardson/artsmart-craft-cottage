@@ -9,8 +9,7 @@ export default class ProductSection extends Component {
       <section className="card-container">
         <ThemeConsumer>
           {value => {
-            console.log("from product section", value);
-            return value.products.map(product => {
+            return value.products.map((product, index) => {
               return (
                 <Link
                   to={{
@@ -20,7 +19,7 @@ export default class ProductSection extends Component {
                     }
                   }}
                 >
-                  <ProductCards product={product} />
+                  <ProductCards key={index} product={product} />
                 </Link>
               );
             });
@@ -29,14 +28,4 @@ export default class ProductSection extends Component {
       </section>
     );
   }
-}
-
-{
-  /* <ThemeConsumer>
-{( value ) => (
-  console.log("from product section", value);
-  return value.products.map(product => {
-    return <ProductCards product={product} />;
-)}
-</ThemeConsumer> */
 }

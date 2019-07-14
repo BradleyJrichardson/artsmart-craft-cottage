@@ -26,7 +26,12 @@ class CheckoutForm extends Component {
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    let cart = props.value.cart;
+    console.log(cart);
+    // let orderArrayOfObj = cart.map((item) => {
+    // })
   }
+
   handleChange(e) {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
@@ -37,7 +42,6 @@ class CheckoutForm extends Component {
     address[e.target.name] = e.target.value;
     this.setState({ address });
   }
-
   /// refactor to async function!!! 🙌 above is an example
   handleSubmit(e) {
     e.preventDefault();
@@ -51,8 +55,9 @@ class CheckoutForm extends Component {
           currency: "aud",
           items: [
             {
-              type: "sku",
-              parent: "sku_FPJ7mIuOhwa02Q"
+              // parent: "sku_FPJ7mIuOhwa02Q",       /// need to pass the sku_id and the quatity into the checkout form
+              // quantity: 1,
+              // type: "sku"
             }
           ],
           email: state.email,

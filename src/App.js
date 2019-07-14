@@ -25,15 +25,20 @@ export default class App extends React.Component {
         this.setState({
           products: response.data
         });
-        console.log(response.data);
       } catch (err) {
         console.log(err);
       }
     }
-    console.log("from App.js", this.state.products);
   }
 
-  // addToCart = () => {};
+  addToCart = product => {
+    this.setState(() => {
+      return {
+        cart: [...this.state.cart, product]
+      };
+    });
+  };
+
   // increment = () => {};
   // decrement = () => {};
   // getTotals = () => {};
@@ -49,7 +54,12 @@ export default class App extends React.Component {
       return (
         <Router>
           <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
-            <ThemeProvider value={this.state}>
+            <ThemeProvider
+              value={{
+                ...this.state,
+                addToCart: this.addToCart
+              }}
+            >
               <div className="wrapper">
                 <Navbar />
 
@@ -58,6 +68,7 @@ export default class App extends React.Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/products" component={ProductSection} />
                     <Route path="/productdetails" component={ProductDetails} />
+
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>
@@ -74,15 +85,4 @@ export default class App extends React.Component {
       return null;
     }
   }
-}
-
-// import { Elements, StripeProvider } from "react-stripe-elements";
-// import CheckoutForm from "./components/CheckoutForm";
-{
-  /* <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
-<Elements>
-  <CheckoutForm />
-</Elements>
-</StripeProvider>
-; */
 }

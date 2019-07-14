@@ -1,12 +1,16 @@
-import React, { Component } from "react"; 
+import React, { Component } from "react";
 
 class Cart extends Component {
   render() {
-    return (
-     <div>
-       <h2>hello from Cart</h2>
-     </div>
-    );
+    <ThemeConsumer>
+      {value => {
+        return (
+          <div className="card">
+            <h1>hello</h1>
+          </div>
+        );
+      }}
+    </ThemeConsumer>;
   }
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import CheckoutForm from "../components/CheckoutForm";
+import { ThemeConsumer } from "../context/theme";
 
 export default class Checkout extends React.Component {
   state = {};
@@ -7,9 +8,10 @@ export default class Checkout extends React.Component {
   render() {
     return (
       <section>
+        <h1>make new order summary page</h1>
         <h1>Checkout</h1>
         <p>.....</p>
-        <CheckoutForm />
+        <ThemeConsumer>{value => <CheckoutForm value={value} />}</ThemeConsumer>
       </section>
     );
   }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductCards = props => {
-  let { title, description, categories, price } = props.product;
+  let { title, categories, price } = props.product;
   return (
     <div className="card">
       <h1>{title}</h1>

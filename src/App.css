@@ -36,7 +36,7 @@ body {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100vw;
+  width: 60%;
   height: 100vh;
 
   justify-content: center;
@@ -55,7 +55,7 @@ body {
 
 .btn {
   background: red;
-  padding: 5px;
+  padding: 20px;
 }
 
 .cart {

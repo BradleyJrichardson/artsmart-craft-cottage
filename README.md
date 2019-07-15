@@ -15,17 +15,22 @@
 
 > ### This project is split over two Repos | [Backend](https://github.com/BradleyJrichardson/artsmart-backend)<br>
 
+<br><br>
 # Functionality / Features
 
+<br><br>
 # Tech stack
 
+<br><br>
 # Design documentation
 
 [Figma](https://www.figma.com/file/ZrsUm4JyeonWInA91RQ01Eo4/Marketplace?node-id=0%3A1)
 
+---
+<br><br>
 # Project plan & Timeline
 
-
+<br><br>
 # Client Interactions
 - Monday 8<sup>th</sup> July 2019
 
@@ -53,7 +58,7 @@ Quick call regarding colour pallets and design.
 - Placeholder 00<sup>th</sup> July 2019
 
 Placeholder for next call.
-
+<br><br>
 # Project Plan
 - Client __*Libby Richrdson*__
 - Project Name __*Artsmart Craft Cottage*__
@@ -78,8 +83,6 @@ Week 2 - MVP build, hosted and working.
 
 Week 3 - Debugging, extra features and presentation planning.
 
-### Objectives
-
 ### Risks
 Project might not get completed due to time-frame.
 
@@ -97,3 +100,44 @@ Marketplace completed and signed off by Wednesday 24<sup>th</sup> July 2019.
 Presentation plan written and Client Handover Documents completed on Thursday 25<sup>th</sup> July 2019.
 
 Presented on Friday 26<sup>th</sup> July 2019.
+<br><br>
+# Project Charter
+
+__*Vision Statement*__ 
+
+Artsmart Craft Cottage is a Marketplace that is being updated in the MERN stack.
+
+The objective is to build a marketplace that improves on the current website's Search Engine Optimisation results while being designed for the clients needs.
+
+Artsmart will be delivered with customer sales for the MVP, but post delivery will include Wholesale customers.  
+Ongoing support will be provided by Bradley Richardson given the existing client relationship.
+
+__*In Scope*__ 
+- Tech Stack must use the complete MERN stack.
+- Stripe must manage all the customer payment information.
+- Should match and ideally improve on the existing websites SEO (Search Engine Optimisation) results.
+- 
+
+__*Out of Scope*__ 
+
+Anything not included in scope
+
+### Constraints
+- Time, must be completed in the 3 week window.
+- Due Dilligece in maintaining personal customer information in line with government guidelines.
+- labour, only three workers to complete the entire project.
+- Skill level, workers are inexperienced in fullstack web development.
+
+### Stakeholders
+- Website owner - __*Libby Richardson*__
+- Coder Academy - __*Teachers*__
+- Developers - __*Brad, Cooper, Marhdi*__
+
+### Benefits
+A faster website with a smoother sales process, that should improve sales.
+
+Modernisation and automisation of the payment system, leaving the client with more time to create than process payment and manage business finances.
+
+### Project Costs
+Nill
+

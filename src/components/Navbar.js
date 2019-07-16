@@ -37,14 +37,13 @@ export default class Navbar extends Component {
         </div>
         {/* second navbar */}
         <div className="second-nav">
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">Wholesale</h1>
-            </Link>
-          </div>
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">Quilts</h1>
+          <div className="second-nav-font">
+            <Link to={{
+              pathname: "/category",
+              quilts:{
+                name: "passed from quilts"
+              }
+            }}>Quilts
             </Link>
           </div>
           <div>

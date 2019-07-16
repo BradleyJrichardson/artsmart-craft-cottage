@@ -9,7 +9,6 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      total: 69,
       fetching: false,
       complete: false,
       coupon: "",
@@ -26,10 +25,6 @@ class CheckoutForm extends Component {
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    let cart = props.value.cart;
-    console.log(cart);
-    // let orderArrayOfObj = cart.map((item) => {
-    // })
   }
 
   handleChange(e) {
@@ -42,24 +37,25 @@ class CheckoutForm extends Component {
     address[e.target.name] = e.target.value;
     this.setState({ address });
   }
-  /// refactor to async function!!! 🙌 above is an example
   handleSubmit(e) {
     e.preventDefault();
+    let cart = this.props.value.cart;
     this.setState({ fetching: true });
     const state = this.state;
 
+    let items = cart.map(item => {
+      return {
+        parent: item.sku,
+        amount: item.price * 100,
+        quantity: item.quantity
+      };
+    });
     this.props.stripe
       .createToken({ name: state.name })
       .then(({ token }) => {
         const order = {
           currency: "aud",
-          items: [
-            {
-              // parent: "sku_FPJ7mIuOhwa02Q",       /// need to pass the sku_id and the quatity into the checkout form
-              // quantity: 1,
-              // type: "sku"
-            }
-          ],
+          items: items,
           email: state.email,
           shipping: {
             name: state.name,
@@ -152,7 +148,7 @@ class CheckoutForm extends Component {
           "Placing order..."
         )}
         Price:
-        {this.state.total.toLocaleString("en-US", {
+        {this.props.value.cartTotal.toLocaleString("en-US", {
           style: "currency",
           currency: "aud"
         })}

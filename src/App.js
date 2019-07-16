@@ -15,7 +15,7 @@ export default class App extends React.Component {
   state = {
     products: null,
     cart: [],
-    cartTotal: 90,
+    cartTotal: 0,
     cartOpen: true
   };
 
@@ -33,24 +33,26 @@ export default class App extends React.Component {
   }
 
   increment = product_id => {
-    let product = this.state.cart.find(item => item.product_id === product_id);
+    let product = this.state.cart.find(
+      products => products.product_id === product_id
+    );
     console.log(product);
-  };
+    let tempRemoved = this.state.cart.filter(products => {
+      if (products.product_id !== product_id) {
+        return products;
+      }
+    });
+    console.log(tempRemoved);
+    product.quantity = product.quantity + 1;
+    product.totalPrice = product.price * product.quantity;
 
-  decrement = () => {};
+    let newCart;
+    if (tempRemoved.length) {
+      newCart = [tempRemoved, product];
+    } else {
+      newCart = [product];
+    }
 
-  addToCart = product => {
-    let { product_id, sku, price, title } = product;
-
-    const productObj = {
-      title: title,
-      product_id: product_id,
-      sku: sku,
-      price: price,
-      quantity: 1
-    };
-
-    let newCart = [...this.state.cart, productObj];
     let total = this.calcTotal(newCart);
 
     this.setState(() => {
@@ -61,14 +63,74 @@ export default class App extends React.Component {
     });
   };
 
+  decrement = product_id => {
+    let product = this.state.cart.find(
+      products => products.product_id === product_id
+    );
+    let tempRemoved = this.state.cart.filter(products => {
+      if (products.product_id !== product_id) {
+        return products;
+      }
+    });
+
+    product.quantity = product.quantity - 1;
+    product.totalPrice = product.price * product.quantity;
+
+    let newCart;
+    if (tempRemoved.length) {
+      newCart = [tempRemoved, product];
+    } else {
+      newCart = [product];
+    }
+    let total = this.calcTotal(newCart);
+
+    this.setState(() => {
+      return {
+        cart: newCart,
+        cartTotal: total
+      };
+    });
+  };
+
+  addToCart = product => {
+    if (
+      this.state.cart.find(
+        products => products.product_id === product.product_id
+      )
+    ) {
+      this.increment(product.product_id);
+    } else {
+      let { product_id, sku, price, title } = product;
+
+      const productObj = {
+        title: title,
+        product_id: product_id,
+        sku: sku,
+        price: price,
+        quantity: 1,
+        totalPrice: price
+      };
+
+      let newCart = [...this.state.cart, productObj];
+      let total = this.calcTotal(newCart);
+
+      this.setState(() => {
+        return {
+          cart: newCart,
+          cartTotal: total
+        };
+      });
+    }
+  };
+
   calcTotal = newCart => {
     let prices = newCart.map(productObj => {
-      return productObj.price;
+      return productObj.totalPrice;
     });
 
     let total = 0;
     if (newCart.length === 1) {
-      total = newCart[0].price;
+      total = newCart[0].totalPrice;
     } else {
       total = prices.reduce((a, b) => a + b, 0);
     }

@@ -2,10 +2,8 @@
   <img width="" height="120" src=./artsmart-logo.jpg></p>
 
 # <div align="center">Front end</div>
-
 <br>
-
-> `A Marketplace application built for the final project at CoderAcademy`
+A Marketplace application built for the final project at CoderAcademy
 
 # Team Members
 
@@ -26,10 +24,7 @@
 
 [Figma](https://www.figma.com/file/ZrsUm4JyeonWInA91RQ01Eo4/Marketplace?node-id=0%3A1)
 
----
-<br><br>
-# Project plan & Timeline
-
+# <div align="center">1. Project Management</div>
 <br><br>
 # Client Interactions
 - Monday 8<sup>th</sup> July 2019
@@ -140,4 +135,22 @@ Modernisation and automisation of the payment system, leaving the client with mo
 
 ### Project Costs
 Nill
+<br><br>
+# Work Breakdown Structure
 
+|||Marketplace|||
+|-----|-------|-----|----|---|  
+|Design|Content|Test|Hosting|Production|
+|1. Research|1. Build back-end server and database |1. Write test|1. Host back-end|1. Client Sign off|  
+|2. Build Figma wire-frames|2. Build framework |2. End user testing|2. Host front-end|2. Hand-off Documentation|
+|3. Colour pallet and Fonts|3. Build Context and global state |3. Test Sign-off||3. Present production build|
+|4. SEO analysis|4. Build site components|4. Test when pushed to production|||
+<br><br>
+# Post Project Review
+<br><br>
+# Client Satisfaction Questionnaire 
+Will create a survey monkey for this
+<br><br>
+# <div align="center">2. Application Design</div>
+
+## Summary of the application

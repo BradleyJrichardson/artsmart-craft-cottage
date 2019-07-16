@@ -16,8 +16,7 @@ export default class App extends React.Component {
     products: null,
     cart: [],
     cartTotal: 90,
-    cartOpen: true,
-    cartId: 1
+    cartOpen: true
   };
 
   async componentDidMount() {
@@ -33,13 +32,22 @@ export default class App extends React.Component {
     }
   }
 
+  increment = product_id => {
+    let product = this.state.cart.find(item => item.product_id === product_id);
+    console.log(product);
+  };
+
+  decrement = () => {};
+
   addToCart = product => {
     let { product_id, sku, price, title } = product;
+
     const productObj = {
       title: title,
       product_id: product_id,
       sku: sku,
-      price: price
+      price: price,
+      quantity: 1
     };
 
     let newCart = [...this.state.cart, productObj];
@@ -97,7 +105,9 @@ export default class App extends React.Component {
                 ...this.state,
                 addToCart: this.addToCart,
                 clearCart: this.clearCart,
-                removeItem: this.removeItem
+                removeItem: this.removeItem,
+                increment: this.increment,
+                decrement: this.decrement
               }}
             >
               <div className="wrapper">

@@ -16,6 +16,7 @@ const Cart = () => {
                 {value.cart.map(item => {
                   return (
                     <React.Fragment>
+                      <p>{item.quantity}</p>
                       <p>
                         Item: {item.title}
                         <button
@@ -25,6 +26,22 @@ const Cart = () => {
                           }}
                         >
                           x
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            value.increment(item.product_id);
+                          }}
+                        >
+                          +
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            value.decrement(item.product_id);
+                          }}
+                        >
+                          -
                         </button>
                       </p>
                       <p>Price: {item.price}</p>

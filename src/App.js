@@ -32,6 +32,13 @@ export default class App extends React.Component {
     }
   }
 
+  increment = product_id => {
+    let product = this.state.cart.find(item => item.product_id === product_id);
+    console.log(product);
+  };
+
+  decrement = () => {};
+
   addToCart = product => {
     let { product_id, sku, price, title } = product;
 
@@ -39,46 +46,54 @@ export default class App extends React.Component {
       title: title,
       product_id: product_id,
       sku: sku,
-      price: price
+      price: price,
+      quantity: 1
     };
-    this.setState(() => {
-      return {
-        cart: [...this.state.cart, productObj]
-      };
-    });
-    this.calcTotal();
-  };
 
-  calcTotal = () => {
-    let prices = this.state.cart.map(productObj => {
-      return productObj.price;
-    });
-    let total = prices.reduce((a, b) => a + b, 0);
+    let newCart = [...this.state.cart, productObj];
+    let total = this.calcTotal(newCart);
 
     this.setState(() => {
       return {
+        cart: newCart,
         cartTotal: total
       };
     });
   };
 
+  calcTotal = newCart => {
+    let prices = newCart.map(productObj => {
+      return productObj.price;
+    });
+
+    let total = 0;
+    if (newCart.length === 1) {
+      total = newCart[0].price;
+    } else {
+      total = prices.reduce((a, b) => a + b, 0);
+    }
+    return total;
+  };
+
   clearCart = () => {
+    console.log("clearing cart");
     this.setState(() => {
       return { cart: [] };
     });
   };
 
-  removeFromCart = () => {};
-
-  // increment = () => {};
-  // decrement = () => {};
-  // getTotals = () => {};
-  // addTotals = () => {};
-  // removeItem = id => {};
-  // clearCart = () => {
-  //   this.setState(() => {
-  //     return { cart: [] };
-  //   });
+  removeItem = product_id => {
+    let newCart = this.state.cart.filter(item => {
+      if (item.product_id !== product_id) {
+        return item;
+      }
+    });
+    console.log(newCart);
+    let total = this.calcTotal(newCart);
+    this.setState(() => {
+      return { cart: newCart, cartTotal: total };
+    });
+  };
 
   render() {
     if (this.state.products != null) {
@@ -89,7 +104,10 @@ export default class App extends React.Component {
               value={{
                 ...this.state,
                 addToCart: this.addToCart,
-                clearCart: this.clearCart
+                clearCart: this.clearCart,
+                removeItem: this.removeItem,
+                increment: this.increment,
+                decrement: this.decrement
               }}
             >
               <div className="wrapper">

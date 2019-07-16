@@ -1,9 +1,11 @@
 import React from "react";
 import { ThemeConsumer } from "../context/theme";
+import { Link } from "react-router-dom";
 
 const ProductDetails = props => {
   let { price, product_id, sku, title } = props.location.state.product;
   let { product } = props.location.state;
+
   return (
     <React.Fragment>
       <ThemeConsumer>
@@ -14,14 +16,16 @@ const ProductDetails = props => {
               <p>{price}</p>
               <p>{product_id}</p>
               <p>{sku}</p>
-              <button
-                className="btn"
-                onClick={() => {
-                  value.addToCart(product);
-                }}
-              >
-                add
-              </button>
+              <Link to="/products">
+                <button
+                  className="btn"
+                  onClick={() => {
+                    value.addToCart(product);
+                  }}
+                >
+                  add
+                </button>
+              </Link>
             </div>
           );
         }}

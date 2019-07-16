@@ -7,9 +7,7 @@ const Cart = () => {
     <React.Fragment>
       <ThemeConsumer>
         {value => {
-          console.log(value);
-
-          if (value.cart.length > 0) {
+          if (value.cart.length) {
             return (
               <div className="cart">
                 <h1>Cart</h1>
@@ -18,23 +16,50 @@ const Cart = () => {
                 {value.cart.map(item => {
                   return (
                     <React.Fragment>
-                      <p>Item: {item.title}</p>
+                      <p>{item.quantity}</p>
+                      <p>
+                        Item: {item.title}
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            value.removeItem(item.product_id);
+                          }}
+                        >
+                          x
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            value.increment(item.product_id);
+                          }}
+                        >
+                          +
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            value.decrement(item.product_id);
+                          }}
+                        >
+                          -
+                        </button>
+                      </p>
                       <p>Price: {item.price}</p>
+                      <p />
                       <p>---------</p>
                     </React.Fragment>
                   );
                 })}
                 <p>Total: {value.cartTotal}</p>
                 <hr />
-                <Link to="/checkout">
-                  <button>Checkout</button>
-                </Link>
                 <br />
-                <button
-                  onClick={() => {
-                    value.clearCart();
-                  }}
-                >
+                <Link to="/checkout">
+                  <button className="btn">Checkout</button>
+                </Link>
+
+                <br />
+                <br />
+                <button className="btn" onClick={value.clearCart}>
                   Clear cart
                 </button>
               </div>

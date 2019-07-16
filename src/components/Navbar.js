@@ -38,32 +38,32 @@ export default class Navbar extends Component {
         {/* second navbar */}
         <div className="second-nav">
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">Wholesale</h1>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">Quilts</h1>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">BOM Quilts</h1>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">Stitcheries</h1>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">Christmas</h1>
             </Link>
           </div>
           <div>
-            <Link to="/">
+            <Link to="/category">
               <h1 className="second-nav-font">Bits & Pieces</h1>
             </Link>
           </div>

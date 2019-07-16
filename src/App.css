@@ -5,6 +5,10 @@
   font-size: 16px;
 }
 
+h1 {
+  font-size: 30px;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -52,4 +56,10 @@ body {
 .btn {
   background: red;
   padding: 5px;
+}
+
+.cart {
+  margin-top: 300px;
+  margin-right: 50px;
+  float: right;
 }

@@ -10,6 +10,7 @@ const ProductDetails = props => {
     <React.Fragment>
       <ThemeConsumer>
         {value => {
+          console.log(value);
           return (
             <div className="card">
               <h1>{title}</h1>

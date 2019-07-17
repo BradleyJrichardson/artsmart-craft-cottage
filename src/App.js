@@ -55,6 +55,7 @@ export default class App extends React.Component {
       if (products.product_id !== product_id) {
         return products;
       }
+      // need a return statement here
     });
 
     let product = this.state.cart.find(
@@ -88,6 +89,7 @@ export default class App extends React.Component {
       if (products.product_id !== product_id) {
         return products;
       }
+      // need a return statement here
     });
 
     product.quantity = product.quantity - 1;
@@ -167,6 +169,7 @@ export default class App extends React.Component {
       if (item.product_id !== product_id) {
         return item;
       }
+      // need a return statement here
     });
     console.log(newCart);
     let total = this.calcTotal(newCart);

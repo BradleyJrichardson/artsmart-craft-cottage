@@ -7,12 +7,21 @@ export default class Checkout extends React.Component {
 
   render() {
     return (
-      <section>
-        <h1>make new order summary page</h1>
-        <h1>Checkout</h1>
-        <p>.....</p>
-        <ThemeConsumer>{value => <CheckoutForm value={value} />}</ThemeConsumer>
-      </section>
+      <React.Fragment>
+        <ThemeConsumer>
+          {value => {
+            if(value.cart !== null)
+            console.log('from value', value.cart);
+            }
+          }
+        </ThemeConsumer>
+      </React.Fragment>
+      // <section>
+      //   <h1>make new order summary page</h1>
+      //   <h1>Checkout</h1>
+      //   <p>.....</p>
+      //   <ThemeConsumer>{value => <CheckoutForm value={value} />}</ThemeConsumer>
+      // </section>
     );
   }
 }

@@ -12,9 +12,9 @@ export default class WhatsNewSection extends Component {
         <h3>Whats New Section</h3>
         <div className='whatsnew'>
           <Link to='/whatsnewdetails'>
-            <img className="img1" src={img1} alt="Generic placeholder image" />
-            <img className="img2" src={img2} alt="Generic placeholder image" />
-            <img className="img3" src={img3} alt="Generic placeholder image" />
+            <img className="img1" src={img1} alt="placeholder" />
+            <img className="img2" src={img2} alt="placeholder" />
+            <img className="img3" src={img3} alt="placeholder" />
           </Link>
           
         </div>

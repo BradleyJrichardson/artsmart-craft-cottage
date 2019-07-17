@@ -10,19 +10,30 @@ import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
+
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
+
+import CategorySection from "./components/CategorySection";
+
 
 export default class App extends React.Component {
   state = {
     products: null,
     cart: [],
-    cartTotal: 90,
+    cartTotal: 0,
     cartOpen: true
   };
 
   async componentDidMount() {
+    let cart = localStorage.getItem("cart");
+    console.log(cart);
+    if (cart) {
+      this.setState({
+        cart: cart
+      });
+    }
     if (this.state.products === null) {
       try {
         const response = await axios.get("/store/index");
@@ -35,25 +46,30 @@ export default class App extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    localStorage.setItem("cart", this.state.cart);
+  }
+
   increment = product_id => {
-    let product = this.state.cart.find(item => item.product_id === product_id);
-    console.log(product);
-  };
+    let tempRemoved = this.state.cart.filter(products => {
+      if (products.product_id !== product_id) {
+        return products;
+      }
+    });
 
-  decrement = () => {};
+    let product = this.state.cart.find(
+      products => products.product_id === product_id
+    );
+    product.quantity = product.quantity + 1;
+    product.totalPrice = product.price * product.quantity;
 
-  addToCart = product => {
-    let { product_id, sku, price, title } = product;
-
-    const productObj = {
-      title: title,
-      product_id: product_id,
-      sku: sku,
-      price: price,
-      quantity: 1
-    };
-
-    let newCart = [...this.state.cart, productObj];
+    let newCart;
+    if (tempRemoved.length > 1) {
+      newCart = [...tempRemoved, product];
+    } else {
+      tempRemoved.push(product);
+      newCart = tempRemoved;
+    }
     let total = this.calcTotal(newCart);
 
     this.setState(() => {
@@ -64,14 +80,75 @@ export default class App extends React.Component {
     });
   };
 
+  decrement = product_id => {
+    let product = this.state.cart.find(
+      products => products.product_id === product_id
+    );
+    let tempRemoved = this.state.cart.filter(products => {
+      if (products.product_id !== product_id) {
+        return products;
+      }
+    });
+
+    product.quantity = product.quantity - 1;
+    product.totalPrice = product.price * product.quantity;
+
+    let newCart;
+    if (tempRemoved.length > 1) {
+      newCart = [...tempRemoved, product];
+    } else {
+      tempRemoved.push(product);
+      newCart = tempRemoved;
+    }
+    let total = this.calcTotal(newCart);
+
+    this.setState(() => {
+      return {
+        cart: newCart,
+        cartTotal: total
+      };
+    });
+  };
+
+  addToCart = product => {
+    if (
+      this.state.cart.find(
+        products => products.product_id === product.product_id
+      )
+    ) {
+      this.increment(product.product_id);
+    } else {
+      let { product_id, sku, price, title } = product;
+
+      const productObj = {
+        title: title,
+        product_id: product_id,
+        sku: sku,
+        price: price,
+        quantity: 1,
+        totalPrice: price
+      };
+
+      let newCart = [...this.state.cart, productObj];
+      let total = this.calcTotal(newCart);
+
+      this.setState(() => {
+        return {
+          cart: newCart,
+          cartTotal: total
+        };
+      });
+    }
+  };
+
   calcTotal = newCart => {
     let prices = newCart.map(productObj => {
-      return productObj.price;
+      return productObj.totalPrice;
     });
 
     let total = 0;
     if (newCart.length === 1) {
-      total = newCart[0].price;
+      total = newCart[0].totalPrice;
     } else {
       total = prices.reduce((a, b) => a + b, 0);
     }
@@ -124,9 +201,13 @@ export default class App extends React.Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/products" component={ProductSection} />
                     <Route path="/productdetails" component={ProductDetails} />
+
                     <Route path="/newrelease" component={NewReleaseSection} />
                     <Route path="/newreleasedetails" component={NewReleaseDetails} />
                     <Route path="/whatsnewdetails" component={WhatsNewSection} />
+
+                    <Route path="/category" component={CategorySection} />
+
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

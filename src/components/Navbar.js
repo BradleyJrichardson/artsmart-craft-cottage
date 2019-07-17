@@ -6,6 +6,7 @@ import { IoIosCart } from "react-icons/io";
 export default class Navbar extends Component {
   render() {
     return (
+      <>
       <nav>
         <div className="nav-container">
           <div className="brand-container">
@@ -35,7 +36,9 @@ export default class Navbar extends Component {
             </Link>
           </div>
         </div>
+        </nav>
         {/* second navbar */}
+        <nav>
         <div className="second-nav">
           <div className="second-nav-font">
             <Link to={{
@@ -84,6 +87,7 @@ export default class Navbar extends Component {
           </div>
         </div>
       </nav>
+      </>
     );
   }
 }

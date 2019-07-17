@@ -15,14 +15,14 @@ export default class CategorySection extends Component {
         <ThemeConsumer>
           {value => {
             return value.products.map((product, index) => {
-              debugger
+        
               if(product.categories.includes(this.props.location.state.category)) {
                 return (
                   <Link key={index}
                     to={{
                       pathname: "/productdetails",
                       state: {
-                        categories: product
+                        product: product
                       }
                     }}
                   >

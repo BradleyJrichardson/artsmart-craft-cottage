@@ -11,12 +11,11 @@ export default class WhatsNewSection extends Component {
       <section className='whats-new-section'>
         <h3>Whats New Section</h3>
         <div className='whatsnew'>
-
-          
-          <ThemeConsumer>
+        <ThemeConsumer>
           {value => {
             return value.products.map((product, index) => {
               if(product.new === true){
+                console.log(product)
                 return (
                   <Link key={index}
                   to={{

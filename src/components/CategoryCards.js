@@ -1,5 +1,5 @@
 import React from "react";
-import categoryPackage from "./HomePageCategorySection";
+
 
 const CategoryCards = props => {
   let { image, category } = props.categoryDisplay;

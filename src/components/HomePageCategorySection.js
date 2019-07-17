@@ -16,9 +16,9 @@ export default class HomePageCategorySection extends Component {
           return (
             <Link key={index} to={{
               pathname: "/category",
-              // state:{
-              //   category: categoryDisplay.category
-              // }
+              state:{
+                category: categoryDisplay.category
+              }
             }}>
               <CategoryCards key={index} categoryDisplay={categoryDisplay} />
             </Link>

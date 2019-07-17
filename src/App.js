@@ -246,7 +246,7 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-                {/* {this.state.cartOpen && <Cart />} */}
+                {this.state.cartOpen && <Cart />}
                 <Footer />
               </div>
             </ThemeProvider>

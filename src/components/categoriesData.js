@@ -4,7 +4,7 @@ const categoryPackage = [
   {category:'BOM', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2019/06/quilt-300x300.jpg"}, 
   {category:'BOM Quilt Patterns', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/11/FULL-QUILT-2-300x300.jpg"},
   {category:'christmas', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/11/pf-40-christmas-pudding-teddy-300x300.jpg"},
-  {category:'DVD', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/11/14446100_1145317832227590_6148518208336750622_n-300x300.jpg"},
+  // {category:'DVD', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/11/14446100_1145317832227590_6148518208336750622_n-300x300.jpg"},
   {category:'FRAMED STITCHERIES', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/12/ss01-bless-this-home-300x300.jpg"}, 
   {category:'Mini Messages - Stitcheries', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2016/12/card-3-300x300.jpg"},
   {category:'Quilt Patterns & Sets', image:"https://artsmartcraftcottage.com.au/wp-content/uploads/2019/04/A-Country-Tea-Party-300x300.jpg"},

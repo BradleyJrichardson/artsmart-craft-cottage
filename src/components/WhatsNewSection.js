@@ -11,6 +11,7 @@ export default class WhatsNewSection extends Component {
       <section className='whats-new-section'>
         <h3>Whats New Section</h3>
         <div className='whatsnew'>
+
           
           <ThemeConsumer>
           {value => {
@@ -33,6 +34,7 @@ export default class WhatsNewSection extends Component {
             });
           }}
         </ThemeConsumer>
+
           
         </div>
         <p>........</p>

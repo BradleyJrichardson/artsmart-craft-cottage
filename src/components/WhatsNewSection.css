@@ -1,0 +1,19 @@
+.whats-new-section{
+  width:85%;
+}
+
+.whatsnew{
+  display: flex;
+  flex-wrap: wrap;
+}
+.whats-new-section-card{
+
+padding: 8px;
+text-align: center;
+background: rgba(134, 185, 181, 0.842); /* Gray border */
+margin:0 0.3rem;
+}
+.image-in-whatnew-section{
+  width: 300px;
+  height: 300px;
+}

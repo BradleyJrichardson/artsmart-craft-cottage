@@ -3,6 +3,7 @@ import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
 
 const ProductDetails = props => {
+  console.log(props.location.state.product)
   let { price, product_id, sku, title } = props.location.state.product;
   let { product } = props.location.state;
 

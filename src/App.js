@@ -62,6 +62,7 @@ export default class App extends React.Component {
       if (products.product_id !== product_id) {
         return products;
       }
+      // need a return statement here
     });
 
     let product = this.state.cart.find(
@@ -96,6 +97,7 @@ export default class App extends React.Component {
       if (this.state.cart.length === 1) {
         localStorage.clear();
       }
+
       let newCart = this.state.cart.filter(item => {
         if (item.product_id !== product_id) {
           return item;
@@ -195,6 +197,7 @@ export default class App extends React.Component {
       if (item.product_id !== product_id) {
         return item;
       }
+      // need a return statement here
     });
     if (this.state.cart.length === 1) {
       localStorage.clear();
@@ -243,7 +246,7 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-                {this.state.cartOpen && <Cart />}
+                {/* {this.state.cartOpen && <Cart />} */}
                 <Footer />
               </div>
             </ThemeProvider>

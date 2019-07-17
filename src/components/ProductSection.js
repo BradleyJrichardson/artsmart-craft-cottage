@@ -11,8 +11,8 @@ export default class ProductSection extends Component {
           {value => {
             return value.products.map((product, index) => {
               return (
-                <Link
-                  to={{
+                <Link key={index}
+                to={{
                     pathname: "/productdetails",
                     state: {
                       product: product

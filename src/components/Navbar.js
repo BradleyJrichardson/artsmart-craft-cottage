@@ -40,30 +40,46 @@ export default class Navbar extends Component {
           <div className="second-nav-font">
             <Link to={{
               pathname: "/category",
-              quilts:{
-                name: "passed from quilts"
+              state:{
+                category: "quilts"
               }
             }}>Quilts
             </Link>
           </div>
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">BOM Quilts</h1>
+          <div className="second-nav-font">
+            <Link to={{
+              pathname: "/category",
+              state:{
+                category: "BOM"
+              }
+            }}>BOM Quilts
             </Link>
           </div>
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">Stitcheries</h1>
+          <div className="second-nav-font">
+            <Link to={{
+              pathname: "/category",
+              state:{
+                category: "stitcheries"
+              }
+            }}>Stitcheries
             </Link>
           </div>
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">Christmas</h1>
+          <div className="second-nav-font">
+            <Link to={{
+              pathname: "/category",
+              state:{
+                category: "christmas"
+              }
+            }}>Christmas
             </Link>
           </div>
-          <div>
-            <Link to="/category">
-              <h1 className="second-nav-font">Bits & Pieces</h1>
+          <div className="second-nav-font">
+            <Link to={{
+              pathname: "/category",
+              state:{
+                category: "bits"
+              }
+            }}>Bits & Pieces
             </Link>
           </div>
         </div>

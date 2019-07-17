@@ -10,8 +10,26 @@ export default class Checkout extends React.Component {
       <React.Fragment>
         <ThemeConsumer>
           {value => {
-            if(value.cart !== null)
-            console.log('from value', value.cart);
+            if(value.cart !== null) {
+              return (
+                <React.Fragment>
+                  {value.cart.map(item => {
+                    return(
+                      <>
+                        <h1>Title: {item.title}</h1>
+                        <h1>Individual Item Price: ${item.price}</h1>
+                        <h1>Quantity: {item.quantity}</h1>
+
+                        <h1>Total: ${item.totalPrice}</h1>
+
+                      </>
+                    )
+                  })}
+                  {/* <h1>Total Cart: ${value.cartTotal}</h1> */}
+                  <CheckoutForm value={value} />
+                </React.Fragment>
+              )
+            }
             }
           }
         </ThemeConsumer>

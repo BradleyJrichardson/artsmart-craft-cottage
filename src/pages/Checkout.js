@@ -1,13 +1,14 @@
 import React from "react";
 import CheckoutForm from "../components/CheckoutForm";
 import { ThemeConsumer } from "../context/theme";
+import '../components/Checkout.css'
 
 export default class Checkout extends React.Component {
   state = {};
 
   render() {
     return (
-      <React.Fragment>
+      <div className='checkout-container'>
         <ThemeConsumer>
           {value => {
             if(value.cart !== null) {
@@ -15,17 +16,14 @@ export default class Checkout extends React.Component {
                 <React.Fragment>
                   {value.cart.map(item => {
                     return(
-                      <>
+                      <div className='individual-item'>
                         <h1>Title: {item.title}</h1>
                         <h1>Individual Item Price: ${item.price}</h1>
                         <h1>Quantity: {item.quantity}</h1>
-
                         <h1>Total: ${item.totalPrice}</h1>
-
-                      </>
+                      </div>
                     )
                   })}
-                  {/* <h1>Total Cart: ${value.cartTotal}</h1> */}
                   <CheckoutForm value={value} />
                 </React.Fragment>
               )
@@ -33,13 +31,7 @@ export default class Checkout extends React.Component {
             }
           }
         </ThemeConsumer>
-      </React.Fragment>
-      // <section>
-      //   <h1>make new order summary page</h1>
-      //   <h1>Checkout</h1>
-      //   <p>.....</p>
-      //   <ThemeConsumer>{value => <CheckoutForm value={value} />}</ThemeConsumer>
-      // </section>
+      </div>
     );
   }
 }

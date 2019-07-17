@@ -20,6 +20,13 @@ export default class App extends React.Component {
   };
 
   async componentDidMount() {
+    let cart = localStorage.getItem("cart");
+    console.log(cart);
+    if (cart) {
+      this.setState({
+        cart: cart
+      });
+    }
     if (this.state.products === null) {
       try {
         const response = await axios.get("/store/index");
@@ -32,27 +39,30 @@ export default class App extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    localStorage.setItem("cart", this.state.cart);
+  }
+
   increment = product_id => {
-    let product = this.state.cart.find(
-      products => products.product_id === product_id
-    );
-    console.log(product);
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
       }
     });
-    console.log(tempRemoved);
+
+    let product = this.state.cart.find(
+      products => products.product_id === product_id
+    );
     product.quantity = product.quantity + 1;
     product.totalPrice = product.price * product.quantity;
 
     let newCart;
-    if (tempRemoved.length) {
-      newCart = [tempRemoved, product];
+    if (tempRemoved.length > 1) {
+      newCart = [...tempRemoved, product];
     } else {
-      newCart = [product];
+      tempRemoved.push(product);
+      newCart = tempRemoved;
     }
-
     let total = this.calcTotal(newCart);
 
     this.setState(() => {
@@ -77,10 +87,11 @@ export default class App extends React.Component {
     product.totalPrice = product.price * product.quantity;
 
     let newCart;
-    if (tempRemoved.length) {
-      newCart = [tempRemoved, product];
+    if (tempRemoved.length > 1) {
+      newCart = [...tempRemoved, product];
     } else {
-      newCart = [product];
+      tempRemoved.push(product);
+      newCart = tempRemoved;
     }
     let total = this.calcTotal(newCart);
 

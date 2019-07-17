@@ -10,6 +10,7 @@ import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
+import CategorySection from "./components/CategorySection";
 
 export default class App extends React.Component {
   state = {
@@ -194,7 +195,7 @@ export default class App extends React.Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/products" component={ProductSection} />
                     <Route path="/productdetails" component={ProductDetails} />
-
+                    <Route path="/category" component={CategorySection} />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

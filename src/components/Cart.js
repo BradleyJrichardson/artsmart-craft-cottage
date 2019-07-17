@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
+import './Cart.css'
 
 const Cart = () => {
   return (
@@ -12,7 +13,7 @@ const Cart = () => {
               <div className="cart">
                 <h1>Cart</h1>
                 <hr />
-                {/* need to refactor this into a seperate component */}
+                {/* need to refactor this into a separate component */}
                 {value.cart.map(item => {
                   return (
                     <React.Fragment>

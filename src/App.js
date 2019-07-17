@@ -28,9 +28,10 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let cart = null;
-    cart = JSON.parse(localStorage.getItem("cart"));
-
-    console.log(cart);
+    if ( localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+   
     if (cart) {
       this.setState({
         cart: cart
@@ -55,14 +56,12 @@ export default class App extends React.Component {
     }
   }
 
-  componentWillUnmount() {}
 
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
       }
-      // need a return statement here
     });
 
     let product = this.state.cart.find(
@@ -246,7 +245,7 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-                {/* {this.state.cartOpen && <Cart />} */}
+                {this.state.cartOpen && <Cart />}
                 <Footer />
               </div>
             </ThemeProvider>

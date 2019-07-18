@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { IoIosCart } from "react-icons/io";
+import Cart from './Cart'
 
 export default class Navbar extends Component {
+  state = {showCart: true}
+
+  handleCart = () => {
+    if (this.state.showCart) {
+      this.setState({
+        showCart: false
+      })
+    } else {
+      this.setState({
+        showCart: true
+      })
+    }
+  }
+
   render() {
     return (
       <>
@@ -30,11 +45,14 @@ export default class Navbar extends Component {
                 </Link>
               </div>
             </div>
-            <div className="icon-spacing">
-              <Link to="/checkout">
-                <IoIosCart className="cart-icon" />
-              </Link>
+            
+            <div className="icon-spacing" onClick={this.handleCart}>
+              {/* <Link to="/"> */}
+                <IoIosCart className="cart-icon"/>
+              {/* </Link> */}
             </div>
+            {this.state.showCart && 
+            <Cart />}
           </div>
         </nav>
         {/* second navbar */}

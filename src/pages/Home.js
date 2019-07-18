@@ -1,6 +1,6 @@
 import React from "react";
 import NewReleaseSection from "../components/NewReleaseSection";
-import CategorySection from "../components/CategorySection";
+import HomePageCategorySection from '../components/HomePageCategorySection';
 import WhatsNewSection from "../components/WhatsNewSection";
 
 export default class Home extends React.Component {
@@ -9,7 +9,7 @@ export default class Home extends React.Component {
       <React.Fragment>
         <NewReleaseSection />
         <WhatsNewSection />
-        <CategorySection />
+        <HomePageCategorySection />
       </React.Fragment>
     );
   }

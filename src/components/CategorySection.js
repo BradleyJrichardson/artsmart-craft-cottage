@@ -14,18 +14,19 @@ export default class CategorySection extends Component {
       <section className="card-container">
         <ThemeConsumer>
           {value => {
-            return value.products.map((categories, index) => {
-              if(categories.categories.includes(this.props.location.state.category)) {
+            return value.products.map((product, index) => {
+        
+              if(product.categories.includes(this.props.location.state.category)) {
                 return (
                   <Link key={index}
                     to={{
                       pathname: "/productdetails",
                       state: {
-                        categories: categories
+                        product: product
                       }
                     }}
                   >
-                    <ProductCards key={index} product={categories} />
+                    <ProductCards key={index} product={product} />
                   </Link>
                 );
               }

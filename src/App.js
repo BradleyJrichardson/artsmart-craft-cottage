@@ -17,7 +17,6 @@ import WhatsNewSection from "./components/WhatsNewSection";
 
 import CategorySection from "./components/CategorySection";
 
-
 export default class App extends React.Component {
   state = {
     products: null,
@@ -219,7 +218,8 @@ export default class App extends React.Component {
                 clearCart: this.clearCart,
                 removeItem: this.removeItem,
                 increment: this.increment,
-                decrement: this.decrement
+                decrement: this.decrement,
+                cartOpen: this.cartOpen
               }}
             >
               <div className="wrapper">
@@ -227,7 +227,7 @@ export default class App extends React.Component {
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}
-                
+                {this.state.cartOpen && <Cart />}
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -235,8 +235,14 @@ export default class App extends React.Component {
                     <Route path="/productdetails" component={ProductDetails} />
 
                     <Route path="/newrelease" component={NewReleaseSection} />
-                    <Route path="/newreleasedetails" component={NewReleaseDetails} />
-                    <Route path="/whatsnewdetails" component={WhatsNewSection} />
+                    <Route
+                      path="/newreleasedetails"
+                      component={NewReleaseDetails}
+                    />
+                    <Route
+                      path="/whatsnewdetails"
+                      component={WhatsNewSection}
+                    />
 
                     <Route path="/category" component={CategorySection} />
 

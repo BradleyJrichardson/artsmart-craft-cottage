@@ -14,6 +14,7 @@ class CheckoutForm extends Component {
       coupon: "",
       email: "",
       name: "",
+      phone: "",
       address: {
         line1: "",
         city: "",
@@ -59,6 +60,7 @@ class CheckoutForm extends Component {
           email: state.email,
           shipping: {
             name: state.name,
+            phone: state.phone,
             address: state.address
           }
         };
@@ -94,6 +96,7 @@ class CheckoutForm extends Component {
     const submittable =
       state.email &&
       state.name &&
+      state.phone &&
       address.line1 &&
       address.city &&
       address.state &&
@@ -104,6 +107,9 @@ class CheckoutForm extends Component {
         <CardElement />
         <div>
           Name: <input type="text" name="name" onChange={this.handleChange} />
+        </div>
+        <div>
+          Phone: <input type="text" name="phone" onChange={this.handleChange} />
         </div>
         <div>
           Email: <input type="text" name="email" onChange={this.handleChange} />

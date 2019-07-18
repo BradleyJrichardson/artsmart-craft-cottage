@@ -14,9 +14,9 @@ export default class Checkout extends React.Component {
             if(value.cart !== null) {
               return (
                 <React.Fragment>
-                  {value.cart.map(item => {
+                  {value.cart.map((item, index) => {
                     return(
-                      <div className='individual-item'>
+                      <div className='individual-item' key={index}>
                         <h1>Title: {item.title}</h1>
                         <h1>Individual Item Price: ${item.price}</h1>
                         <h1>Quantity: {item.quantity}</h1>

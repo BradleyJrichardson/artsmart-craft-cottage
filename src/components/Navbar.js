@@ -44,45 +44,45 @@ export default class Navbar extends Component {
             <Link to={{
               pathname: "/category",
               state:{
-                category: "quilts"
+                category: "bom quilts"
               }
-            }}>Quilts
+            }}>BOM QUILTS
             </Link>
           </div>
           <div className="second-nav-font">
             <Link to={{
               pathname: "/category",
               state:{
-                category: "BOM"
+                category: "stitchery patterns"
               }
-            }}>BOM Quilts
+            }}>STITCHERY PATTERNS
             </Link>
           </div>
           <div className="second-nav-font">
             <Link to={{
               pathname: "/category",
               state:{
-                category: "stitcheries"
+                category: "applique patterns"
               }
-            }}>Stitcheries
+            }}>APPLIQUE PATTERNS
             </Link>
           </div>
           <div className="second-nav-font">
             <Link to={{
               pathname: "/category",
               state:{
-                category: "christmas"
+                category: "pdf patterns"
               }
-            }}>Christmas
+            }}>PDF PATTERNS
             </Link>
           </div>
           <div className="second-nav-font">
             <Link to={{
               pathname: "/category",
               state:{
-                category: "bits"
+                category: "buttons"
               }
-            }}>Bits & Pieces
+            }}>BUTTONS
             </Link>
           </div>
         </div>

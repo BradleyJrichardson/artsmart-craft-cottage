@@ -24,7 +24,6 @@ export default class Navbar extends Component {
       <>
       <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#86B9B6'}} >
         
-        
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -53,7 +52,6 @@ export default class Navbar extends Component {
             <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
-        {/* <Link to="/" > */}
           <div className="cart-button" onClick={this.handleCart}>
             <span className="mr-2">
             <i className='fas fa-cart-plus' />
@@ -70,7 +68,6 @@ export default class Navbar extends Component {
             </span>
             0
           </div>
-        {/* </Link>  */}
         
       </nav>
 

@@ -222,10 +222,12 @@ export default class App extends React.Component {
               }}
             >
               <div className="wrapper">
+
                 <Navbar removeCart={this.removeCart} />
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}
+
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -249,6 +251,7 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
+
                 <Footer />
               </div>
             </ThemeProvider>

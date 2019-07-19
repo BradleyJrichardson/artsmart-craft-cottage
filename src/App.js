@@ -10,11 +10,9 @@ import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
-
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
-
 import CategorySection from "./components/CategorySection";
 
 export default class App extends React.Component {
@@ -54,14 +52,11 @@ export default class App extends React.Component {
     }
   }
 
-  componentWillUnmount() {}
-
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
       }
-      // need a return statement here
     });
 
     let product = this.state.cart.find(
@@ -225,9 +220,6 @@ export default class App extends React.Component {
             >
               <div className="wrapper">
                 <Navbar />
-                {/* conditionally render the Cart, we will have to create a
-                button which will be the cart icon to pop open the cart modal or
-                slider */}
                 {this.state.cartOpen && <Cart />}
                 <div className="container">
                   <Switch>
@@ -254,8 +246,6 @@ export default class App extends React.Component {
                 </div>
 
                 {this.state.cartOpen && <Cart />}
-
-
 
                 <Footer />
               </div>

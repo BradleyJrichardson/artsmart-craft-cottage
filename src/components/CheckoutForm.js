@@ -68,7 +68,7 @@ class CheckoutForm extends Component {
         if (state.coupon) {
           order.coupon = state.coupon;
         }
-
+        console.log(token);
         axios
           .post("/stripe/order/", {
             order,

@@ -21,7 +21,7 @@ const Cart = () => {
                       <p>
                         Item: {item.title}
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.removeItem(item.product_id);
                           }}
@@ -29,7 +29,7 @@ const Cart = () => {
                           x
                         </button>
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.increment(item.product_id);
                           }}
@@ -37,7 +37,7 @@ const Cart = () => {
                           +
                         </button>
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.decrement(item.product_id);
                           }}
@@ -55,12 +55,12 @@ const Cart = () => {
                 <hr />
                 <br />
                 <Link to="/checkout">
-                  <button className="btn">Checkout</button>
+                  <button className="btn1">Checkout</button>
                 </Link>
 
                 <br />
                 <br />
-                <button className="btn" onClick={value.clearCart}>
+                <button className="btn1" onClick={value.clearCart}>
                   Clear cart
                 </button>
               </div>

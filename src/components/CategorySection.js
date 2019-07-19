@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ProductCards from "./ProductCards";
+import SubCategories from "./SubCategories";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
+import { CLIENT_RENEG_LIMIT } from "tls";
 
 export default class CategorySection extends Component {
   state = { }
@@ -15,7 +17,6 @@ export default class CategorySection extends Component {
         <ThemeConsumer>
           {value => {
             return value.products.map((product, index) => {
-        
               if(product.categories.includes(this.props.location.state.category)) {
                 return (
                   <Link key={index}
@@ -27,6 +28,7 @@ export default class CategorySection extends Component {
                     }}
                   >
                     <ProductCards key={index} product={product} />
+                    <SubCategories />
                   </Link>
                 );
               }

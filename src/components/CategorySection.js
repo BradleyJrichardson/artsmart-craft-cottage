@@ -32,7 +32,7 @@ export default class CategorySection extends Component {
                   </Link>
                 );
               }
-              // need return statement here
+              return null
             });
           }}
         </ThemeConsumer>

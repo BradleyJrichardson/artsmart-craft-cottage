@@ -26,9 +26,10 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let cart = null;
-    cart = JSON.parse(localStorage.getItem("cart"));
-
-    console.log(cart);
+    if ( localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+   
     if (cart) {
       this.setState({
         cart: cart
@@ -53,14 +54,12 @@ export default class App extends React.Component {
     }
   }
 
-  componentWillUnmount() {}
 
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
       }
-      // need a return statement here
     });
 
     let product = this.state.cart.find(
@@ -218,15 +217,15 @@ export default class App extends React.Component {
                 clearCart: this.clearCart,
                 removeItem: this.removeItem,
                 increment: this.increment,
-                decrement: this.decrement
+                decrement: this.decrement,
+                cartOpen: this.cartOpen
               }}
             >
               <div className="wrapper">
-                <Navbar />
+                <Navbar removeCart={this.removeCart} />
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}
-                
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -234,8 +233,14 @@ export default class App extends React.Component {
                     <Route path="/productdetails" component={ProductDetails} />
 
                     <Route path="/newrelease" component={NewReleaseSection} />
-                    <Route path="/newreleasedetails" component={NewReleaseDetails} />
-                    <Route path="/whatsnewdetails" component={WhatsNewSection} />
+                    <Route
+                      path="/newreleasedetails"
+                      component={NewReleaseDetails}
+                    />
+                    <Route
+                      path="/whatsnewdetails"
+                      component={WhatsNewSection}
+                    />
 
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
@@ -244,7 +249,6 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-                {this.state.cartOpen && <Cart />}
                 <Footer />
               </div>
             </ThemeProvider>

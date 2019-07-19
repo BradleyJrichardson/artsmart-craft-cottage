@@ -1,8 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { IoIosCart } from "react-icons/io";
+import Cart from './Cart'
+import { ThemeConsumer } from "../context/theme";
 
 export default class Navbar extends Component {
+  state = {showCart: false}
+
+  handleCart = () => {
+    if (this.state.showCart) {
+      this.setState({
+        showCart: false
+      })
+    } else {
+      this.setState({
+        showCart: true
+      })
+    }
+  }
+
   render() {
     return (
       <>
@@ -41,6 +58,14 @@ export default class Navbar extends Component {
           <div className="cart-button">
             <span className="mr-2">
             <i className='fas fa-cart-plus' />
+            <ThemeConsumer>
+                  {value => {
+                    console.log(value.cart)
+                    return value.cart.map((cart, index) => {
+                      return <h1 key={index}>{cart.quantity}</h1>
+                    })
+                  }}
+                </ThemeConsumer>
             </span>
             0
           </div>

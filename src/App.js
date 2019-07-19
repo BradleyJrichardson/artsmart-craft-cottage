@@ -10,13 +10,11 @@ import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
 import Cart from "./components/Cart";
-
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
-
 import CategorySection from "./components/CategorySection";
-
+import SubCategories from "./components/SubCategories";
 
 export default class App extends React.Component {
   state = {
@@ -240,7 +238,7 @@ export default class App extends React.Component {
                     <Route path="/whatsnewdetails" component={WhatsNewSection} />
 
                     <Route path="/category" component={CategorySection} />
-
+                    <Route path="/subcategory" component={SubCategories} />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

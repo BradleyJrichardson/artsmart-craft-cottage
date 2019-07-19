@@ -1,106 +1,19 @@
-:root {
-  --main-background: #86B9B6;
-  --white: white;
-  --brown: rgb(47, 23, 23);
-}
 
 @import url('https://fonts.googleapis.com/css?family=Alex+Brush|Oxygen&display=swap');
 
-.nav-container-centering {
+
+.navbar2{
   display: flex;
-  width: 100vw;
-}
-
-.nav-container {
-  display: flex;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100px;
-  background: var(--main-background);
-}
-
-.brand-container {
-  /* border: black solid 1px; */
-  display: flex;
-  height: 100px;
-  width: 40vw;
-  flex-direction: column;
-  justify-content: center;
-
-}
-
-.brand {
-  text-align: center;
-  font-size: 16px;
-  font-family: 'Oxygen', sans-serif;
-}
-
-.name-libby {
-  font-size: 30px;
-  text-align: center;
-  font-family: 'Alex Brush', cursive;
-  color: var(--white)
-}
-
-.nav-links-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100vw;
-  height: 100px;
-}
-
-.icon-spacing {
-  display: flex;
-  width: 10vw;
-  height: 100px;
-  margin-right: 5px;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.cart-icon {
-  font-size: 4rem;
-  color: var(--white);
-}
-
-.nav-font {
-  font-family: 'Oxygen', sans-serif;
-  color: var(--brown);
-  transition: 0.3s;
-}
-.nav-font:hover {
-  color: var(--white)
-}
-
-/* second nav bar */
-
-.second-nav {
-  display: flex;
-  position: fixed;
+  flex-direction: row;
   justify-content: space-around;
-  font-size: 0.7rem;
-  color: var(--brown);
-  background: var(--white);
-  left: 0;
-  top: 100px;
-  width: 100vw;
+}
+.navbar-brand{
+  text-align: center;
   
-  border-bottom: solid 2px var(--main-background);
 }
-
-.second-nav-font {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Oxygen', sans-serif;
-  width: 15vw;
-  color: var(--brown);
-  transition: 0.3s;
-}
-.second-nav-font:hover {
-  background: var(--main-background);
-  color: var(--white)
+.name-libby{
+  font-family: 'Alex Brush', cursive;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0;
 }

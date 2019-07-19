@@ -14,6 +14,7 @@ import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
 import CategorySection from "./components/CategorySection";
+import SubCategories from "./components/SubCategories";
 
 export default class App extends React.Component {
   state = {
@@ -25,9 +26,10 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let cart = null;
-    cart = JSON.parse(localStorage.getItem("cart"));
-
-    console.log(cart);
+    if ( localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+   
     if (cart) {
       this.setState({
         cart: cart
@@ -51,6 +53,7 @@ export default class App extends React.Component {
       localStorage.setItem("cart", JSON.stringify(this.state.cart));
     }
   }
+
 
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
@@ -219,8 +222,12 @@ export default class App extends React.Component {
               }}
             >
               <div className="wrapper">
-                <Navbar />
-                {this.state.cartOpen && <Cart />}
+
+                <Navbar removeCart={this.removeCart} />
+                {/* conditionally render the Cart, we will have to create a
+                button which will be the cart icon to pop open the cart modal or
+                slider */}
+
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -238,14 +245,12 @@ export default class App extends React.Component {
                     />
 
                     <Route path="/category" component={CategorySection} />
-
+                    <Route path="/subcategory" component={SubCategories} />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>
                   </Switch>
                 </div>
-
-                {this.state.cartOpen && <Cart />}
 
                 <Footer />
               </div>

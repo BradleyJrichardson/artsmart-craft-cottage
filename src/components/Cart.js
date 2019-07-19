@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
+import './Cart.css'
 
 const Cart = () => {
   return (
@@ -12,7 +13,7 @@ const Cart = () => {
               <div className="cart">
                 <h1>Cart</h1>
                 <hr />
-                {/* need to refactor this into a seperate component */}
+                {/* need to refactor this into a separate component */}
                 {value.cart.map(item => {
                   return (
                     <React.Fragment>
@@ -20,7 +21,7 @@ const Cart = () => {
                       <p>
                         Item: {item.title}
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.removeItem(item.product_id);
                           }}
@@ -28,7 +29,7 @@ const Cart = () => {
                           x
                         </button>
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.increment(item.product_id);
                           }}
@@ -36,7 +37,7 @@ const Cart = () => {
                           +
                         </button>
                         <button
-                          className="btn"
+                          className="btn1"
                           onClick={() => {
                             value.decrement(item.product_id);
                           }}
@@ -54,12 +55,12 @@ const Cart = () => {
                 <hr />
                 <br />
                 <Link to="/checkout">
-                  <button className="btn">Checkout</button>
+                  <button className="btn1">Checkout</button>
                 </Link>
 
                 <br />
                 <br />
-                <button className="btn" onClick={value.clearCart}>
+                <button className="btn1" onClick={value.clearCart}>
                   Clear cart
                 </button>
               </div>

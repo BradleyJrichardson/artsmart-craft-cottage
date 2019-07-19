@@ -21,7 +21,7 @@ const ProductDetails = props => {
               <p>{sku}</p>
               <Link to="/products">
                 <button
-                  className="btn"
+                  className="btn1"
                   onClick={() => {
                     value.addToCart(product);
                   }}

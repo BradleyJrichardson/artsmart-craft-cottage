@@ -15,7 +15,7 @@ export default class WhatsNewSection extends Component {
           {value => {
             return value.products.map((product, index) => {
               if(product.new === true){
-                console.log(product)
+                // console.log(product)
                 return (
                   <Link key={index}
                   to={{

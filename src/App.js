@@ -9,7 +9,6 @@ import ProductSection from "./components/ProductSection";
 import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
-import Cart from "./components/Cart";
 
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
@@ -227,7 +226,6 @@ export default class App extends React.Component {
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}
-                {/* {this.state.cartOpen && <Cart />} */}
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -251,7 +249,6 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-                {/* {this.state.cartOpen && <Cart />} */}
                 <Footer />
               </div>
             </ThemeProvider>

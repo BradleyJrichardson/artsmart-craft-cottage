@@ -2,11 +2,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { IoIosCart } from "react-icons/io";
+import Cart from './Cart'
+import { ThemeConsumer } from "../context/theme";
 
 export default class Navbar extends Component {
+  state = {showCart: false}
+
+  handleCart = () => {
+    if (this.state.showCart) {
+      this.setState({
+        showCart: false
+      })
+    } else {
+      this.setState({
+        showCart: true
+      })
+    }
+  }
+
   render() {
     return (
-      <>
         <nav>
           <div className="nav-container">
             <div className="brand-container">
@@ -30,15 +45,21 @@ export default class Navbar extends Component {
                 </Link>
               </div>
             </div>
-            <div className="icon-spacing">
-              <Link to="/checkout">
-                <IoIosCart className="cart-icon" />
-              </Link>
-            </div>
+              <div className="icon-spacing" onClick={this.handleCart}>
+                <IoIosCart className="cart-icon"/>
+                <ThemeConsumer>
+                  {value => {
+                    console.log(value.cart)
+                    return value.cart.map((cart, index) => {
+                      return <h1 key={index}>{cart.quantity}</h1>
+                    })
+                  }}
+                </ThemeConsumer>
+              </div>
+              {this.state.showCart && 
+              <Cart />}
           </div>
-        </nav>
-        {/* second navbar */}
-        <nav>
+       
           <div className="second-nav">
             <div className="second-nav-font">
               <Link
@@ -101,8 +122,7 @@ export default class Navbar extends Component {
               </Link>
             </div>
           </div>
-        </nav>
-      </>
-    );
+      </nav>
+    )
   }
 }

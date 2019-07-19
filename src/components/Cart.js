@@ -11,46 +11,56 @@ const Cart = () => {
           if (value.cart.length) {
             return (
               <div className="cart">
-                <h1>Cart</h1>
-                <hr />
-                {/* need to refactor this into a separate component */}
-                {value.cart.map(item => {
-                  return (
-                    <React.Fragment>
-                      <p>{item.quantity}</p>
-                      <p>
-                        Item: {item.title}
-                        <button
-                          className="btn1"
-                          onClick={() => {
-                            value.removeItem(item.product_id);
-                          }}
-                        >
-                          x
-                        </button>
-                        <button
-                          className="btn1"
-                          onClick={() => {
-                            value.increment(item.product_id);
-                          }}
-                        >
-                          +
-                        </button>
-                        <button
-                          className="btn1"
-                          onClick={() => {
-                            value.decrement(item.product_id);
-                          }}
-                        >
-                          -
-                        </button>
-                      </p>
-                      <p>Price: {item.price}</p>
-                      <p />
-                      <p>---------</p>
-                    </React.Fragment>
-                  );
-                })}
+              <h1>Cart</h1>
+                  {value.cart.map(item => {
+                    return(
+                      <div class="table-responsive">
+                        <table className="table">
+                          <thread>
+                            <tr>
+                              <th scope="col">Item</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Price</th>
+                            </tr>
+                          </thread>
+                          <tbody>
+                            <tr>
+                              <td>{item.title}</td>
+                              <td>{item.quantity}
+                              <button
+                                className="btn1"
+                                onClick={(e) => {
+                                  value.increment(item.product_id);
+                                }}
+                              >
+                                +
+                              </button>
+
+                              <button
+                                className="btn1"
+                                onClick={() => {
+                                  value.decrement(item.product_id);
+                                }}
+                              >
+                                -
+                              </button>
+
+                              <button
+                                className="btn1"
+                                onClick={() => {
+                                value.removeItem(item.product_id);
+                                }}
+                              >
+                                x
+                              </button>
+                              </td>
+                              <td>{item.price}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    )
+                  })}
                 <p>Total: {value.cartTotal}</p>
                 <hr />
                 <br />

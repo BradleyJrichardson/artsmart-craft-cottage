@@ -1,13 +1,12 @@
 
 .cart {
-  display: fixed;
   position: fixed;
   z-index: 10;
   background: white;
-  border: 1px solid black;
   width: 600px;
   height: 600px;
   top: 100px;
   right: 0;
   float: right;
+  overflow: scroll;
 }

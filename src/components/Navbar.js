@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import { IoIosCart } from "react-icons/io";
 import Cart from './Cart'
 import { ThemeConsumer } from "../context/theme";
 
@@ -54,22 +53,24 @@ export default class Navbar extends Component {
             <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
-        <Link to="/cart" >
-          <div className="cart-button">
+        {/* <Link to="/" > */}
+          <div className="cart-button" onClick={this.handleCart}>
             <span className="mr-2">
             <i className='fas fa-cart-plus' />
-            <ThemeConsumer>
-                  {value => {
-                    console.log(value.cart)
-                    return value.cart.map((cart, index) => {
-                      return <h1 key={index}>{cart.quantity}</h1>
-                    })
-                  }}
-                </ThemeConsumer>
+            {/* <ThemeConsumer> */}
+              {/* {value => {
+                console.log(value.cart)
+                return value.cart.map((cart, index) => {
+                  return <h1 key={index}>{cart.quantity}</h1>
+                })
+              }} */}
+            {/* </ThemeConsumer> */}
+            {this.state.showCart && 
+              <Cart />}
             </span>
             0
           </div>
-        </Link> 
+        {/* </Link>  */}
         
       </nav>
 

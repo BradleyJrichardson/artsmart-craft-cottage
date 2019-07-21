@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Cart from './Cart'
-import { ThemeConsumer } from "../context/theme";
+// import { ThemeConsumer } from "../context/theme";
 
 export default class Navbar extends Component {
-  state = {showCart: false}
+  state = {showCart: true}
 
   handleCart = () => {
     if (this.state.showCart) {
@@ -85,32 +85,32 @@ export default class Navbar extends Component {
             <Link to={{
               pathname:'/category', 
               state:{category: "bom quilts"}
-            }} className="nav-link"> BOM QUILTS</Link>
+            }} className="nav-link">BOM QUILTS</Link>
           </li>
           <li className="nav-item mx-3">
             <Link to={{
               pathname: "/category",
               state:{category: "stitchery patterns"}
-            }} className="nav-link"> STITCHERY PATTERNS</Link>
+            }} className="nav-link">STITCHERY PATTERNS</Link>
           </li>
           <li className="nav-item mx-3">
             <Link to={{
               pathname: "/category",
               state:{category: "applique patterns"}
-            }} className="nav-link"> APPLIQUE PATTERNS</Link>
+            }} className="nav-link">APPLIQUE PATTERNS</Link>
           </li>
           
           <li className="nav-item mx-3">
             <Link to={{
               pathname: "/category",
               state:{category: "pdf patterns"}
-            }} className="nav-link"> PDF PATTERNS</Link>
+            }} className="nav-link">PDF PATTERNS</Link>
           </li>
           <li className="nav-item mx-3">
             <Link to={{
               pathname: "/category",
               state:{category: "christmas"}
-            }} className="nav-link"> CHRISTMAS</Link>
+            }} className="nav-link">CHRISTMAS</Link>
           </li>
           <li className="nav-item dropdown mx-3">
             <a className="nav-link dropdown-toggle" data-toggle="dropdown"
@@ -126,7 +126,6 @@ export default class Navbar extends Component {
           </li>
         </ul>
         </div>
-
       </nav>
       </>
       

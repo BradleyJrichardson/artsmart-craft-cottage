@@ -2,11 +2,10 @@
 .cart {
   position: fixed;
   z-index: 10;
-  background: white;
-  width: 600px;
+  background: rgb(255, 187, 187);
+  width: 800px;
   height: 600px;
-  top: 100px;
+  top: 89px;
   right: 0;
-  float: right;
   overflow: scroll;
 }

@@ -11,78 +11,55 @@ const Cart = () => {
           if (value.cart.length) {
             return (
               <div className="cart">
-              <h1>Cart</h1>
+                <h1>Cart</h1>
                   {value.cart.map(item => {
                     return(
-                      <div class="table-responsive">
+                      <div className="table-responsive">
                         <table className="table">
-                          <thread>
-                            <tr>
-                              <th scope="col">Item</th>
-                              <th scope="col">Quantity</th>
-                              <th scope="col">Price</th>
-                            </tr>
-                          </thread>
-                          <tbody>
-                            <tr>
-                              <td>{item.title}</td>
-                              <td>{item.quantity}
-                              <button
-                                className="btn1"
-                                onClick={(e) => {
-                                  value.increment(item.product_id);
-                                }}
-                              >
-                                +
-                              </button>
+                          <tr>
+                            <th scope="col" className="w-50">Item</th>
+                            <th scope="col" >Quantity</th>
+                            <th scope="col" >Price</th>
+                          </tr>
+                          <tr>
+                            <td >{item.title}</td>
 
-                              <button
-                                className="btn1"
-                                onClick={() => {
-                                  value.decrement(item.product_id);
-                                }}
-                              >
-                                -
-                              </button>
+                            <td className="">{item.quantity}
+                            <button type="button" class="btn btn-outline-success" onClick={(e) => {
+                                value.increment(item.product_id);
+                              }} > + </button>
 
-                              <button
-                                className="btn1"
-                                onClick={() => {
-                                value.removeItem(item.product_id);
-                                }}
-                              >
-                                x
-                              </button>
-                              </td>
-                              <td>{item.price}</td>
-                            </tr>
-                          </tbody>
+                            <button type="button" class="btn btn-outline-warning" onClick={() => {
+                                value.decrement(item.product_id);
+                              }} > - </button>
+                            
+                            <button type="button" class="btn btn-outline-danger" onClick={() => {
+                              value.removeItem(item.product_id);
+                              }} > x </button>
+                            </td>
+
+                            <td className="">{item.price}</td>
+                          </tr>
                         </table>
                       </div>
                     )
-                  })}
-                <p>Total: {value.cartTotal}</p>
-                <hr />
-                <br />
-                <Link to="/checkout">
-                  <button className="btn1">Checkout</button>
-                </Link>
-
-                <br />
-                <br />
-                <button className="btn1" onClick={value.clearCart}>
-                  Clear cart
-                </button>
+                    })}
+                  <p>Total: {value.cartTotal}</p>
+                  <Link to="/checkout">
+                    <button type="button" class="btn btn-success">Checkout</button>
+                  </Link>
+                  <button type="button" class="btn btn-danger" onClick={value.clearCart}>
+                    Clear cart
+                  </button>
               </div>
             );
-          } else {
-            return (
-              <div className="cart">
-                <h1>Cart</h1>
-                <h3>Cart is empty</h3>
-              </div>
-            );
-          }
+            } else {
+              return (
+                <div className="cart">
+                  <h1>I'm empty right now</h1>
+                </div>
+              );
+            }
         }}
       </ThemeConsumer>
     </React.Fragment>

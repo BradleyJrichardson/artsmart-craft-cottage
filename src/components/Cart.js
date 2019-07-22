@@ -12,7 +12,7 @@ export default class Cart extends Component {
           {value => {
             if (value.cart.length) {
               return (
-                <div className="cart" >
+                <div id="cart" className="cart" >
                   <h1 className="text-center">Cart</h1>
                     {value.cart.map(item => {
                       return(
@@ -53,7 +53,7 @@ export default class Cart extends Component {
                       <div className="container float-right mt-4">
                         <p className="float-right mr-5">Total: {value.cartTotal}</p>
                         <Link to="/checkout">
-                          <button type="button" className="btn btn-success float-right ml-3 mr-5 mb-3">Checkout</button>
+                          <button type="button" className="btn btn-success float-right ml-3 mr-5 mb-3" onClick={value.hideCart}>Checkout</button>
                         </Link>
                         <button type="button" className="btn btn-danger float-right mr-10" onClick={value.clearCart}>
                           Clear cart

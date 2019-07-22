@@ -22,7 +22,7 @@ export default class App extends React.Component {
     cart: [],
     cartTotal: 0,
     cartOpen: true,
-    showCart: false
+    popupVisible: false
   };
 
   async componentDidMount() {
@@ -54,7 +54,6 @@ export default class App extends React.Component {
       localStorage.setItem("cart", JSON.stringify(this.state.cart));
     }
   }
-
 
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
@@ -137,14 +136,6 @@ export default class App extends React.Component {
     }
   };
 
-  hideCart = () => {
-    this.setState(() => {
-      return {
-        showCart: false,
-      };
-    });
-  }
-
   addToCart = product => {
     if (
       this.state.cart.find(
@@ -190,7 +181,8 @@ export default class App extends React.Component {
     return total;
   };
 
-  clearCart = () => {
+  clearCart = (e) => {
+    // e.preventDefault();
     console.log("clearing cart");
     localStorage.clear();
     this.setState(() => {
@@ -214,6 +206,33 @@ export default class App extends React.Component {
     });
   };
 
+  handleClick = () => {
+    if (!this.state.popupVisible) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+       popupVisible: !prevState.popupVisible,
+    }));
+  }
+
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    
+    this.handleClick();
+  }
+
+  hideCart = () => {
+    this.setState ({
+      popupVisible: false,
+    })
+  }
+
   render() {
     if (this.state.products != null) {
       return (
@@ -227,15 +246,13 @@ export default class App extends React.Component {
                 removeItem: this.removeItem,
                 increment: this.increment,
                 decrement: this.decrement,
-                cartOpen: this.cartOpen
+                cartOpen: this.cartOpen,
+                hideCart: this.hideCart
               }}
             >
-              <div className="wrapper" onClick={this.hideCart}>
+              <div className="wrapper" onClick={this.handleClick}>
 
                 <Navbar removeCart={this.removeCart} showCart={this.state.showCart}/>
-                {/* conditionally render the Cart, we will have to create a
-                button which will be the cart icon to pop open the cart modal or
-                slider */}
 
                 <div className="container">
                   <Switch>

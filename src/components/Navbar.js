@@ -15,14 +15,6 @@ export default class Navbar extends Component {
     }
   }
 
-  handleCart = () => {
-    if(this.state.showCart) {
-      this.setState({
-        showCart: false
-      })
-    }
-  }
-
   findSubCategory = (category) => {
     const object = categoryPackage.filter( obj => obj.category === category )
     if (object.length > 0){
@@ -34,14 +26,13 @@ export default class Navbar extends Component {
   handleClick = () => {
     if (!this.state.popupVisible) {
       document.addEventListener('click', this.handleOutsideClick, false);
-
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
     this.setState(prevState => ({
-       popupVisible: !prevState.popupVisible,
-    }));
+      popupVisible: !prevState.popupVisible,
+   }));
   }
 
   handleOutsideClick = (e) => {
@@ -50,7 +41,6 @@ export default class Navbar extends Component {
       // console.log('clicked outside');
       return;
     }
-    
     this.handleClick();
   }
 
@@ -106,7 +96,7 @@ export default class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
    
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-        <span> Categories</span>
+        <span>Categories</span>
       </button>
       
       <div className="collapse navbar-collapse collapse navbar2" id="navbarSupportedContent1">

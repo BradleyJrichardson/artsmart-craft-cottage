@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './ContactMeForm.css'
 
+// Form using Formspree for customers to contact the client.
 export default class ContactForm extends Component {
   constructor(props) {
     super(props)
@@ -17,6 +18,7 @@ export default class ContactForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
   }
+  
   render() {
     return (
        <form action='https://formspree.io/im.cooperviktor@gmail.com' method='POST' >

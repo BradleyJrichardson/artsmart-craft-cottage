@@ -9,7 +9,6 @@ import AllProducts from "./components/AllProducts";
 import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
-import Cart from "./components/Cart";
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
@@ -17,15 +16,20 @@ import CategorySection from "./components/CategorySection";
 import SubCategories from "./components/SubCategories";
 import SubCategoryProducts from "./components/SubCategoryProducts"
 
+// App.js serves the whole application as the Context provider, titled StripeProvider and ThemeProvider.
+// This allowed us to manage data like Cart and Stripe functionality across all pages.
+
 export default class App extends React.Component {
   state = {
     products: null,
     cart: [],
     cartTotal: 0,
     cartOpen: true,
-    hideCart: false,
+    hideCart: true,
+    showCart: false,
+    popupVisible: false
   };
-
+  // The below functions to RemoveItem are all related to Cart and Local Storage
   async componentDidMount() {
     let cart = null;
     if (localStorage.getItem("cart")) {
@@ -205,32 +209,36 @@ export default class App extends React.Component {
     });
   };
 
-  handleClick = () => {
-    if (!this.state.popupVisible) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
+  // HandleClicks and hideCart make the card hide when click actions happen outside the node.
+  // We wanted to have a hovering Cart that hid once you moved back into the main app.
 
-    this.setState(prevState => ({
-       popupVisible: !prevState.popupVisible,
-    }));
-  }
+  // This is stored in the navbar
+  // handleClick = () => {
+  //   if (!this.state.popupVisible) {
+  //     document.addEventListener('click', this.handleOutsideClick, false);
+  //   } else {
+  //     document.removeEventListener('click', this.handleOutsideClick, false);
+  //   }
 
-  handleOutsideClick(e) {
-    if (this.node.contains(e.target)) {
-      return;
-    }
-    
-    this.handleClick();
-  }
+  //   this.setState(prevState => ({
+  //      popupVisible: !prevState.popupVisible,
+  //   }));
+  // }
 
-  hideCart = () => {
-    console.log('from checkout');
-    this.setState({
-      hideCart: true
-    })
-  }
+  // handleOutsideClick(e) {
+  //   // ignore clicks on the component itself
+  //   if (this.node.contains(e.target)) {
+  //     return;
+  //   }
+
+  //   this.handleClick();
+  // }
+
+  // hideCart = () => {
+  //   this.setState ({
+  //     popupVisible: false,
+  //   })
+  // }
 
   render() {
     if (this.state.products != null) {
@@ -246,22 +254,17 @@ export default class App extends React.Component {
                 increment: this.increment,
                 decrement: this.decrement,
                 cartOpen: this.cartOpen,
-                hideCart: this.hideCart
+                hideCart: this.hideCart,
+                handleClick: this.handleClick
               }}
             >
-
               <div className="wrapper" onClick={this.handleClick}>
-
-                <Navbar removeCart={this.removeCart} showCart={this.state.showCart} hideCart={this.state.hideCart}/>
-
-                <Cart />
-
+                <Navbar /*removeCart={this.removeCart}*/ showCart={this.state.showCart}/>
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/products" component={AllProducts} />
                     <Route path="/productdetails" component={ProductDetails} />
-
                     <Route path="/newrelease" component={NewReleaseSection} />
                     <Route
                       path="/newreleasedetails"
@@ -271,11 +274,9 @@ export default class App extends React.Component {
                       path="/whatsnewdetails"
                       component={WhatsNewSection}
                     />
-
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
                     <Route path="/subcategoryproducts" component={SubCategoryProducts} />
-                    
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

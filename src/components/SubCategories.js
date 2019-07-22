@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import ProductCards from "./ProductCards";
+
+import categoryPackage from "./categoriesData";
+import HomePageCategorySection from "./HomePageCategorySection"
+import SubCategoryCards from './SubCategoryCards';
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
 
@@ -7,32 +10,30 @@ export default class SubCategories extends Component {
   state = { }
 
   render() {
-    console.log(this.props)
+    
+console.log(this.props)
     if (!this.props.location) {
-      return   <h1>SUB CATEGORIES</h1>
+      return null
     } else {
+      const { subcategories } = this.props.location.state
       return (
       <section className="card-container">
-        <h1>SUB CATEGORIES</h1>
         <ThemeConsumer>
           {value => {
-            return value.products.map((product, index) => {
-        
-              if(product.categories.includes(this.props.location.state.category)) {
+            return subcategories.map((item, index) => {
+              if(subcategories) {
                 return (
-                  <Link key={index}
-                    to={{
-                      pathname: "/productdetails",
-                      state: {
-                        product: product
-                      }
-                    }}
-                  >
-                    <ProductCards key={index} product={product} />
+                  <Link key={index} to={{
+                    pathname: `/subcategoryproducts/${item.name}`,
+                    state:{
+                      subcategories: item.name.toLowerCase()
+                    }
+                  }}>
+                    <SubCategoryCards key={index} item={item} />
                   </Link>
                 );
               }
-              // need return statement here
+              return <h1>not exist</h1>
             });
           }}
         </ThemeConsumer>

@@ -5,7 +5,7 @@ import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ProductSection from "./components/ProductSection";
+import AllProducts from "./components/AllProducts";
 import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
@@ -15,6 +15,7 @@ import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
 import CategorySection from "./components/CategorySection";
 import SubCategories from "./components/SubCategories";
+import SubCategoryProducts from "./components/SubCategoryProducts"
 
 export default class App extends React.Component {
   state = {
@@ -258,7 +259,7 @@ export default class App extends React.Component {
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/products" component={ProductSection} />
+                    <Route path="/products" component={AllProducts} />
                     <Route path="/productdetails" component={ProductDetails} />
 
                     <Route path="/newrelease" component={NewReleaseSection} />
@@ -273,6 +274,8 @@ export default class App extends React.Component {
 
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
+                    <Route path="/subcategoryproducts" component={SubCategoryProducts} />
+                    
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

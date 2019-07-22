@@ -2,7 +2,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Cart from './Cart'
-// import { ThemeConsumer } from "../context/theme";
+import { ThemeConsumer } from "../context/theme";
+import categoryPackage from "./categoriesData";
+
+export default class Navbar extends Component {
+  state = {showCart: false};
+  findSubCategory = (category) => {
+    const object = categoryPackage.filter( obj => obj.category === category )
+    if (object.length > 0){
+      console.log(object[0].subcategories)
+      return object[0].subcategories
+    }
+
+  }
+
+  
+  handleCart = () => {
+    if (this.state.showCart) {
+      this.setState({
+        showCart: false
+      })
+
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -16,6 +36,7 @@ export default class Navbar extends Component {
   handleClick = () => {
     if (!this.state.popupVisible) {
       document.addEventListener('click', this.handleOutsideClick, false);
+
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
@@ -84,59 +105,89 @@ export default class Navbar extends Component {
               </span>
               </div>
         </nav>
-        <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
-                
-                
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-          <span> Categories</span>
-        </button>
-        
-        <div className="collapse navbar-collapse navbar2" id="navbarSupportedContent1">
-          <ul className="navbar-nav mx-5">
-            <li className="nav-item mx-3">
-              <Link to={{
-                pathname:'/category', 
-                state:{category: "bom quilts"}
-              }} className="nav-link">BOM QUILTS</Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link to={{
-                pathname: "/category",
-                state:{category: "stitchery patterns"}
-              }} className="nav-link">STITCHERY PATTERNS</Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link to={{
-                pathname: "/category",
-                state:{category: "applique patterns"}
-              }} className="nav-link">APPLIQUE PATTERNS</Link>
-            </li>
+       
+
+      <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
+              
+              
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <span> Categories</span>
+      </button>
+      
+
+      <div className="collapse navbar-collapse collapse navbar2" id="navbarSupportedContent1">
+        <ul className="navbar-nav mx-5">
+          <li className="nav-item mx-3">
+            <Link to={{
+              pathname:'/subcategory', 
+              state:{
+                subcategories: this.findSubCategory("BOM QUILTS")}
+
+            }} className="nav-link"> BOM QUILTS
+            </Link>
+          </li>
+          <li className="nav-item mx-3">
+            <Link to={{
+              pathname: "/subcategory",
+              state:{subcategories: this.findSubCategory("STITCHERY PATTERNS")}
+            }} className="nav-link"> STITCHERY PATTERNS
+            </Link>
+          </li>
+          <li className="nav-item mx-3">
+            <Link to={{
+              pathname: "/subcategory",
+              state:{subcategories: this.findSubCategory("APPLIQUE PATTERNS")}
+            }} className="nav-link"> APPLIQUE PATTERNS
+            </Link>
+          </li>
+          
+          <li className="nav-item mx-3">
+            <Link to={{
+              pathname: "/subcategory",
+              state:{subcategories: this.findSubCategory("BUTTONS")}
+            }} className="nav-link"> BUTTONS
+            </Link>
+          </li>
+          <li className="nav-item mx-3">
+            <Link to={{
+              pathname: "/category",
+              state:{category: "christmas"}
+            }} className="nav-link"> CHRISTMAS
+            </Link>
+          </li>
+          <li className="nav-item dropdown mx-3">
+            <a className="nav-link dropdown-toggle" data-toggle="dropdown"
+          href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          OTHER Categories</a>
+            <div className="dropdown-menu">
+            <Link to={{
+              pathname: "/category",
+              state:{category: "quilt patterns"}
+            }} className="nav-link"> QUILT PATTERNS</Link>
+            <Link to={{
+              pathname: "/category",
+              state:{category: "quilt sets"}
+            }} className="nav-link"> QUILT SETS</Link>
+            <Link to={{
+              pathname: "/category",
+              state:{category: "dvd"}
+            }} className="nav-link"> DVD</Link>
+            <Link to={{
+              pathname: "/category",
+              state:{category: "threads"}
+            }} className="nav-link"> THREADS</Link>
+            <Link to={{
+              pathname: "/category",
+              state:{category: "embellishment packs"}
+            }} className="nav-link"> EMBELLISHMENT PACKS</Link>
+            <Link to={{
+              pathname: "/category",
+              state:{category: "table runners"}
+            }} className="nav-link"> TABLE RUNNERS</Link>
             
-            <li className="nav-item mx-3">
-              <Link to={{
-                pathname: "/category",
-                state:{category: "pdf patterns"}
-              }} className="nav-link">PDF PATTERNS</Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link to={{
-                pathname: "/category",
-                state:{category: "christmas"}
-              }} className="nav-link">CHRISTMAS</Link>
-            </li>
-            <li className="nav-item dropdown mx-3">
-              <a className="nav-link dropdown-toggle" data-toggle="dropdown"
-            href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            OTHER Categories</a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="#!">BUTTONS</a>
-                <a className="dropdown-item" href="#!">DVD</a>
-                <a className="dropdown-item" href="#!">THREADS</a>
-                <a className="dropdown-item" href="#!">BAGS</a>
-                <a className="dropdown-item" href="#!">TABLE RUNNERS</a>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </li>
+        </ul>
         </div>
       </nav>
       </>

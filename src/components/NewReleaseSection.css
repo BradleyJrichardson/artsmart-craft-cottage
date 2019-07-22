@@ -1,12 +1,8 @@
 .newRealeseSection{
-  width:85%;
-  
-
-  
-  
+  width: 100%;
 }
 .new-released-img{
-  max-width:98%;
+  max-width: 98%;
   border: 8px solid rgba(134, 185, 181, 0.842); /* Gray border */
   
 }

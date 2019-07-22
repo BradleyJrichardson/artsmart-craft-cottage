@@ -11,7 +11,6 @@ export default class HomePageCategorySection extends Component {
       <section className='categories-section'>
         <h3>Categories</h3>
         <div className='whatsnew'>
-        
         {categoryPackage.map((categoryDisplay, index) => {
           return (
             <Link key={index} to={{
@@ -24,9 +23,7 @@ export default class HomePageCategorySection extends Component {
             </Link>
           );
         })}
-         
         </div>
-        <p>........</p>
       </section>
     );
   }

@@ -5,7 +5,10 @@ import Cart from './Cart'
 // import { ThemeConsumer } from "../context/theme";
 
 export default class Navbar extends Component {
-  state = {showCart: true}
+  constructor(props) {
+    super(props);
+    this.state = {showCart: props.showCart}
+  }
 
   handleCart = () => {
     if (this.state.showCart) {
@@ -52,9 +55,9 @@ export default class Navbar extends Component {
             <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
-          <div className="cart-button" onClick={this.handleCart}>
+          <div className="cart-button" >
             <span className="mr-2">
-            <i className='fas fa-cart-plus' />
+            <i className='fas fa-cart-plus' onClick={this.handleCart} />
             {/* <ThemeConsumer> */}
               {/* {value => {
                 console.log(value.cart)
@@ -78,7 +81,6 @@ export default class Navbar extends Component {
         <span> Categories</span>
       </button>
       
-
       <div className="collapse navbar-collapse navbar2" id="navbarSupportedContent1">
         <ul className="navbar-nav mx-5">
           <li className="nav-item mx-3">

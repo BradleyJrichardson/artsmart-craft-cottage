@@ -21,7 +21,8 @@ export default class App extends React.Component {
     products: null,
     cart: [],
     cartTotal: 0,
-    cartOpen: true
+    cartOpen: true,
+    showCart: false
   };
 
   async componentDidMount() {
@@ -80,7 +81,7 @@ export default class App extends React.Component {
     this.setState(() => {
       return {
         cart: newCart,
-        cartTotal: total
+        cartTotal: total,
       };
     });
   };
@@ -135,6 +136,14 @@ export default class App extends React.Component {
       });
     }
   };
+
+  hideCart = () => {
+    this.setState(() => {
+      return {
+        showCart: false,
+      };
+    });
+  }
 
   addToCart = product => {
     if (
@@ -221,9 +230,9 @@ export default class App extends React.Component {
                 cartOpen: this.cartOpen
               }}
             >
-              <div className="wrapper">
+              <div className="wrapper" onClick={this.hideCart}>
 
-                <Navbar removeCart={this.removeCart} />
+                <Navbar removeCart={this.removeCart} showCart={this.state.showCart}/>
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}

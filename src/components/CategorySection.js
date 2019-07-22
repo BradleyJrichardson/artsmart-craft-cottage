@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ProductCards from "./ProductCards";
-import SubCategories from "./SubCategories";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
-import { CLIENT_RENEG_LIMIT } from "tls";
+
 
 export default class CategorySection extends Component {
   state = { }
 
   render() {
+    console.log(this.props.location)
     if (!this.props.location) {
       return null
     } else {
@@ -28,7 +28,6 @@ export default class CategorySection extends Component {
                     }}
                   >
                     <ProductCards key={index} product={product} />
-                    <SubCategories />
                   </Link>
                 );
               }

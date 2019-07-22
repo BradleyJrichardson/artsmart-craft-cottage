@@ -1,16 +1,6 @@
 
-.checkout-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* border: 1px black solid; */
-  width: 100vw;
-  height: 100vw;
-}
-
 .individual-item {
   display: flex;
   border: 1px pink solid;
   flex-direction: column;
-  width: 70vw;
 }

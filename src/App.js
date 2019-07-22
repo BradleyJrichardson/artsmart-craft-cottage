@@ -22,7 +22,7 @@ export default class App extends React.Component {
     cart: [],
     cartTotal: 0,
     cartOpen: true,
-    hideCart: false,
+    hideCart: false
   };
 
   async componentDidMount() {
@@ -79,7 +79,7 @@ export default class App extends React.Component {
     this.setState(() => {
       return {
         cart: newCart,
-        cartTotal: total,
+        cartTotal: total
       };
     });
   };
@@ -206,30 +206,30 @@ export default class App extends React.Component {
 
   handleClick = () => {
     if (!this.state.popupVisible) {
-      document.addEventListener('click', this.handleOutsideClick, false);
+      document.addEventListener("click", this.handleOutsideClick, false);
     } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
+      document.removeEventListener("click", this.handleOutsideClick, false);
     }
 
     this.setState(prevState => ({
-       popupVisible: !prevState.popupVisible,
+      popupVisible: !prevState.popupVisible
     }));
-  }
+  };
 
   handleOutsideClick(e) {
     if (this.node.contains(e.target)) {
       return;
     }
-    
+
     this.handleClick();
   }
 
   hideCart = () => {
-    console.log('from checkout');
+    console.log("from checkout");
     this.setState({
       hideCart: true
-    })
-  }
+    });
+  };
 
   render() {
     if (this.state.products != null) {
@@ -248,17 +248,12 @@ export default class App extends React.Component {
                 hideCart: this.hideCart
               }}
             >
-<<<<<<< HEAD
-              <div className="wrapper">
-                <Navbar removeCart={this.removeCart} />
-                {/* conditionally render the Cart, we will have to create a
-                button which will be the cart icon to pop open the cart modal or
-                slider */}
-=======
               <div className="wrapper" onClick={this.handleClick}>
-
-                <Navbar removeCart={this.removeCart} showCart={this.state.showCart} hideCart={this.state.hideCart}/>
->>>>>>> bb31945f7608bb5ea99781b2d27be963512a286e
+                <Navbar
+                  removeCart={this.removeCart}
+                  showCart={this.state.showCart}
+                  hideCart={this.state.hideCart}
+                />
 
                 <Cart />
 

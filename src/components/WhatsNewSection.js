@@ -9,13 +9,12 @@ export default class WhatsNewSection extends Component {
   render() {
     return (
       <section className='whats-new-section'>
-        <h3>Whats New Section</h3>
+        <h3>Whats New</h3>
         <div className='whatsnew'>
         <ThemeConsumer>
           {value => {
             return value.products.map((product, index) => {
               if(product.new === true){
-                // console.log(product)
                 return (
                   <Link key={index}
                   to={{
@@ -32,10 +31,7 @@ export default class WhatsNewSection extends Component {
             });
           }}
         </ThemeConsumer>
-
-          
         </div>
-        <p>........</p>
       </section>
     );
   }

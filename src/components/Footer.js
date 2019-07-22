@@ -11,8 +11,6 @@ class Footer extends Component {
           <div className="contact-me">
             <ContactMeForm />
           </div>
-          <div className="bio-blog">bio</div>
-          <div className="lilly-image">image</div>
         </div>
       </React.Fragment>
     );

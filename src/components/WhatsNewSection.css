@@ -1,16 +1,17 @@
 .whats-new-section{
-  width:85%;
+  width:100%;
 }
 
 .whatsnew{
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 .whats-new-section-card{
   padding: 8px;
   text-align: center;
   background: rgba(134, 185, 181, 0.842); /* Gray border */
-  margin:0 0.3rem;
+  margin: 5px;
 }
 
 .image-in-whatnew-section{

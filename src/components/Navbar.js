@@ -16,73 +16,96 @@ export default class Navbar extends Component {
 
   }
 
-  // console.log(subCategoy)
-//   let arrayOfSubCategories = categoryPackage.filter( obj => obj.category === "bom quilts" )
-// console.log(arrayOfSubCategories)
+  
   handleCart = () => {
     if (this.state.showCart) {
       this.setState({
         showCart: false
       })
-    } else {
-      this.setState({
-        showCart: true
-      })
+
+
+export default class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCart: props.showCart,
+      popupVisible: false
     }
+  }
+
+  handleClick = () => {
+    if (!this.state.popupVisible) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+       popupVisible: !prevState.popupVisible,
+    }));
+  }
+
+  handleOutsideClick = (e) => {
+    let element = document.getElementById("cart")
+    if (element && element.contains(e.target)) {
+      // console.log('clicked outside');
+      return;
+    }
+    
+    this.handleClick();
   }
 
   render() {
     return (
       <>
-      <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#86B9B6'}} >
+        <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#86B9B6'}} >
+          
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <Link to="/">
+            <div className="navbar-brand ">
+              <p className="brand mb-0">Artsmart Craft Cottage</p>
+              <h3 className="name-libby">Designs by Libby Richardson</h3>
+            </div>
+          </Link>
         
-        
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <Link to="/">
-          <div className="navbar-brand ">
-            <p className="brand mb-0">Artsmart Craft Cottage</p>
-            <h3 className="name-libby">Designs by Libby Richardson</h3>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item mx-3">
+                <Link to='/' className="nav-link"> Home</Link>
+              </li>
+              
+              <li className="nav-item mx-3">
+                <Link to='/checkout' className="nav-link"> checkout</Link>
+              </li>
+              <li className="nav-item mx-3">
+                <Link to='/products' className="nav-link"> All products</Link>
+              </li>
+            </ul>
+            <form className="form-inline my-2 my-lg-0">
+              <input className="form-control mr-sm-2 width-3rem height-1rem" type="text" placeholder="Search" aria-label="Search" />
+              <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
+            </form>
           </div>
-        </Link>
-      
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item mx-3">
-              <Link to='/' className="nav-link"> Home</Link>
-            </li>
-            
-            <li className="nav-item mx-3">
-              <Link to='/checkout' className="nav-link"> checkout</Link>
-            </li>
-            <li className="nav-item mx-3">
-              <Link to='/products' className="nav-link"> All products</Link>
-            </li>
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2 width-3rem height-1rem" type="text" placeholder="Search" aria-label="Search" />
-            <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
-          </form>
-        </div>
-        <Link to="/cart" >
-          <div className="cart-button">
-            <span className="mr-2">
-            <i className='fas fa-cart-plus' />
-            {/* <ThemeConsumer>
-                  {value => {
-                    console.log(value.cart)
-                    return value.cart.map((cart, index) => {
-                      return <h1 key={index}>{cart.quantity}</h1>
-                    })
-                  }}
-                </ThemeConsumer> */}
-            </span>
-            0
-          </div>
-        </Link> 
-        
-      </nav>
+            <div className="cart-button" >
+              <span className="mr-2">
+              <i className='fas fa-cart-plus' onClick={this.handleClick} />
+              {/* <ThemeConsumer> */}
+                {/* {value => {
+                  console.log(value.cart)
+                  return value.cart.map((cart, index) => {
+                    return <h1 key={index}>{cart.quantity}</h1>
+                  })
+                }} */}
+              {/* </ThemeConsumer> */}
+              {this.state.popupVisible && 
+                <Cart />}
+              </span>
+              </div>
+        </nav>
+       
 
       <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
               
@@ -166,10 +189,8 @@ export default class Navbar extends Component {
           </li>
         </ul>
         </div>
-
       </nav>
       </>
-      
     );
   }
 }

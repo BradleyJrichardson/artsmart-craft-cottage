@@ -12,6 +12,7 @@ export default class HomePageCategorySection extends Component {
       <section className='categories-section'>
         <h3>Categories</h3>
         <div className='whatsnew'>
+
           {categoryPackage.map((object, index) => {
             if(object.subcategories){
               return (
@@ -44,6 +45,7 @@ export default class HomePageCategorySection extends Component {
          
         </div>
         
+
       </section>
     );
   }

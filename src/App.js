@@ -26,10 +26,10 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let cart = null;
-    if ( localStorage.getItem("cart")) {
+    if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
     }
-   
+
     if (cart) {
       this.setState({
         cart: cart
@@ -54,14 +54,12 @@ export default class App extends React.Component {
     }
   }
 
-
   increment = product_id => {
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
       }
     });
-
     let product = this.state.cart.find(
       products => products.product_id === product_id
     );
@@ -222,11 +220,12 @@ export default class App extends React.Component {
               }}
             >
               <div className="wrapper">
-
                 <Navbar removeCart={this.removeCart} />
                 {/* conditionally render the Cart, we will have to create a
                 button which will be the cart icon to pop open the cart modal or
                 slider */}
+
+                <Cart />
 
                 <div className="container">
                   <Switch>

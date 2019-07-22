@@ -32,6 +32,7 @@ export default class Cart extends Component {
                                       <button type="button" class="btn btn-outline-success mr-2" onClick={(e) => {
                                           value.increment(item.product_id);
                                         }} > + </button>
+                                        {console.log(item.product_id)}
   
                                       <button type="button" class="btn btn-outline-warning mr-2" onClick={() => {
                                           value.decrement(item.product_id);

@@ -6,25 +6,7 @@ import { ThemeConsumer } from "../context/theme";
 import categoryPackage from "./categoriesData";
 
 export default class Navbar extends Component {
-  state = {showCart: false};
-  findSubCategory = (category) => {
-    const object = categoryPackage.filter( obj => obj.category === category )
-    if (object.length > 0){
-      console.log(object[0].subcategories)
-      return object[0].subcategories
-    }
-
-  }
-
-  
-  handleCart = () => {
-    if (this.state.showCart) {
-      this.setState({
-        showCart: false
-      })
-
-
-export default class Navbar extends Component {
+  // state = {showCart: false};
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +15,31 @@ export default class Navbar extends Component {
     }
   }
 
+
+
+
+
+  findSubCategory = (category) => {
+    const object = categoryPackage.filter( obj => obj.category === category )
+    // if (object.length > 0){
+      console.log(object[0].subcategories)
+      return object[0].subcategories
+    // }
+
+  }
+
+  
+  // handleCart = () => {
+  //   if (this.state.showCart) {
+  //     this.setState({
+  //       showCart: false
+  //     })
+  //   }
+  // }
+
+
+
+
   handleClick = () => {
     if (!this.state.popupVisible) {
       document.addEventListener('click', this.handleOutsideClick, false);
@@ -40,7 +47,6 @@ export default class Navbar extends Component {
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
-
     this.setState(prevState => ({
        popupVisible: !prevState.popupVisible,
     }));
@@ -52,9 +58,8 @@ export default class Navbar extends Component {
       // console.log('clicked outside');
       return;
     }
-    
     this.handleClick();
-  }
+  };
 
   render() {
     return (

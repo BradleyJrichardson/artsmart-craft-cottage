@@ -288,7 +288,7 @@ export default class App extends React.Component {
         </Router>
       );
     } else {
-      return null;
+      return <h1>error</h1>;
     }
   }
 }

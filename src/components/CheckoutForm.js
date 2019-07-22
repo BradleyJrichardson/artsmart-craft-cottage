@@ -47,7 +47,7 @@ class CheckoutForm extends Component {
     let items = cart.map(item => {
       return {
         parent: item.sku,
-        amount: item.price * 100,
+        amount: item.price,
         quantity: item.quantity
       };
     });

@@ -27,10 +27,10 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let cart = null;
-    if ( localStorage.getItem("cart")) {
+    if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
     }
-   
+
     if (cart) {
       this.setState({
         cart: cart
@@ -61,7 +61,6 @@ export default class App extends React.Component {
         return products;
       }
     });
-
     let product = this.state.cart.find(
       products => products.product_id === product_id
     );
@@ -249,9 +248,12 @@ export default class App extends React.Component {
                 hideCart: this.hideCart
               }}
             >
+
               <div className="wrapper" onClick={this.handleClick}>
 
                 <Navbar removeCart={this.removeCart} showCart={this.state.showCart} hideCart={this.state.hideCart}/>
+
+                <Cart />
 
                 <div className="container">
                   <Switch>

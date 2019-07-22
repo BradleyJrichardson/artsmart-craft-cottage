@@ -4,25 +4,7 @@ import "./Navbar.css";
 import Cart from './Cart'
 import { ThemeConsumer } from "../context/theme";
 import categoryPackage from "./categoriesData";
-
-export default class Navbar extends Component {
-  state = {showCart: false};
-  findSubCategory = (category) => {
-    const object = categoryPackage.filter( obj => obj.category === category )
-    if (object.length > 0){
-      console.log(object[0].subcategories)
-      return object[0].subcategories
-    }
-
-  }
-
   
-  handleCart = () => {
-    if (this.state.showCart) {
-      this.setState({
-        showCart: false
-      })
-
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -30,6 +12,22 @@ export default class Navbar extends Component {
     this.state = {
       showCart: props.showCart,
       popupVisible: false
+    }
+  }
+
+  handleCart = () => {
+    if(this.state.showCart) {
+      this.setState({
+        showCart: false
+      })
+    }
+  }
+
+  findSubCategory = (category) => {
+    const object = categoryPackage.filter( obj => obj.category === category )
+    if (object.length > 0){
+      console.log(object[0].subcategories)
+      return object[0].subcategories
     }
   }
 
@@ -105,16 +103,12 @@ export default class Navbar extends Component {
               </span>
               </div>
         </nav>
-       
-
       <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
-              
-              
+   
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
         <span> Categories</span>
       </button>
       
-
       <div className="collapse navbar-collapse collapse navbar2" id="navbarSupportedContent1">
         <ul className="navbar-nav mx-5">
           <li className="nav-item mx-3">
@@ -184,7 +178,6 @@ export default class Navbar extends Component {
               pathname: "/category",
               state:{category: "table runners"}
             }} className="nav-link"> TABLE RUNNERS</Link>
-            
             </div>
           </li>
         </ul>

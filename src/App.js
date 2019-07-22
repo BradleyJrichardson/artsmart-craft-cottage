@@ -22,7 +22,7 @@ export default class App extends React.Component {
     cart: [],
     cartTotal: 0,
     cartOpen: true,
-    popupVisible: false
+    hideCart: false,
   };
 
   async componentDidMount() {
@@ -181,8 +181,7 @@ export default class App extends React.Component {
     return total;
   };
 
-  clearCart = (e) => {
-    // e.preventDefault();
+  clearCart = () => {
     console.log("clearing cart");
     localStorage.clear();
     this.setState(() => {
@@ -219,7 +218,6 @@ export default class App extends React.Component {
   }
 
   handleOutsideClick(e) {
-    // ignore clicks on the component itself
     if (this.node.contains(e.target)) {
       return;
     }
@@ -228,8 +226,9 @@ export default class App extends React.Component {
   }
 
   hideCart = () => {
-    this.setState ({
-      popupVisible: false,
+    console.log('from checkout');
+    this.setState({
+      hideCart: true
     })
   }
 
@@ -252,7 +251,7 @@ export default class App extends React.Component {
             >
               <div className="wrapper" onClick={this.handleClick}>
 
-                <Navbar removeCart={this.removeCart} showCart={this.state.showCart}/>
+                <Navbar removeCart={this.removeCart} showCart={this.state.showCart} hideCart={this.state.hideCart}/>
 
                 <div className="container">
                   <Switch>
@@ -277,7 +276,6 @@ export default class App extends React.Component {
                     </Elements>
                   </Switch>
                 </div>
-
                 <Footer />
               </div>
             </ThemeProvider>

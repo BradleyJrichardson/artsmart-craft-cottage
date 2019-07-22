@@ -82,7 +82,6 @@ export default class Navbar extends Component {
               {this.state.popupVisible && 
                 <Cart />}
               </span>
-              0
               </div>
         </nav>
         <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >

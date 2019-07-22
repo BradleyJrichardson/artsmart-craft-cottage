@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import './Cart.css'
 
 export default class Cart extends Component {
-
   render(){
     return (
       <React.Fragment>

@@ -4,15 +4,15 @@ import "./ProductCards.css";
 const ProductCards = props => {
   let { title, categories, price, images, sub_categories } = props.product;
   return (
-    <>
-      <div className="card">
+    <div className="card-deck">
+      <div id="product-card" className="card text-center">
         <img src={images[0]} class="card-img-top" alt="product" />
         <div className="card-body">
           <p className="card-text">{title}</p>
           <p className="card-text">${price}</p>
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">Categories: {categories[0]}</li>
+          <li className="list-group-item">Category: {categories[0]}</li>
           <li className="list-group-item">
             Sub-Category:{" "}
             {sub_categories[0] !== undefined && sub_categories[0] !== null
@@ -20,8 +20,11 @@ const ProductCards = props => {
               : "No Sub-Category"}
           </li>
         </ul>
+        {/* <div class="card-footer">
+          <small class="text-muted">${price}</small>
+        </div> */}
       </div>
-    </>
+    </div>
   );
 };
 export default ProductCards;

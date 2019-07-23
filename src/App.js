@@ -14,7 +14,7 @@ import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
 import CategorySection from "./components/CategorySection";
 import SubCategories from "./components/SubCategories";
-import SubCategoryProducts from "./components/SubCategoryProducts"
+import SubCategoryProducts from "./components/SubCategoryProducts";
 
 // App.js serves the whole application as the Context provider, titled StripeProvider and ThemeProvider.
 // This allowed us to manage data like Cart and Stripe functionality across all pages.
@@ -84,7 +84,7 @@ export default class App extends React.Component {
     this.setState(() => {
       return {
         cart: newCart,
-        cartTotal: total,
+        cartTotal: total
       };
     });
   };
@@ -148,7 +148,7 @@ export default class App extends React.Component {
       this.increment(product.product_id);
     } else {
       let { product_id, sku, price, title, images } = product;
-      console.log('from product',product);
+      console.log("from product", product);
 
       const productObj = {
         title: title,
@@ -231,7 +231,11 @@ export default class App extends React.Component {
               }}
             >
               <div className="wrapper" onClick={this.handleClick}>
-                <Navbar /*removeCart={this.removeCart}*/ showCart={this.state.showCart}/>
+                <Navbar
+                  /*removeCart={this.removeCart}*/ showCart={
+                    this.state.showCart
+                  }
+                />
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -248,7 +252,10 @@ export default class App extends React.Component {
                     />
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
-                    <Route path="/subcategoryproducts" component={SubCategoryProducts} />
+                    <Route
+                      path="/subcategoryproducts"
+                      component={SubCategoryProducts}
+                    />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

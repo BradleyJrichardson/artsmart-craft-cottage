@@ -11,7 +11,7 @@ const ProductDetails = props => {
       <ThemeConsumer>
         {value => {
           return (
-            <div className="card">
+            <div className="category-card">
               <h1>{title}</h1>
               <p>{price}</p>
               <p>{product_id}</p>

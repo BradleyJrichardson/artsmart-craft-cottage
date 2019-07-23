@@ -1,0 +1,22 @@
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 310px;
+  height: 550px;
+  margin: 2px;
+  background: rgba(149, 207, 202, 0.842);
+  color: rgba(23, 32, 31, 0.842);
+  text-decoration: none !important;
+}
+
+.card-details-spacing {
+  width: 100%;
+  /* margin: 5px 5px; */
+  text-decoration: none !important;
+}
+
+#text-decoration h2 {
+  text-decoration: none !important;
+}

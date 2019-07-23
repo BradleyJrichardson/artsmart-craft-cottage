@@ -153,7 +153,7 @@ export default class App extends React.Component {
       this.increment(product.product_id);
     } else {
       let { product_id, sku, price, title, images } = product;
-      console.log('from product',product);
+      console.log("from product", product);
 
       const productObj = {
         title: title,

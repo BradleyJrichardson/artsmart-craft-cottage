@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Cart from "./Cart";
 import { IoIosCart } from "react-icons/io";
-import { ThemeConsumer } from "../context/theme";
 import categoryPackage from "./categoriesData";
 
 export default class Navbar extends Component {

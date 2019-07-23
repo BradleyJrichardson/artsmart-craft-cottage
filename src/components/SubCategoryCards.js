@@ -1,17 +1,17 @@
 import React from "react";
 
-
 const SubCategoryCards = props => {
   let { name, image } = props.item;
   return (
     <div className="whats-new-section-card">
-      <img className='image-in-whatnew-section'src={image} alt='categoryDisplay'/>
-      <p>
-        {name}
-      </p>
-    
+      <img
+        className="image-in-whatnew-section"
+        src={image}
+        alt="categoryDisplay"
+      />
+      <p>{name}</p>
     </div>
-  )
+  );
   // if(name){
   //   // return subcategories.map( subCategory => {
   //     return(
@@ -23,14 +23,14 @@ const SubCategoryCards = props => {
   //   } else {
   //   return <p>Nothing</p>
   // }
-    // return null
-    // <div className="whats-new-section-card">
-    //   <img className='image-in-whatnew-section'src={image} alt='categoryDisplay'/>
-    //   <p>
-    //     {name}
-    //   </p>
-      
-    // </div>
+  // return null
+  // <div className="whats-new-section-card">
+  //   <img className='image-in-whatnew-section'src={image} alt='categoryDisplay'/>
+  //   <p>
+  //     {name}
+  //   </p>
+
+  // </div>
   // );
 };
 export default SubCategoryCards;

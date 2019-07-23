@@ -1,0 +1,8 @@
+#product-card {
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+#product-card:hover {
+  text-decoration: none !important;
+}

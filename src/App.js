@@ -212,34 +212,6 @@ export default class App extends React.Component {
   // HandleClicks and hideCart make the card hide when click actions happen outside the node.
   // We wanted to have a hovering Cart that hid once you moved back into the main app.
 
-  // This is stored in the navbar
-  // handleClick = () => {
-  //   if (!this.state.popupVisible) {
-  //     document.addEventListener('click', this.handleOutsideClick, false);
-  //   } else {
-  //     document.removeEventListener('click', this.handleOutsideClick, false);
-  //   }
-
-  //   this.setState(prevState => ({
-  //      popupVisible: !prevState.popupVisible,
-  //   }));
-  // }
-
-  // handleOutsideClick(e) {
-  //   // ignore clicks on the component itself
-  //   if (this.node.contains(e.target)) {
-  //     return;
-  //   }
-
-  //   this.handleClick();
-  // }
-
-  // hideCart = () => {
-  //   this.setState ({
-  //     popupVisible: false,
-  //   })
-  // }
-
   render() {
     if (this.state.products != null) {
       return (

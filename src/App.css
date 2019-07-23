@@ -1,3 +1,8 @@
+* :root {
+  --main-background: #86B9B6;
+  --white: white;
+  --brown: rgb(68, 28, 28);
+}
 .card-container{
   display: flex ;
   flex-wrap: wrap;

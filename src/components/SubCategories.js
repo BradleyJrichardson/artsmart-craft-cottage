@@ -10,8 +10,6 @@ export default class SubCategories extends Component {
   state = { }
 
   render() {
-    
-console.log(this.props)
     if (!this.props.location) {
       return null
     } else {

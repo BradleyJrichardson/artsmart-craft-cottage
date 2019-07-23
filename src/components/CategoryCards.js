@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const CategoryCards = props => {
   let { image, category} = props.object;
-  console.log(props)
   return (
    
     

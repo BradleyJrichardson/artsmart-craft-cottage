@@ -104,7 +104,6 @@ export default class App extends React.Component {
           return item;
         }
       });
-      console.log(newCart);
       let total = this.calcTotal(newCart);
       this.setState(() => {
         return {
@@ -186,7 +185,6 @@ export default class App extends React.Component {
   };
 
   clearCart = () => {
-    console.log("clearing cart");
     localStorage.clear();
     this.setState(() => {
       return { cart: [] };

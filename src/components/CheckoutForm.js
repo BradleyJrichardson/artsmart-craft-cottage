@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
-import './CheckoutForm.css'
+import "./CheckoutForm.css";
 import axios from "axios";
 
 // https://stripe.com/docs/recipes/elements-react
@@ -40,7 +40,7 @@ class CheckoutForm extends Component {
     this.setState({ address });
   }
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     let cart = this.props.value.cart;
     this.setState({ fetching: true });
     const state = this.state;
@@ -70,8 +70,14 @@ class CheckoutForm extends Component {
           order.coupon = state.coupon;
         }
         console.log(token);
+        // axios;
+        // .post("/stripe/order/", {
+        //   order,
+        //   source: token.id
+        // })
+        // production URL
         axios
-          .post("/stripe/order/", {
+          .post(`${process.env.BACK_URL}` + "/stripe/order/", {
             order,
             source: token.id
           })
@@ -108,37 +114,91 @@ class CheckoutForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <CardElement />
           <div>
-            <input type="text" name="name" placeholder='Name:' className="stripe-textbox" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name:"
+              className="stripe-textbox"
+              onChange={this.handleChange}
+            />
           </div>
           <div>
-            <input type="text" name="phone" placeholder='Phone:' onChange={this.handleChange} />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone:"
+              onChange={this.handleChange}
+            />
           </div>
           <div>
-            <input type="text" name="email" placeholder='Email:' onChange={this.handleChange} />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email:"
+              onChange={this.handleChange}
+            />
           </div>
           <div>
-            <input type="text" name="line1" placeholder="Address:" onChange={this.handleAddressChange} />
+            <input
+              type="text"
+              name="line1"
+              placeholder="Address:"
+              onChange={this.handleAddressChange}
+            />
           </div>
           <div>
-            <input type="text" name="city" placeholder="City:" onChange={this.handleAddressChange} />
+            <input
+              type="text"
+              name="city"
+              placeholder="City:"
+              onChange={this.handleAddressChange}
+            />
           </div>
           <div>
-            <input type="text" name="state" placeholder="State:" onChange={this.handleAddressChange} />
+            <input
+              type="text"
+              name="state"
+              placeholder="State:"
+              onChange={this.handleAddressChange}
+            />
           </div>
           <div>
-            <input type="text" name="country" placeholder="Country:" onChange={this.handleAddressChange} />
+            <input
+              type="text"
+              name="country"
+              placeholder="Country:"
+              onChange={this.handleAddressChange}
+            />
           </div>
           <div>
-            <input type="text" name="postal_code" placeholder="Post Code:" onChange={this.handleAddressChange} />
+            <input
+              type="text"
+              name="postal_code"
+              placeholder="Post Code:"
+              onChange={this.handleAddressChange}
+            />
           </div>
           <div>
-            <input type="text" name="coupon" placeholder="Coupon Code:" onChange={this.handleChange} />
+            <input
+              type="text"
+              name="coupon"
+              placeholder="Coupon Code:"
+              onChange={this.handleChange}
+            />
           </div>
           {!fetching ? (
-            <button type="submit" className="btn btn-danger" disabled={!submittable}>Purchase</button>
+            <button
+              type="submit"
+              className="btn btn-danger"
+              disabled={!submittable}
+            >
+              Purchase
+            </button>
           ) : (
             "Placing order..."
-          )} Price: {this.props.value.cartTotal.toLocaleString("en-US", {
+          )}{" "}
+          Price:{" "}
+          {this.props.value.cartTotal.toLocaleString("en-US", {
             style: "currency",
             currency: "aud"
           })}

@@ -45,6 +45,9 @@ export default class App extends React.Component {
     if (this.state.products === null) {
       try {
         const response = await axios.get("/store/index");
+
+        /// production URL
+        // const response = await axios.get(`${process.env.BACK_URL}` + "/store/index");
         this.setState({
           products: response.data
         });
@@ -69,11 +72,13 @@ export default class App extends React.Component {
     let product = this.state.cart.find(
       products => products.product_id === product_id
     );
+
     product.quantity = product.quantity + 1;
     product.totalPrice = product.price * product.quantity;
 
     let newCart;
     if (tempRemoved.length > 1) {
+      console.log("here");
       newCart = [...tempRemoved, product];
     } else {
       tempRemoved.push(product);

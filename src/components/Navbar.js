@@ -6,6 +6,7 @@ import { IoIosCart } from "react-icons/io";
 import categoryPackage from "./categoriesData";
 
 export default class Navbar extends Component {
+  // state = {showCart: false};
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +28,6 @@ export default class Navbar extends Component {
     } else {
       document.removeEventListener("click", this.handleOutsideClick, false);
     }
-
     this.setState(prevState => ({
       popupVisible: !prevState.popupVisible
     }));

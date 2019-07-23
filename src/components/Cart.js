@@ -11,6 +11,7 @@ export default class Cart extends Component {
           {value => {
             if (value.cart.length) {
               return (
+
                 <div id="cart" className="cart">
                   <h1 className="brandTitle text-center">Cart</h1>
                   {value.cart.map(item => {

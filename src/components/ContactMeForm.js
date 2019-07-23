@@ -21,6 +21,7 @@ export default class ContactForm extends Component {
 
   render() {
     return (
+
       <form
         action="https://formspree.io/artsmartcraftcottage@gmail.com"
         method="POST"
@@ -59,9 +60,10 @@ export default class ContactForm extends Component {
             onChange={this.handleChange}
             name="message"
           />
-          <input type="submit" className="form-control" value="Send Message" />
+          <input type="submit" className="form-control submit-button" value="Send Message" />
         </div>
       </form>
     );
+
   }
 }

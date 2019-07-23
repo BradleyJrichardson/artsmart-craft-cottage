@@ -14,7 +14,7 @@ import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
 import CategorySection from "./components/CategorySection";
 import SubCategories from "./components/SubCategories";
-import SubCategoryProducts from "./components/SubCategoryProducts"
+import SubCategoryProducts from "./components/SubCategoryProducts";
 
 // App.js serves the whole application as the Context provider, titled StripeProvider and ThemeProvider.
 // This allowed us to manage data like Cart and Stripe functionality across all pages.
@@ -45,6 +45,9 @@ export default class App extends React.Component {
     if (this.state.products === null) {
       try {
         const response = await axios.get("/store/index");
+
+        /// production URL
+        // const response = await axios.get(`${process.env.BACK_URL}` + "/store/index");
         this.setState({
           products: response.data
         });
@@ -69,11 +72,13 @@ export default class App extends React.Component {
     let product = this.state.cart.find(
       products => products.product_id === product_id
     );
+
     product.quantity = product.quantity + 1;
     product.totalPrice = product.price * product.quantity;
 
     let newCart;
     if (tempRemoved.length > 1) {
+      console.log("here");
       newCart = [...tempRemoved, product];
     } else {
       tempRemoved.push(product);
@@ -84,7 +89,7 @@ export default class App extends React.Component {
     this.setState(() => {
       return {
         cart: newCart,
-        cartTotal: total,
+        cartTotal: total
       };
     });
   };
@@ -104,7 +109,6 @@ export default class App extends React.Component {
           return item;
         }
       });
-      console.log(newCart);
       let total = this.calcTotal(newCart);
       this.setState(() => {
         return {
@@ -148,12 +152,14 @@ export default class App extends React.Component {
     ) {
       this.increment(product.product_id);
     } else {
-      let { product_id, sku, price, title } = product;
+      let { product_id, sku, price, title, images } = product;
+      console.log("from product", product);
 
       const productObj = {
         title: title,
         product_id: product_id,
         sku: sku,
+        images: images,
         price: price,
         quantity: 1,
         totalPrice: price
@@ -186,7 +192,6 @@ export default class App extends React.Component {
   };
 
   clearCart = () => {
-    console.log("clearing cart");
     localStorage.clear();
     this.setState(() => {
       return { cart: [] };
@@ -209,36 +214,34 @@ export default class App extends React.Component {
     });
   };
 
+  handleClick = () => {
+    if (!this.state.popupVisible) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      popupVisible: !prevState.popupVisible
+    }));
+  };
+
+  handleOutsideClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.handleClick();
+  }
+
+  hideCart = () => {
+    console.log("from checkout");
+    this.setState({
+      hideCart: true
+    });
+  };
   // HandleClicks and hideCart make the card hide when click actions happen outside the node.
   // We wanted to have a hovering Cart that hid once you moved back into the main app.
-
-  // This is stored in the navbar
-  // handleClick = () => {
-  //   if (!this.state.popupVisible) {
-  //     document.addEventListener('click', this.handleOutsideClick, false);
-  //   } else {
-  //     document.removeEventListener('click', this.handleOutsideClick, false);
-  //   }
-
-  //   this.setState(prevState => ({
-  //      popupVisible: !prevState.popupVisible,
-  //   }));
-  // }
-
-  // handleOutsideClick(e) {
-  //   // ignore clicks on the component itself
-  //   if (this.node.contains(e.target)) {
-  //     return;
-  //   }
-
-  //   this.handleClick();
-  // }
-
-  // hideCart = () => {
-  //   this.setState ({
-  //     popupVisible: false,
-  //   })
-  // }
 
   render() {
     if (this.state.products != null) {
@@ -259,7 +262,11 @@ export default class App extends React.Component {
               }}
             >
               <div className="wrapper" onClick={this.handleClick}>
-                <Navbar /*removeCart={this.removeCart}*/ showCart={this.state.showCart}/>
+                <Navbar
+                  /*removeCart={this.removeCart}*/ showCart={
+                    this.state.showCart
+                  }
+                />
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
@@ -276,7 +283,10 @@ export default class App extends React.Component {
                     />
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
-                    <Route path="/subcategoryproducts" component={SubCategoryProducts} />
+                    <Route
+                      path="/subcategoryproducts"
+                      component={SubCategoryProducts}
+                    />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

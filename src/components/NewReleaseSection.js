@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import "./NewReleaseSection.css";
 import { Link } from "react-router-dom";
-import home2 from '../images/home2.jpg';
+import home2 from "../images/home2.jpg";
 
 export default class NewReleaseSection extends Component {
   render() {
     return (
-      <section className='newRealeseSection'>
-        <h3 className='brandTitle'>New Release</h3>
-        <Link to='/newreleasedetails'>
-          <img className="new-released-img" src={home2} alt="placeholder" />
-        </Link>
-      </section>
+      <Link to="/newreleasedetails">
+        <div
+          id="new-release-section"
+          className="card bg-light text-black w-100"
+        >
+          <img src={home2} className="card-img" alt="Whats new" />
+          <div className="card-img-overlay">
+            <h5 className="card-title">New Release</h5>
+          </div>
+        </div>
+      </Link>
     );
   }
 }

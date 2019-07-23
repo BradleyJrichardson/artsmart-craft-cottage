@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Carousel from 'react-bootstrap/Carousel'
 
 
+
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -32,6 +33,7 @@ export default class ProductDetails extends React.Component {
       <ThemeConsumer>
         {value => {
           return (
+
             <>
               <div className = 'container d-flex flex-wrap'>
                 
@@ -40,6 +42,7 @@ export default class ProductDetails extends React.Component {
                   show={this.state.show}
                   onHide={this.handleClose}
                   aria-labelledby="example-modal-sizes-title-sm"
+
                 >
                   <Modal.Header closeButton class="modal-header"  >
                     <p>{title.toUpperCase()}</p>

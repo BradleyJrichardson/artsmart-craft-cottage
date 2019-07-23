@@ -4,7 +4,7 @@ import { ThemeConsumer } from "../context/theme";
 import '../components/Checkout.css'
 
 export default class Checkout extends React.Component {
-  state = {};
+  // state = {};
 
   render() {
     return (

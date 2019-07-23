@@ -1,0 +1,26 @@
+.container{
+  font-family: 'oxygen', cursive;
+  color: rgba(0,0,0,.5)
+}
+.image-in-detail-page{
+  width:350px;
+  height: 350px;
+}
+#price{
+  font-family: 'Alex Brush', cursive;
+  padding:2rem;
+}
+.add-to-cart-button{
+  border-bottom-style: dotted
+}
+.small-image{
+  margin:3px;
+  width:82px;
+  height: 78px;
+}
+.btn-green{
+  background:#86B9B6 !important;
+}
+#category-text{
+  font-size: 1.1rem;
+}

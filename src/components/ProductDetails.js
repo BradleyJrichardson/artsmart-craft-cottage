@@ -1,11 +1,13 @@
 import React from "react";
+import './ProductDetails.css';
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
+
 
 const ProductDetails = props => {
   
   console.log(props.location.state.product)
-  let { price, product_id, sku, title } = props.location.state.product;
+  let { price, title, categories, images, description } = props.location.state.product;
   let { product } = props.location.state;
 
   return (
@@ -14,22 +16,77 @@ const ProductDetails = props => {
         {value => {
           console.log(value);
           return (
-            <div className="card">
-              <h1>{title}</h1>
-              <p>{price}</p>
-              <p>{product_id}</p>
-              <p>{sku}</p>
-              <Link to="/products">
-                <button
-                  className="btn1"
-                  onClick={() => {
-                    value.addToCart(product);
-                  }}
-                >
-                  add
-                </button>
-              </Link>
-            </div>
+            <>
+              <div className = 'container d-flex flex-wrap'>
+                <div className = 'image-div p-2'>
+                  <div className = 'big-top-image '>
+                    <img className='image-in-detail-page'src={images[0]} alt='product'/>
+                  </div>
+                  <div className = 'small-buttum-images d-flex flex-row '>
+                  <ThemeConsumer>
+                    {value => {
+                      var imagesSize = props.location.state.product.images.length
+                      return props.location.state.product.images.slice(4, imagesSize).map((image,index) => {
+                        return (
+                          <img className='small-image'src={image} alt='product'/>
+                        );
+                      });
+                    }}
+                  </ThemeConsumer>
+
+
+                  </div>
+                </div>
+                <div className = 'right-hand-div col-md-7'>
+                  <h1 className='detail-page p-4'>{title.toUpperCase()}</h1>
+                  <h3 id='price'> $ {price}</h3>
+                    <div className= 'add-to-cart-button d-flex justify-content-end p-3 '>
+                      <Link to="/products">
+                        <button
+                          className="btn btn-green"
+                          onClick={() => {
+                            value.addToCart(product);
+                          }}
+                        >
+                          Add To Cart
+                        </button>
+                      </Link>
+                    </div>
+                  <h4 className= 'categori-type p-3'> Category : <span id= 'category-text'>{categories[0].toUpperCase()}</span></h4>
+                
+                </div>
+
+
+
+              </div>
+              <div className='description pl-2'>
+                <h4> Description : </h4>
+                <p>{description}</p>
+              </div>
+            </>
+
+
+
+
+
+
+
+            // <div className="card">
+            //   <h1>{title}</h1>
+            //   <p>{price}</p>
+            //   <p>{product_id}</p>
+            //   <p>{sku}</p>
+              // <Link to="/products">
+              //   <button
+              //     className="btn1"
+              //     onClick={() => {
+              //       value.addToCart(product);
+              //     }}
+              //   >
+              //     add
+              //   </button>
+            //   </Link>
+            // </div>
           );
         }}
       </ThemeConsumer>

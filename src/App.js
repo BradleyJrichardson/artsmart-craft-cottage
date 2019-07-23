@@ -109,7 +109,6 @@ export default class App extends React.Component {
           return item;
         }
       });
-      console.log(newCart);
       let total = this.calcTotal(newCart);
       this.setState(() => {
         return {
@@ -153,12 +152,14 @@ export default class App extends React.Component {
     ) {
       this.increment(product.product_id);
     } else {
-      let { product_id, sku, price, title } = product;
+      let { product_id, sku, price, title, images } = product;
+      console.log('from product',product);
 
       const productObj = {
         title: title,
         product_id: product_id,
         sku: sku,
+        images: images,
         price: price,
         quantity: 1,
         totalPrice: price
@@ -191,7 +192,6 @@ export default class App extends React.Component {
   };
 
   clearCart = () => {
-    console.log("clearing cart");
     localStorage.clear();
     this.setState(() => {
       return { cart: [] };

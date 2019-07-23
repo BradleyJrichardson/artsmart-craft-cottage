@@ -37,7 +37,6 @@ export default class Navbar extends Component {
   handleOutsideClick = e => {
     let element = document.getElementById("cart");
     if (element && element.contains(e.target)) {
-      // console.log('clicked outside');
       return;
     }
     this.handleClick();

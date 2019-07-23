@@ -1,4 +1,15 @@
 
 .card {
   width: 300px;
+  text-decoration: none;
+}
+
+.home-page-text{
+  color:rgba(0, 0, 0, 0.712);
+  text-decoration: none;
+}
+
+.image-in-categoery-section{
+  width: 250px;
+  height: 250px;
 }

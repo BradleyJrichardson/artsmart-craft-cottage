@@ -2,11 +2,15 @@
   --main-background: #86B9B6;
   --white: white;
   --brown: rgb(68, 28, 28);
+  font-family: "Oxygen", sans-serif;
 }
 .card-container{
   display: flex ;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
+
 .card {
   width: 18rem !important;
   padding: 40px;
@@ -17,7 +21,4 @@
   background: rgba(255, 255, 255, 0.9);
 }
 
-.btn1 {
-  background: red;
-  padding: 5px;
-}
+

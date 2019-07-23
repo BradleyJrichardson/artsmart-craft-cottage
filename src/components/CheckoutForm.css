@@ -1,0 +1,47 @@
+.checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.individual-item {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  border-bottom: 1px solid rgba(134, 185, 181, 0.842);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.stripe-form {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+}
+
+.card-element {
+  display: flex;
+  margin: 10px 0;
+}
+
+.stripe-textbox {
+  width: 300px;
+}
+
+.purch-price {
+  display: flex;
+  margin: 10px 0;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.checkout-font-col {
+  color: rgb(53, 73, 71);
+}
+
+.title-details-separation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

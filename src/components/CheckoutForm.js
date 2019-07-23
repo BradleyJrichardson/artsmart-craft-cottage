@@ -69,7 +69,6 @@ class CheckoutForm extends Component {
         if (state.coupon) {
           order.coupon = state.coupon;
         }
-        console.log(token);
         axios
           .post("/stripe/order/", {
             order,
@@ -106,42 +105,47 @@ class CheckoutForm extends Component {
     return (
       <div className="stripe-form">
         <form onSubmit={this.handleSubmit}>
-          <CardElement />
+          <h1 className="brandTitle">Make Purchase</h1>
+          <div className="card-element"></div>
+            <CardElement />
+          <div className="card-element"></div>
           <div>
             <input type="text" name="name" placeholder='Name:' className="stripe-textbox" onChange={this.handleChange} />
           </div>
           <div>
-            <input type="text" name="phone" placeholder='Phone:' onChange={this.handleChange} />
+            <input type="text" name="phone" placeholder='Phone:' className="stripe-textbox" onChange={this.handleChange} />
           </div>
           <div>
-            <input type="text" name="email" placeholder='Email:' onChange={this.handleChange} />
+            <input type="text" name="email" placeholder='Email:' className="stripe-textbox" onChange={this.handleChange} />
           </div>
           <div>
-            <input type="text" name="line1" placeholder="Address:" onChange={this.handleAddressChange} />
+            <input type="text" name="line1" placeholder="Address:" className="stripe-textbox" onChange={this.handleAddressChange} />
           </div>
           <div>
-            <input type="text" name="city" placeholder="City:" onChange={this.handleAddressChange} />
+            <input type="text" name="city" placeholder="City:" className="stripe-textbox" onChange={this.handleAddressChange} />
           </div>
           <div>
-            <input type="text" name="state" placeholder="State:" onChange={this.handleAddressChange} />
+            <input type="text" name="state" placeholder="State:" className="stripe-textbox" onChange={this.handleAddressChange} />
           </div>
           <div>
-            <input type="text" name="country" placeholder="Country:" onChange={this.handleAddressChange} />
+            <input type="text" name="country" placeholder="Country:" className="stripe-textbox" onChange={this.handleAddressChange} />
           </div>
           <div>
-            <input type="text" name="postal_code" placeholder="Post Code:" onChange={this.handleAddressChange} />
+            <input type="text" name="postal_code" placeholder="Post Code:" className="stripe-textbox" onChange={this.handleAddressChange} />
           </div>
           <div>
-            <input type="text" name="coupon" placeholder="Coupon Code:" onChange={this.handleChange} />
+            <input type="text" name="coupon" placeholder="Coupon Code:" className="stripe-textbox" onChange={this.handleChange} />
           </div>
-          {!fetching ? (
-            <button type="submit" className="btn btn-danger" disabled={!submittable}>Purchase</button>
-          ) : (
-            "Placing order..."
-          )} Price: {this.props.value.cartTotal.toLocaleString("en-US", {
-            style: "currency",
-            currency: "aud"
-          })}
+          <div className="purch-price">
+            {!fetching ? (
+              <button type="submit" className="btn btn-danger" disabled={!submittable}>Purchase</button>
+            ) : (
+              "Placing order..."
+            )} Price: {this.props.value.cartTotal.toLocaleString("en-US", {
+              style: "currency",
+              currency: "aud"
+            })}
+          </div>
         </form>
       </div>
     );

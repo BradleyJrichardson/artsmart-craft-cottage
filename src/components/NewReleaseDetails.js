@@ -3,7 +3,6 @@ import React from "react";
 
 
 const NewReleaseDetails = () => {
-console.log('from newreleasedetails')
   return (
     
     <React.Fragment>

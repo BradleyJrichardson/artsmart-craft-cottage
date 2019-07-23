@@ -8,7 +8,6 @@ export default class SubCategoryProduct extends Component {
   state = { }
 
   render() {
-    console.log(this.props.location)
     if (!this.props.location) {
       return null
     } else {

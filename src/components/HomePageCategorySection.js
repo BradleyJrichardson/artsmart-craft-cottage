@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./HomePageCategorySection.css";
 import categoryPackage from "./categoriesData";
 import CategoryCards from './CategoryCards';
-
 import { Link } from "react-router-dom";
-console.log( categoryPackage)
 
 export default class HomePageCategorySection extends Component {
   render() {

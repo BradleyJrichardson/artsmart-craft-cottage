@@ -8,7 +8,6 @@ export default class CategorySection extends Component {
   state = { }
 
   render() {
-    console.log(this.props.location)
     if (!this.props.location) {
       return null
     } else {

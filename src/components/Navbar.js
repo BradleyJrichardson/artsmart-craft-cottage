@@ -19,7 +19,6 @@ export default class Navbar extends Component {
   findSubCategory = (category) => {
     const object = categoryPackage.filter( obj => obj.category === category )
     if (object.length > 0){
-      console.log(object[0].subcategories)
       return object[0].subcategories
     }
   }
@@ -39,7 +38,6 @@ export default class Navbar extends Component {
   handleOutsideClick = (e) => {
     let element = document.getElementById("cart")
     if (element && element.contains(e.target)) {
-      // console.log('clicked outside');
       return;
     }
     this.handleClick();

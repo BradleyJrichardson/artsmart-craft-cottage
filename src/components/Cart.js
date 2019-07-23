@@ -28,15 +28,15 @@ export default class Cart extends Component {
                                 <div className="row ">
                                   <td className="mr-3 w-100 d-flex justify-content-around">{item.quantity}
                                     <div className="d-flex justify-content-end">
-                                      <button type="button" class="btn btn-outline-success mr-2" onClick={(e) => {
+                                      <button type="button" className="btn btn-outline-success mr-2" onClick={(e) => {
                                           value.increment(item.product_id);
                                         }} > + </button>
   
-                                      <button type="button" class="btn btn-outline-warning mr-2" onClick={() => {
+                                      <button type="button" className="btn btn-outline-warning mr-2" onClick={() => {
                                           value.decrement(item.product_id);
                                         }} > - </button>
                                       
-                                      <button type="button" class="btn btn-outline-danger" onClick={() => {
+                                      <button type="button" className="btn btn-outline-danger" onClick={() => {
                                         value.removeItem(item.product_id);
                                         }} > x </button>
                                     </div>

@@ -3,8 +3,6 @@ import React from "react";
 
 const SubCategoryCards = props => {
   let { name, image } = props.item;
-  console.log(props)
-  // return name
   return (
     <div className="whats-new-section-card">
       <img className='image-in-whatnew-section'src={image} alt='categoryDisplay'/>

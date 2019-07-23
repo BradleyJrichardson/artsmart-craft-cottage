@@ -10,9 +10,8 @@ export default class HomePageCategorySection extends Component {
   render() {
     return (
       <section className='categories-section'>
-        <h3>Categories</h3>
+        <h3 className='brandTitle'>Categories</h3>
         <div className='whatsnew'>
-
           {categoryPackage.map((object, index) => {
             if(object.subcategories){
               return (
@@ -40,12 +39,8 @@ export default class HomePageCategorySection extends Component {
                 </Link>
               )
             }
-            
           })}
-         
         </div>
-        
-
       </section>
     );
   }

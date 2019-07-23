@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Cart from './Cart'
+import { IoIosCart } from "react-icons/io";
 import { ThemeConsumer } from "../context/theme";
 import categoryPackage from "./categoriesData";
   
@@ -12,14 +13,6 @@ export default class Navbar extends Component {
     this.state = {
       showCart: props.showCart,
       popupVisible: false
-    }
-  }
-
-  handleCart = () => {
-    if(this.state.showCart) {
-      this.setState({
-        showCart: false
-      })
     }
   }
 
@@ -34,14 +27,13 @@ export default class Navbar extends Component {
   handleClick = () => {
     if (!this.state.popupVisible) {
       document.addEventListener('click', this.handleOutsideClick, false);
-
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
     this.setState(prevState => ({
-       popupVisible: !prevState.popupVisible,
-    }));
+      popupVisible: !prevState.popupVisible,
+   }));
   }
 
   handleOutsideClick = (e) => {
@@ -50,10 +42,9 @@ export default class Navbar extends Component {
       // console.log('clicked outside');
       return;
     }
-    
     this.handleClick();
   }
-
+  
   render() {
     return (
       <>
@@ -72,32 +63,20 @@ export default class Navbar extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item mx-3">
-                <Link to='/' className="nav-link"> Home</Link>
+                <Link to='/' className="nav-link">Home</Link>
               </li>
               
               <li className="nav-item mx-3">
-                <Link to='/checkout' className="nav-link"> checkout</Link>
+                <Link to='/checkout' className="nav-link">Checkout</Link>
               </li>
               <li className="nav-item mx-3">
-                <Link to='/products' className="nav-link"> All products</Link>
+                <Link to='/products' className="nav-link">All products</Link>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2 width-3rem height-1rem" type="text" placeholder="Search" aria-label="Search" />
-              <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
-            </form>
           </div>
             <div className="cart-button" >
               <span className="mr-2">
-              <i className='fas fa-cart-plus' onClick={this.handleClick} />
-              {/* <ThemeConsumer> */}
-                {/* {value => {
-                  console.log(value.cart)
-                  return value.cart.map((cart, index) => {
-                    return <h1 key={index}>{cart.quantity}</h1>
-                  })
-                }} */}
-              {/* </ThemeConsumer> */}
+              <IoIosCart className='fas fa-cart-plus fa-3x' onClick={this.handleClick} />
               {this.state.popupVisible && 
                 <Cart />}
               </span>
@@ -106,7 +85,7 @@ export default class Navbar extends Component {
       <nav className="navbar navbar-expand-sm navbar-light" style={{backgroundColor: 'white'}} >
    
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-        <span> Categories</span>
+        <span>Categories</span>
       </button>
       
       <div className="collapse navbar-collapse collapse navbar2" id="navbarSupportedContent1">

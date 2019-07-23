@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import './Cart.css'
 
 export default class Cart extends Component {
-
   render(){
     return (
       <React.Fragment>
@@ -13,7 +12,7 @@ export default class Cart extends Component {
             if (value.cart.length) {
               return (
                 <div id="cart" className="cart" >
-                  <h1 className="text-center">Cart</h1>
+                  <h1 className="brandTitle text-center" >Cart</h1>
                     {value.cart.map(item => {
                       return(
                         <div className="table-responsive">
@@ -59,13 +58,12 @@ export default class Cart extends Component {
                           Clear cart
                         </button>
                       </div>
-                      
                 </div>
               );
               } else {
                 return (
                   <div className="cart">
-                    <h1>I'm empty right now</h1>
+                    <h1 className='brandTitle'>I'm empty right now</h1>
                   </div>
                 );
               }

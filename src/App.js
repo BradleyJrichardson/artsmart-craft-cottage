@@ -9,13 +9,15 @@ import AllProducts from "./components/AllProducts";
 import axios from "axios";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import ProductDetails from "./components/ProductDetails";
-import Cart from "./components/Cart";
 import NewReleaseSection from "./components/NewReleaseSection";
 import NewReleaseDetails from "./components/NewReleaseDetails";
 import WhatsNewSection from "./components/WhatsNewSection";
 import CategorySection from "./components/CategorySection";
 import SubCategories from "./components/SubCategories";
-import SubCategoryProducts from "./components/SubCategoryProducts"
+import SubCategoryProducts from "./components/SubCategoryProducts";
+
+// App.js serves the whole application as the Context provider, titled StripeProvider and ThemeProvider.
+// This allowed us to manage data like Cart and Stripe functionality across all pages.
 
 export default class App extends React.Component {
   state = {
@@ -23,9 +25,11 @@ export default class App extends React.Component {
     cart: [],
     cartTotal: 0,
     cartOpen: true,
-    hideCart: false
+    hideCart: true,
+    showCart: false,
+    popupVisible: false
   };
-
+  // The below functions to RemoveItem are all related to Cart and Local Storage
   async componentDidMount() {
     let cart = null;
     if (localStorage.getItem("cart")) {
@@ -231,6 +235,8 @@ export default class App extends React.Component {
       hideCart: true
     });
   };
+  // HandleClicks and hideCart make the card hide when click actions happen outside the node.
+  // We wanted to have a hovering Cart that hid once you moved back into the main app.
 
   render() {
     if (this.state.products != null) {
@@ -246,24 +252,21 @@ export default class App extends React.Component {
                 increment: this.increment,
                 decrement: this.decrement,
                 cartOpen: this.cartOpen,
-                hideCart: this.hideCart
+                hideCart: this.hideCart,
+                handleClick: this.handleClick
               }}
             >
               <div className="wrapper" onClick={this.handleClick}>
                 <Navbar
-                  removeCart={this.removeCart}
-                  showCart={this.state.showCart}
-                  hideCart={this.state.hideCart}
+                  /*removeCart={this.removeCart}*/ showCart={
+                    this.state.showCart
+                  }
                 />
-
-                <Cart />
-
                 <div className="container">
                   <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/products" component={AllProducts} />
                     <Route path="/productdetails" component={ProductDetails} />
-
                     <Route path="/newrelease" component={NewReleaseSection} />
                     <Route
                       path="/newreleasedetails"
@@ -273,11 +276,12 @@ export default class App extends React.Component {
                       path="/whatsnewdetails"
                       component={WhatsNewSection}
                     />
-
                     <Route path="/category" component={CategorySection} />
                     <Route path="/subcategory" component={SubCategories} />
-                    <Route path="/subcategoryproducts" component={SubCategoryProducts} />
-                    
+                    <Route
+                      path="/subcategoryproducts"
+                      component={SubCategoryProducts}
+                    />
                     <Elements>
                       <Route path="/checkout" component={Checkout} />
                     </Elements>

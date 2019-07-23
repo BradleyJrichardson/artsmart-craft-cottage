@@ -7,7 +7,7 @@ export default class NewReleaseSection extends Component {
   render() {
     return (
       <section className='newRealeseSection'>
-        <h3>New Release</h3>
+        <h3 className='brandTitle'>New Release</h3>
         <Link to='/newreleasedetails'>
           <img className="new-released-img" src={home2} alt="placeholder" />
         </Link>

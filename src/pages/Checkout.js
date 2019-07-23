@@ -16,11 +16,15 @@ export default class Checkout extends React.Component {
                   {value.cart.map((item, index) => {
                     return(
                       <div className='individual-item' key={index}>
-                        <div>
-                          <h1>Title: {item.title}</h1>
-                          <h2>Individual Item Price: ${item.price}</h2>
-                          <h2>Quantity: {item.quantity}</h2>
-                          <h2>Total: ${item.totalPrice}</h2>
+                        <div className="title-details-separation">
+                          <div>
+                            <h1 className="checkout-font-col">Title: {item.title}</h1>
+                          </div>
+                          <div>
+                            <h3 className="checkout-font-col">Individual Item Price: ${item.price}</h3>
+                            <h3 className="checkout-font-col">Quantity: {item.quantity}</h3>
+                            <h3 className="checkout-font-col">Total: ${item.totalPrice}</h3>
+                          </div>
                         </div>
                         <div>
                           <img className='image-in-whatnew-section' src={item.images[0]}></img>

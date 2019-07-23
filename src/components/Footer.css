@@ -1,13 +1,8 @@
-
-.footer-container {
-  display: flex;
-  position: relative;
-  bottom: 0;
-  justify-content: center;
-  width: 100vw;
-  height: auto;
+.footer-text{
+  font-size: 0.8rem !important;
+  margin: 0;
 }
-
-.contact-me {
-  width: 90vw;
+.footer-image{
+  height: 220px;
+  width: 220px
 }

@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-
-import categoryPackage from "./categoriesData";
-import HomePageCategorySection from "./HomePageCategorySection"
 import SubCategoryCards from './SubCategoryCards';
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";

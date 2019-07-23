@@ -40,7 +40,7 @@ class CheckoutForm extends Component {
     this.setState({ address });
   }
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     let cart = this.props.value.cart;
     this.setState({ fetching: true });
     const state = this.state;
@@ -69,8 +69,15 @@ class CheckoutForm extends Component {
         if (state.coupon) {
           order.coupon = state.coupon;
         }
+        console.log(token);
+        // axios;
+        // .post("/stripe/order/", {
+        //   order,
+        //   source: token.id
+        // })
+        // production URL
         axios
-          .post("/stripe/order/", {
+          .post(`${process.env.BACK_URL}` + "/stripe/order/", {
             order,
             source: token.id
           })

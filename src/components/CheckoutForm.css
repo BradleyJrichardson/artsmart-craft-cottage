@@ -1,0 +1,16 @@
+
+.checkout-container {
+  display: flex;
+  justify-content: center;
+}
+
+.stripe-form {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+  border: black solid 1px;
+}
+
+.stripe-textbox {
+  width: 200px;
+}

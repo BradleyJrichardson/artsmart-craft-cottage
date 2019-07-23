@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
+import './CheckoutForm.css'
 import axios from "axios";
 
 // https://stripe.com/docs/recipes/elements-react
@@ -103,62 +104,46 @@ class CheckoutForm extends Component {
       address.country &&
       address.postal_code;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <CardElement />
-        <div>
-          Name: <input type="text" name="name" onChange={this.handleChange} />
-        </div>
-        <div>
-          Phone: <input type="text" name="phone" onChange={this.handleChange} />
-        </div>
-        <div>
-          Email: <input type="text" name="email" onChange={this.handleChange} />
-        </div>
-        <div>
-          Address Line:
-          <input type="text" name="line1" onChange={this.handleAddressChange} />
-        </div>
-        <div>
-          City:
-          <input type="text" name="city" onChange={this.handleAddressChange} />
-        </div>
-        <div>
-          State:
-          <input type="text" name="state" onChange={this.handleAddressChange} />
-        </div>
-        <div>
-          Country:
-          <input
-            type="text"
-            name="country"
-            onChange={this.handleAddressChange}
-          />
-        </div>
-        <div>
-          Postal Code:
-          <input
-            type="text"
-            name="postal_code"
-            onChange={this.handleAddressChange}
-          />
-        </div>
-        <div>
-          Coupon Code:
-          <input type="text" name="coupon" onChange={this.handleChange} />
-        </div>
-        {!fetching ? (
-          <button type="submit" disabled={!submittable}>
-            Purchase
-          </button>
-        ) : (
-          "Placing order..."
-        )}
-        Price:
-        {this.props.value.cartTotal.toLocaleString("en-US", {
-          style: "currency",
-          currency: "aud"
-        })}
-      </form>
+      <div className="stripe-form">
+        <form onSubmit={this.handleSubmit}>
+          <CardElement />
+          <div>
+            <input type="text" name="name" placeholder='Name:' className="stripe-textbox" onChange={this.handleChange} />
+          </div>
+          <div>
+            <input type="text" name="phone" placeholder='Phone:' onChange={this.handleChange} />
+          </div>
+          <div>
+            <input type="text" name="email" placeholder='Email:' onChange={this.handleChange} />
+          </div>
+          <div>
+            <input type="text" name="line1" placeholder="Address:" onChange={this.handleAddressChange} />
+          </div>
+          <div>
+            <input type="text" name="city" placeholder="City:" onChange={this.handleAddressChange} />
+          </div>
+          <div>
+            <input type="text" name="state" placeholder="State:" onChange={this.handleAddressChange} />
+          </div>
+          <div>
+            <input type="text" name="country" placeholder="Country:" onChange={this.handleAddressChange} />
+          </div>
+          <div>
+            <input type="text" name="postal_code" placeholder="Post Code:" onChange={this.handleAddressChange} />
+          </div>
+          <div>
+            <input type="text" name="coupon" placeholder="Coupon Code:" onChange={this.handleChange} />
+          </div>
+          {!fetching ? (
+            <button type="submit" className="btn btn-danger" disabled={!submittable}>Purchase</button>
+          ) : (
+            "Placing order..."
+          )} Price: {this.props.value.cartTotal.toLocaleString("en-US", {
+            style: "currency",
+            currency: "aud"
+          })}
+        </form>
+      </div>
     );
   }
 }

@@ -73,22 +73,10 @@ export default class Navbar extends Component {
                 <Link to='/products' className="nav-link">All products</Link>
               </li>
             </ul>
-            {/* <form className="form-inline my-2 my-lg-0">
-              <input className="form-control mr-sm-2 width-3rem height-1rem" type="text" placeholder="Search" aria-label="Search" />
-              <button className="btn my-2 px-0 " type="submit"><i className="fas fa-search" aria-hidden="true"></i></button>
-            </form> */}
           </div>
             <div className="cart-button" >
               <span className="mr-2">
               <IoIosCart className='fas fa-cart-plus fa-3x' onClick={this.handleClick} />
-              {/* <ThemeConsumer> */}
-                {/* {value => {
-                  console.log(value.cart)
-                  return value.cart.map((cart, index) => {
-                    return <h1 key={index}>{cart.quantity}</h1>
-                  })
-                }} */}
-              {/* </ThemeConsumer> */}
               {this.state.popupVisible && 
                 <Cart />}
               </span>

@@ -21,6 +21,7 @@ export default class ProductDetails extends React.Component {
   };
 
   render() {
+    // console.log(props.location.state.product)
     let {
       price,
       title,
@@ -49,7 +50,6 @@ export default class ProductDetails extends React.Component {
                     <Modal.Body>
                       <Carousel>
                         {images.map((image, index) => {
-                          console.log(image);
                           return (
                             <Carousel.Item>
                               <img
@@ -63,6 +63,7 @@ export default class ProductDetails extends React.Component {
                       </Carousel>
                     </Modal.Body>
                   </Modal>
+
                   <div className="image-div p-2" onClick={this.handleShow}>
                     <div className="big-top-image ">
                       <img

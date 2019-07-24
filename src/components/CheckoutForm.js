@@ -77,7 +77,7 @@ class CheckoutForm extends Component {
         // })
         // production URL
         axios
-          .post(`${process.env.BACK_URL}` + "/stripe/order/", {
+          .post(`${process.env.BACK_URL} + "/stripe/order/"`, {
             order,
             source: token.id
           })

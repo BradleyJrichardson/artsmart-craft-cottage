@@ -11,7 +11,6 @@ export default class Cart extends Component {
           {value => {
             if (value.cart.length) {
               return (
-
                 <div id="cart" className="cart">
                   <h1 className="brandTitle text-center">Cart</h1>
                   {value.cart.map(item => {
@@ -74,8 +73,8 @@ export default class Cart extends Component {
                       </div>
                     );
                   })}
+                  <p className="float-right mr-5">Total: {value.cartTotal}</p>
                   <div className="container float-right mt-4">
-                    <p className="float-right mr-5">Total: {value.cartTotal}</p>
                     <Link to="/checkout">
                       <button
                         type="button"

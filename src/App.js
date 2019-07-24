@@ -21,6 +21,7 @@ import SubCategoryProducts from "./components/SubCategoryProducts";
 
 export default class App extends React.Component {
   state = {
+    cartCounter: 1,
     products: null,
     cart: [],
     cartTotal: 0,
@@ -44,10 +45,9 @@ export default class App extends React.Component {
 
     if (this.state.products === null) {
       try {
-        const response = await axios.get("/store/index");
-
-        /// production URL
-        // const response = await axios.get(`${process.env.BACK_URL}` + "/store/index");
+        const response = await axios.get(
+          process.env.REACT_APP_BACK_URL + "/store/index"
+        );
         this.setState({
           products: response.data
         });
@@ -78,12 +78,15 @@ export default class App extends React.Component {
 
     let newCart;
     if (tempRemoved.length > 1) {
-      console.log("here");
       newCart = [...tempRemoved, product];
     } else {
       tempRemoved.push(product);
       newCart = tempRemoved;
     }
+    newCart.sort((a, b) => {
+      return a.cart_id - b.cart_id;
+    });
+
     let total = this.calcTotal(newCart);
 
     this.setState(() => {
@@ -109,6 +112,7 @@ export default class App extends React.Component {
           return item;
         }
       });
+
       let total = this.calcTotal(newCart);
       this.setState(() => {
         return {
@@ -122,17 +126,24 @@ export default class App extends React.Component {
           return products;
         }
       });
-
+      console.log(this.state.cart);
+      console.log(tempRemoved);
       product.quantity = product.quantity - 1;
       product.totalPrice = product.price * product.quantity;
 
       let newCart;
       if (tempRemoved.length > 1) {
         newCart = [...tempRemoved, product];
+        // console.log("new cart", newCart);
       } else {
+        // console.log("tempRemoved", tempRemoved);
         tempRemoved.push(product);
         newCart = tempRemoved;
+        // console.log("temp cart", newCart);
       }
+      newCart.sort((a, b) => {
+        return a.cart_id - b.cart_id;
+      });
       let total = this.calcTotal(newCart);
 
       this.setState(() => {
@@ -162,16 +173,18 @@ export default class App extends React.Component {
         images: images,
         price: price,
         quantity: 1,
-        totalPrice: price
+        totalPrice: price,
+        cart_id: this.state.cartCounter
       };
 
       let newCart = [...this.state.cart, productObj];
-      let total = this.calcTotal(newCart);
 
+      let total = this.calcTotal(newCart);
       this.setState(() => {
         return {
           cart: newCart,
-          cartTotal: total
+          cartTotal: total,
+          cartCounter: this.state.cartCounter + 1
         };
       });
     }

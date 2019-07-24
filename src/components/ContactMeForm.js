@@ -26,7 +26,7 @@ export default class ContactForm extends Component {
         action="https://formspree.io/artsmartcraftcottage@gmail.com"
         method="POST"
       >
-        <h1 className="brandTitle">Contact Me</h1>
+        <h1 className="brandTitle1">Contact Me</h1>
         <div className="form-group">
           <input
             placeholder="Name:"

@@ -89,7 +89,7 @@ export default class Navbar extends Component {
           <div className="cart-button">
             <span className="mr-2">
               <IoIosCart
-                className="fas fa-cart-plus fa-3x"
+                className="cart-icon fas fa-cart-plus fa-3x"
                 onClick={this.handleClick}
               />
               {this.state.popupVisible && <Cart />}

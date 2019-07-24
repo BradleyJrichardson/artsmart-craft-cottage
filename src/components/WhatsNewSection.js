@@ -8,7 +8,7 @@ export default class WhatsNewSection extends Component {
   render() {
     return (
       <section className="whats-new-section">
-        <h3 className="brandTitle">Whats New</h3>
+        <h3 className="brandTitle mt-4">Whats New</h3>
         <div className="whatsnew">
           <ThemeConsumer>
             {value => {

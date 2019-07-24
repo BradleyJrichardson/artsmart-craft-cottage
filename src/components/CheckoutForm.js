@@ -40,15 +40,16 @@ class CheckoutForm extends Component {
     this.setState({ address });
   }
   handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     let cart = this.props.value.cart;
     this.setState({ fetching: true });
     const state = this.state;
 
     let items = cart.map(item => {
+      console.log(item.price);
       return {
         parent: item.sku,
-        amount: item.price,
+        amount: item.price.toFixed(2),
         quantity: item.quantity
       };
     });
@@ -70,18 +71,20 @@ class CheckoutForm extends Component {
           order.coupon = state.coupon;
         }
         console.log(token);
+        console.log(process.env.REACT_APP_BACK_URL + "/stripe/order/");
         axios
           .post(process.env.REACT_APP_BACK_URL + "/stripe/order/", {
             order,
             source: token.id
           })
           .then(() => {
+            debugger;
             this.setState({ fetching: false });
             alert(`Purchase made`);
           })
           .catch(error => {
             this.setState({ fetching: false });
-            console.log(error);
+            console.log(error.response);
           });
       })
       .catch(error => {

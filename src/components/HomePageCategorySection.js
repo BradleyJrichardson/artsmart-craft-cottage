@@ -8,7 +8,7 @@ export default class HomePageCategorySection extends Component {
   render() {
     return (
       <section className="categories-section">
-        <h3 className="brandTitle">Categories</h3>
+        <h3 className="brandTitle mt-3">Categories</h3>
         <div className="whatsnew">
           {categoryPackage.map((object, index) => {
             if (object.subcategories) {

@@ -1,8 +1,13 @@
 #product-card {
   margin-bottom: 10px;
-  text-decoration: none;
-}
+  color:rgba(0, 0, 0, 0.712);
+  /* background: rgba(109, 206, 198, 0.288) */
+  }
 
-#product-card:hover {
-  text-decoration: none !important;
+.card-body{
+  color:rgba(0, 0, 0, 0.753);
+  padding: 10px 10px !important
+}
+.list-group-item{
+  padding: 10px 10px !important
 }

@@ -71,7 +71,11 @@ class CheckoutForm extends Component {
         }
         console.log(token);
         axios
+<<<<<<< HEAD
           .post(process.env.REACT_APP_BACK_URL + "/stripe/order/", {
+=======
+          .post(`${process.env.BACK_URL} + "/stripe/order/"`, {
+>>>>>>> 10d4e4130fa8651d193d718459b32d3806604260
             order,
             source: token.id
           })

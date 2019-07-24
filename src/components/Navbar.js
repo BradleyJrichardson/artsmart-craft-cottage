@@ -116,8 +116,8 @@ export default class Navbar extends Component {
             className="collapse navbar-collapse collapse navbar2"
             id="navbarSupportedContent1"
           >
-            <ul className="navbar-nav mx-5">
-              <li className="nav-item mx-3">
+            <ul className="navbar-nav">
+              <li className="nav-item">
                 <Link
                   to={{
                     pathname: "/subcategory",
@@ -131,7 +131,7 @@ export default class Navbar extends Component {
                   BOM QUILTS
                 </Link>
               </li>
-              <li className="nav-item mx-3">
+              <li className="nav-item">
                 <Link
                   to={{
                     pathname: "/subcategory",
@@ -145,7 +145,7 @@ export default class Navbar extends Component {
                   STITCHERY PATTERNS
                 </Link>
               </li>
-              <li className="nav-item mx-3">
+              <li className="nav-item">
                 <Link
                   to={{
                     pathname: "/subcategory",
@@ -160,7 +160,7 @@ export default class Navbar extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item mx-3">
+              <li className="nav-item">
                 <Link
                   to={{
                     pathname: "/subcategory",
@@ -172,7 +172,7 @@ export default class Navbar extends Component {
                   BUTTONS
                 </Link>
               </li>
-              <li className="nav-item mx-3">
+              <li className="nav-item">
                 <Link
                   to={{
                     pathname: "/category",
@@ -184,7 +184,7 @@ export default class Navbar extends Component {
                   CHRISTMAS
                 </Link>
               </li>
-              <li className="nav-item dropdown mx-3">
+              <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   data-toggle="dropdown"

@@ -16,3 +16,6 @@
   text-decoration: none;
   margin-bottom: 0;
 }
+.cart-icon{
+  cursor: pointer;
+}

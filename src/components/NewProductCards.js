@@ -8,7 +8,7 @@ const NewProductCards = props => {
     <div className="whats-new-section-card">
 
       <img className='image-in-whatnew-section'src={images[0]} alt='product'/>
-      <p className ="whats-new-text">
+      <p className ="whats-new-text mt-2 mb-2">
         {upcase}
       </p>
       

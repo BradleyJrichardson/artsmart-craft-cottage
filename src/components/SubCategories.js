@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SubCategoryCards from './SubCategoryCards';
+import SubCategoryCards from "./SubCategoryCards";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
 

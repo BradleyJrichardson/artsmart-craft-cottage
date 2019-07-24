@@ -15,31 +15,36 @@ export default class Checkout extends React.Component {
                 <React.Fragment>
                   {value.cart.map((item, index) => {
                     return (
-                      <div className="individual-item" key={index}>
-                        <div className="title-details-separation">
-                          <div>
-                            <h1 className="checkout-font-col">
-                              Title: {item.title}
-                            </h1>
-                          </div>
-                          <div>
-                            <h3 className="checkout-font-col">
-                              Individual Item Price: ${item.price}
-                            </h3>
-                            <h3 className="checkout-font-col">
-                              Quantity: {item.quantity}
-                            </h3>
-                            <h3 className="checkout-font-col">
-                              Total: ${item.totalPrice}
-                            </h3>
-                          </div>
-                        </div>
-                        <div>
-                          <img
-                            className="image-in-whatnew-section"
-                            src={item.images[0]} alt="product"
-                          />
-                        </div>
+                      <div className="table-responsive">
+                        <thead>
+                          <th scope="col" className="w-25">
+                            Title
+                          </th>
+                          <th scope="col" className="w-25">
+                            Individual Item Price
+                          </th>
+                          <th scope="col" className="w-25">
+                            Quantity
+                          </th>
+                          <th scope="col" className="w-25">
+                            Total
+                          </th>
+                          <th scope="col" className="w-25">
+                            {" "}
+                          </th>
+                        </thead>
+                        <tbody>
+                          <td>{item.title}</td>
+                          <td>${item.price}</td>
+                          <td>{item.quantity}</td>
+                          <td>${item.totalPrice}</td>
+                          <td>
+                            <img
+                              className="checkout-image"
+                              src={item.images[0]}
+                            />
+                          </td>
+                        </tbody>
                       </div>
                     );
                   })}

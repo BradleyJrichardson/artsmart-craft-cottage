@@ -29,10 +29,18 @@ const ProductCards = props => {
           </li>
           <li className="list-group-item">
 
-            {sub_categories[0] !== undefined && sub_categories[0] !== null
-              ? <p><span style={{ color: '#86B9B6' , fontSize: '1.1rem'}} >Sub-Category:</span> <span style={{ color: 'rgba(0, 0, 0, 0.600)' }}>{sub_categories[0]}</span></p>
-              : ""}
-
+            {sub_categories[0] !== undefined && sub_categories[0] !== null ? (
+              <p>
+                <span
+                  style={{ color: "rgba(0, 0, 0, 0.600)", fontSize: "1.1rem" }}
+                >
+                  Sub-Category:
+                </span>{" "}
+                <span style={{ color: "#86B9B6" }}>{sub_categories[0]}</span>
+              </p>
+            ) : (
+              ""
+            )}
           </li>
         </ul>
       </div>

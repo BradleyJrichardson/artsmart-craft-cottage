@@ -28,7 +28,6 @@ const ProductCards = props => {
             </p>
           </li>
           <li className="list-group-item">
-            {/* Sub-Ctegory:{" "} */}
             {sub_categories[0] !== undefined && sub_categories[0] !== null ? (
               <p>
                 <span

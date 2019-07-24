@@ -21,37 +21,42 @@ export default class ContactForm extends Component {
 
   render() {
     return (
-
       <form
         action="https://formspree.io/artsmartcraftcottage@gmail.com"
         method="POST"
       >
         <h1 className="brandTitle1">Contact Me</h1>
         <div className="form-group">
-          <input
-            placeholder="Name:"
-            className="form-control"
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-            name="name"
-          />
-          <input
-            placeholder="Email:"
-            className="form-control"
-            type="text"
-            value={this.state.email}
-            onChange={this.handleChange}
-            name="email"
-          />
-          <input
-            placeholder="Phone:"
-            className="form-control"
-            type="tel"
-            value={this.state.phone}
-            onChange={this.handleChange}
-            name="phone"
-          />
+          <label>
+            <input
+              placeholder="Name:"
+              className="form-control"
+              type="text"
+              value={this.state.name}
+              onChange={this.handleChange}
+              name="name"
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Email:"
+              className="form-control"
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange}
+              name="email"
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Phone:"
+              className="form-control"
+              type="tel"
+              value={this.state.phone}
+              onChange={this.handleChange}
+              name="phone"
+            />
+          </label>
           <textarea
             placeholder="Message:"
             className="form-control"
@@ -60,10 +65,15 @@ export default class ContactForm extends Component {
             onChange={this.handleChange}
             name="message"
           />
-          <input type="submit" className="form-control submit-button" value="Send Message" />
+          <label>
+            <input
+              type="submit"
+              className="form-control submit-button"
+              value="Send Message"
+            />
+          </label>
         </div>
       </form>
     );
-
   }
 }

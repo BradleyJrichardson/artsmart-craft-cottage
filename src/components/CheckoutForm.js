@@ -69,7 +69,6 @@ class CheckoutForm extends Component {
         if (state.coupon) {
           order.coupon = state.coupon;
         }
-        console.log(token);
         axios
           .post(process.env.REACT_APP_BACK_URL + "/stripe/order/", {
             order,
@@ -81,12 +80,10 @@ class CheckoutForm extends Component {
           })
           .catch(error => {
             this.setState({ fetching: false });
-            console.log(error);
           });
       })
       .catch(error => {
         this.setState({ fetching: false });
-        console.log(error);
       });
   }
 
@@ -111,85 +108,103 @@ class CheckoutForm extends Component {
           <CardElement />
           <div className="card-element" />
           <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name:"
-              className="stripe-textbox"
-              onChange={this.handleChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name:"
+                className="stripe-textbox"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone:"
-              className="stripe-textbox"
-              onChange={this.handleChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone:"
+                className="stripe-textbox"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email:"
-              className="stripe-textbox"
-              onChange={this.handleChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="email"
+                placeholder="Email:"
+                className="stripe-textbox"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="line1"
-              placeholder="Address:"
-              className="stripe-textbox"
-              onChange={this.handleAddressChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="line1"
+                placeholder="Address:"
+                className="stripe-textbox"
+                onChange={this.handleAddressChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="city"
-              placeholder="City:"
-              className="stripe-textbox"
-              onChange={this.handleAddressChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="city"
+                placeholder="City:"
+                className="stripe-textbox"
+                onChange={this.handleAddressChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="state"
-              placeholder="State:"
-              className="stripe-textbox"
-              onChange={this.handleAddressChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="state"
+                placeholder="State:"
+                className="stripe-textbox"
+                onChange={this.handleAddressChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="country"
-              placeholder="Country:"
-              className="stripe-textbox"
-              onChange={this.handleAddressChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="country"
+                placeholder="Country:"
+                className="stripe-textbox"
+                onChange={this.handleAddressChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="postal_code"
-              placeholder="Post Code:"
-              className="stripe-textbox"
-              onChange={this.handleAddressChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="postal_code"
+                placeholder="Post Code:"
+                className="stripe-textbox"
+                onChange={this.handleAddressChange}
+              />
+            </label>
           </div>
           <div>
-            <input
-              type="text"
-              name="coupon"
-              placeholder="Coupon Code:"
-              className="stripe-textbox"
-              onChange={this.handleChange}
-            />
+            <label>
+              <input
+                type="text"
+                name="coupon"
+                placeholder="Coupon Code:"
+                className="stripe-textbox"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
           <div className="purch-price">
             {!fetching ? (

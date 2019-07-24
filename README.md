@@ -54,7 +54,7 @@ A Marketplace application built for the final project at CoderAcademy
 
 # Tech stack
 
-    MERNs stack
+    MERN stack
 
 - **_Mongo DB_**
 - **_Express_**
@@ -381,9 +381,18 @@ Visit to the clients house to help them upload the required content for producti
 
 # Client Satisfaction Questionnaire
 
-Will create a survey monkey for this
+<ol>
+  <li>Does the website meet the existing requirements of you current website?</li>
+  <li>If any, what areas does the new website improve on your existing site?</li>
+  <li>Do the design and layout elements meet the expectations?</li>
+  <li>Are you happy with the colours and fonts?</li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
 <br><br>
 
 # <div align="center">2. Application Design</div>
-
-## Summary of the application

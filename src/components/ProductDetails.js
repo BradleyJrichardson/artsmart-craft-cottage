@@ -63,7 +63,6 @@ export default class ProductDetails extends React.Component {
                       </Carousel>
                     </Modal.Body>
                   </Modal>
-
                   <div className="image-div p-2" onClick={this.handleShow}>
                     <div className="big-top-image ">
                       <img

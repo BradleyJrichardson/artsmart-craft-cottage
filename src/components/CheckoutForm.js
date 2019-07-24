@@ -40,15 +40,16 @@ class CheckoutForm extends Component {
     this.setState({ address });
   }
   handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     let cart = this.props.value.cart;
     this.setState({ fetching: true });
     const state = this.state;
 
     let items = cart.map(item => {
+      console.log(item.price);
       return {
         parent: item.sku,
-        amount: item.price,
+        amount: item.price.toFixed(2),
         quantity: item.quantity
       };
     });
@@ -75,8 +76,9 @@ class CheckoutForm extends Component {
             source: token.id
           })
           .then(() => {
+            debugger;
             this.setState({ fetching: false });
-            alert(`Cheers for your money`);
+            alert(`Purchase made`);
           })
           .catch(error => {
             this.setState({ fetching: false });

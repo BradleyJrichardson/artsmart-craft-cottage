@@ -13,4 +13,5 @@ const SubCategoryCards = props => {
     </div>
   );
 };
+
 export default SubCategoryCards;

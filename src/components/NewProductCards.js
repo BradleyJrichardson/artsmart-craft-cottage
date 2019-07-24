@@ -1,5 +1,4 @@
 import React from "react";
-import ModalTitle from "react-bootstrap/ModalTitle";
 
 const NewProductCards = props => {
   let { images, title } = props.product;
@@ -11,4 +10,5 @@ const NewProductCards = props => {
     </div>
   );
 };
+
 export default NewProductCards;

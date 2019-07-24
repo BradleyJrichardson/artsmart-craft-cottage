@@ -70,7 +70,6 @@ export default class App extends React.Component {
         item: item.product_id
       };
     });
-
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
@@ -312,7 +311,7 @@ export default class App extends React.Component {
         </Router>
       );
     } else {
-      return <h1>error</h1>;
+      return null;
     }
   }
 }

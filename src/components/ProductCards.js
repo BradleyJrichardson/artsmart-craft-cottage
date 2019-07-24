@@ -28,6 +28,7 @@ const ProductCards = props => {
             </p>
           </li>
           <li className="list-group-item">
+
             {sub_categories[0] !== undefined && sub_categories[0] !== null ? (
               <p>
                 <span
@@ -42,11 +43,9 @@ const ProductCards = props => {
             )}
           </li>
         </ul>
-        {/* <div class="card-footer">
-          <small class="text-muted">${price}</small>
-        </div> */}
       </div>
     </div>
   );
 };
+
 export default ProductCards;

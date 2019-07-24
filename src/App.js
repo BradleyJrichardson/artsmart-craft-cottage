@@ -64,15 +64,6 @@ export default class App extends React.Component {
   }
 
   increment = product_id => {
-    let cartMap = this.state.cart.map((item, index) => {
-      return {
-        index: index,
-        item: item.product_id
-      };
-    });
-
-    console.log(this.state.cart);
-
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;

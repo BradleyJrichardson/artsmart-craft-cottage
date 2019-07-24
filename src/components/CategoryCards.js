@@ -8,8 +8,6 @@ const CategoryCards = props => {
       <p className = 'home-page-text mt-2 mb-2'>
         {category}
       </p>
-      
-
     </div>
   );
 };

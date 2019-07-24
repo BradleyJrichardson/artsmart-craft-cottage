@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import Carousel from 'react-bootstrap/Carousel'
 
-
-
 export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
@@ -23,26 +21,22 @@ export default class ProductDetails extends React.Component {
   }
   
   render(){
-    // console.log(props.location.state.product)
+    console.log(this.props)
   let { price, title, categories, images, description } = this.props.location.state.product;
   let { product } = this.props.location.state;
-  
   
   return (
     <React.Fragment>
       <ThemeConsumer>
         {value => {
           return (
-
             <>
               <div className = 'container d-flex flex-wrap'>
-                
                 <Modal
                   size="lg"
                   show={this.state.show}
                   onHide={this.handleClose}
                   aria-labelledby="example-modal-sizes-title-sm"
-
                 >
                   <Modal.Header closeButton class="modal-header"  >
                     <p>{title.toUpperCase()}</p>
@@ -80,18 +74,18 @@ export default class ProductDetails extends React.Component {
                 <div className = 'right-hand-div col-md-7'>
                   <h1 className='detail-page p-4'>{title.toUpperCase()}</h1>
                   <h3 id='price'> $ {price}</h3>
-                    <div className= 'add-to-cart-button d-flex justify-content-end p-3 '>
-                      <Link to="/products">
-                        <button
-                          className="btn btn-green"
-                          onClick={() => {
-                            value.addToCart(product);
-                          }}
-                        >
-                          Add To Cart
-                        </button>
-                      </Link>
-                    </div>
+                  <div className= 'add-to-cart-button d-flex justify-content-end p-3 '>
+                    <Link to="/products">
+                      <button
+                        className="btn btn-green"
+                        onClick={() => {
+                          value.addToCart(product);
+                        }}
+                      >
+                        Add To Cart
+                      </button>
+                    </Link>
+                  </div>
                   <h4 className= 'categori-type p-3'> Category : <span id= 'category-text'>{categories[0].toUpperCase()}</span></h4>
                 </div>
               </div>
@@ -106,7 +100,6 @@ export default class ProductDetails extends React.Component {
     </React.Fragment>
   );
   }
-  
 };
 
 

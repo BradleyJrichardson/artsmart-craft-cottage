@@ -37,7 +37,7 @@ export default class Checkout extends React.Component {
                         <div>
                           <img
                             className="image-in-whatnew-section"
-                            src={item.images[0]}
+                            src={item.images[0]} alt="product"
                           />
                         </div>
                       </div>

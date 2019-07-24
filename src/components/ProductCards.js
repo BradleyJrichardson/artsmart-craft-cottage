@@ -14,17 +14,14 @@ const ProductCards = props => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item" ><p><span style={{ color: 'rgba(0, 0, 0, 0.753)' , fontSize: '1.1rem'}} >Category:</span> <span style={{ color: '#86B9B6' }}>{categories[0]}</span></p></li>
           <li className="list-group-item">
-            {/* Sub-Ctegory:{" "} */}
             {sub_categories[0] !== undefined && sub_categories[0] !== null
               ? <p><span style={{ color: '#86B9B6' , fontSize: '1.1rem'}} >Sub-Category:</span> <span style={{ color: 'rgba(0, 0, 0, 0.600)' }}>{sub_categories[0]}</span></p>
               : ""}
           </li>
         </ul>
-        {/* <div class="card-footer">
-          <small class="text-muted">${price}</small>
-        </div> */}
       </div>
     </div>
   );
 };
+
 export default ProductCards;

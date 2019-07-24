@@ -17,7 +17,6 @@ class Footer extends Component {
               </p>
             </div>
             <div className = 'col-sm-12 col-md-3 p-2' style ={{backgroundColor: 'rgba(134, 185, 181, 0.733)'}}><ContactMeForm /></div>
-            
           </div>
         </div>
       </React.Fragment>

@@ -3,27 +3,29 @@
   color: rgba(0, 0, 0, 0.616)
 }
 
-
 .modal-content {
   border-radius: 0.1rem !important;
-  
 }
 
 .image-div{
   cursor: pointer;
 }
+
 .image-in-detail-page{
   width:350px;
   height: 350px;
 }
+
 .modal-header{
   height: 20px;
   padding: 0 0.4rem !important;
   border-bottom-style: none !important;
 }
+
 .carousel{
   height: 100%;
 }
+
 .carousel-control-next-icon{
   color:black !important
 }
@@ -40,9 +42,11 @@
   width:82px;
   height: 78px;
 }
+
 .btn-green{
   background:#86B9B6 !important;
 }
+
 #category-text{
   font-size: 1.1rem;
   color: #86B9B6

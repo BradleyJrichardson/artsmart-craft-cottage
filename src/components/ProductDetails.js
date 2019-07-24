@@ -2,8 +2,9 @@ import React from "react";
 import "./ProductDetails.css";
 import { ThemeConsumer } from "../context/theme";
 import { Link } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
-import Carousel from "react-bootstrap/Carousel";
+import Modal from 'react-bootstrap/Modal';
+import Carousel from 'react-bootstrap/Carousel'
+
 
 export default class ProductDetails extends React.Component {
   constructor(props) {
@@ -120,4 +121,6 @@ export default class ProductDetails extends React.Component {
       </React.Fragment>
     );
   }
+
 }
+

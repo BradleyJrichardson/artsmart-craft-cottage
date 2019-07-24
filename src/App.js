@@ -312,7 +312,7 @@ export default class App extends React.Component {
         </Router>
       );
     } else {
-      return <h1>error</h1>;
+      return null;
     }
   }
 }

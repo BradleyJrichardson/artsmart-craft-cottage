@@ -122,16 +122,20 @@ export default class App extends React.Component {
           return products;
         }
       });
-
+      console.log(this.state.cart);
+      console.log(tempRemoved);
       product.quantity = product.quantity - 1;
       product.totalPrice = product.price * product.quantity;
 
       let newCart;
       if (tempRemoved.length > 1) {
         newCart = [...tempRemoved, product];
+        // console.log("new cart", newCart);
       } else {
+        // console.log("tempRemoved", tempRemoved);
         tempRemoved.push(product);
         newCart = tempRemoved;
+        // console.log("temp cart", newCart);
       }
       let total = this.calcTotal(newCart);
 

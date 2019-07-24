@@ -70,14 +70,8 @@ class CheckoutForm extends Component {
           order.coupon = state.coupon;
         }
         console.log(token);
-        // axios;
-        // .post("/stripe/order/", {
-        //   order,
-        //   source: token.id
-        // })
-        // production URL
         axios
-          .post(`${process.env.BACK_URL}` + "/stripe/order/", {
+          .post(process.env.REACT_APP_BACK_URL + "/stripe/order/", {
             order,
             source: token.id
           })

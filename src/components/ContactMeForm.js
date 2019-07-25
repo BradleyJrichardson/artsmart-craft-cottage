@@ -27,7 +27,6 @@ export default class ContactForm extends Component {
       >
         <h1 className="brandTitle1">Contact Me</h1>
         <div className="form-group">
-          <label>
             <input
               placeholder="Name:"
               className="form-control"
@@ -36,8 +35,6 @@ export default class ContactForm extends Component {
               onChange={this.handleChange}
               name="name"
             />
-          </label>
-          <label>
             <input
               placeholder="Email:"
               className="form-control"
@@ -46,8 +43,6 @@ export default class ContactForm extends Component {
               onChange={this.handleChange}
               name="email"
             />
-          </label>
-          <label>
             <input
               placeholder="Phone:"
               className="form-control"
@@ -56,22 +51,19 @@ export default class ContactForm extends Component {
               onChange={this.handleChange}
               name="phone"
             />
-          </label>
-          <textarea
-            placeholder="Message:"
-            className="form-control"
-            type="text"
-            value={this.state.message}
-            onChange={this.handleChange}
-            name="message"
-          />
-          <label>
+            <textarea
+              placeholder="Message:"
+              className="form-control"
+              type="text"
+              value={this.state.message}
+              onChange={this.handleChange}
+              name="message"
+            />
             <input
               type="submit"
               className="form-control submit-button"
               value="Send Message"
             />
-          </label>
         </div>
       </form>
     );

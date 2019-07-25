@@ -1,5 +1,8 @@
 <p align="center">
-  <img width="" height="120" src=./artsmart-logo.jpg></p>
+  <img width="" height="120" src=./artsmart-logo.jpg>
+</p>
+
+>[Link to published page](https://reverent-booth-879a70.netlify.com/)
 
 # <div align="center">Front end</div>
 
@@ -7,11 +10,23 @@
 
 A Marketplace application built for the final project at CoderAcademy
 
+# Setup
+
+- Unpack Zip
+- Copy Front-end, Back-end and Dashboard Repos into a file (repo found below)
+- Copy the env files as per instructions.
+- npm i in the Front-end, Back-end and Dashboard
+- In the Back-end run 'npm start'
+- In the Dashboard run 'npm start'
+- In the Front-end run 'npm start'
+- if not automatically directed open 'http://localhost:3000/' in your browser.
+
+
+
 # Team Members
 
 <i>GitHub Links<i>: [Bradley ](https://github.com/BradleyJrichardson), [Cooper](https://github.com/CoopsCodes), [Mahdi](https://github.com/MS944)
-
-<br>
+<br><br>
 
 # Features
 
@@ -51,23 +66,19 @@ A Marketplace application built for the final project at CoderAcademy
 - <b>Create a temporary order token to process card</b>
 
 <br><br>
-
 # Tech stack
 
-    MERN stack
+    MERNs stack
 
 - **_Mongo DB_**
 - **_Express_**
 - **_React_**
 - **_Node_**
 - **_Stripe_**
-  
 <br><br>
-
-# Design documentation
+# Design Documentation
 
 [Figma](https://www.figma.com/file/ZrsUm4JyeonWInA91RQ01Eo4/Marketplace?node-id=0%3A1)
-
 <br><br>
 
 # Project Plan
@@ -75,6 +86,11 @@ A Marketplace application built for the final project at CoderAcademy
 - Client **_Libby Richrdson_**
 - Project Name **_Artsmart Craft Cottage_**
 - Delivery Date **_Friday 26<sup>th</sup> July 2019_**
+
+<p align="center">
+OO Design
+  <img width="" height="500" src=./OO.png>
+</p>
 
 ### Scope
 
@@ -97,6 +113,21 @@ Week 1 - Planning/documentation/sign-off to be completed.
 Week 2 - MVP build, hosted and working.
 
 Week 3 - Debugging, extra features and README-presentation planning.
+****
+<p align="center">
+Project Timeline
+  <img width="" height="500" src=./Timeline.png>
+</p>
+
+### Dataflow Diagram
+
+<p align="center">
+  <img width="" height="500" src=./DataFlow.png>
+</p>
+
+### ERD Document
+
+In Figma.
 
 ### Risks
 
@@ -174,9 +205,7 @@ Nill
 | 2. Build Figma wire-frames | 2. Build framework                    | 2. End user testing               | 2. Host front-end | 2. Hand-off Documentation   |
 | 3. Colour pallet and Fonts | 3. Build Context and global state     | 3. Test Sign-off                  |                   | 3. Present production build |
 | 4. SEO analysis            | 4. Build site components              | 4. Test when pushed to production |                   |                             |
-
 <br><br>
-
 # Short Answer Questions
 
 ## What are the most important aspects of quality software?
@@ -373,6 +402,13 @@ Discussion with client that established an MVP order processing dashboard system
 
 Visit to the clients house to help them upload the required content for production. Discussion for future plans of the project outside the scope of the time-frame.
 
+### Wednesday 25<sup>th</sup> July 2019
+
+Project link sent to client, and final sign-off provided.
+
+<p align="center">
+  <img width="" height="500" src=./Signoff.png>
+</p>
 <br><br>
 
 # Post Project Review
@@ -405,4 +441,15 @@ Workload - underestimating the amount of work involved in what seemed like a rel
 </ol>
 <br><br>
 
-<!-- # <div align="center">2. Application Design</div> -->
+# Client Development and Production Testing
+
+For user testing, we had a fellow group spend 15mins testing multiple flows, purchasing products and providing feedback.
+No bugs were found, feedback was positive with only sizing and layout changes suggested.
+
+Sunday 21<sup>st</sup> July 2018.
+Bradley met with the client for a Demonstration of the website providing Libby with a sandpit to play around in.
+Feedback provided was positive with the main discussion revolving around the layout/colours/fonts and how she is happy with the project.
+
+# Client Handover Activities
+
+The project will be continually maintained by Brad, therefore, no formal handover requirements needed.

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import "./CheckoutForm.css";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
-// https://stripe.com/docs/recipes/elements-react
 /// test with  ~~~~~~ 4000000360000006 ~~~~~~ 🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺🇦🇺
 
 class CheckoutForm extends Component {

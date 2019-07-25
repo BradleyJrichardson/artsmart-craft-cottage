@@ -259,7 +259,9 @@ export default class App extends React.Component {
     if (this.state.products != null) {
       return (
         <Router>
-          <StripeProvider apiKey={process.env.REACT_APP_BACK_URL}>
+          <StripeProvider apiKey="pk_test_TlwArxmeZUHrZWhICbGMWxA100dG0fErh2">
+            {/* {process.env.REACT_APP_BACK_URL} */}
+
             <ThemeProvider
               value={{
                 ...this.state,

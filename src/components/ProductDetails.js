@@ -22,7 +22,6 @@ export default class ProductDetails extends React.Component {
   };
 
   render() {
-    // console.log(props.location.state.product)
     let {
       price,
       title,

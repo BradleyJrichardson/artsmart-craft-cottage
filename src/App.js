@@ -64,6 +64,12 @@ export default class App extends React.Component {
   }
 
   increment = product_id => {
+    let cartMap = this.state.cart.map((item, index) => {
+      return {
+        index: index,
+        item: item.product_id
+      };
+    });
     let tempRemoved = this.state.cart.filter(products => {
       if (products.product_id !== product_id) {
         return products;
@@ -126,20 +132,15 @@ export default class App extends React.Component {
           return products;
         }
       });
-      console.log(this.state.cart);
-      console.log(tempRemoved);
       product.quantity = product.quantity - 1;
       product.totalPrice = product.price * product.quantity;
 
       let newCart;
       if (tempRemoved.length > 1) {
         newCart = [...tempRemoved, product];
-        // console.log("new cart", newCart);
       } else {
-        // console.log("tempRemoved", tempRemoved);
         tempRemoved.push(product);
         newCart = tempRemoved;
-        // console.log("temp cart", newCart);
       }
       newCart.sort((a, b) => {
         return a.cart_id - b.cart_id;
@@ -164,7 +165,6 @@ export default class App extends React.Component {
       this.increment(product.product_id);
     } else {
       let { product_id, sku, price, title, images } = product;
-      console.log("from product", product);
 
       const productObj = {
         title: title,
@@ -248,7 +248,6 @@ export default class App extends React.Component {
   }
 
   hideCart = () => {
-    console.log("from checkout");
     this.setState({
       hideCart: true
     });

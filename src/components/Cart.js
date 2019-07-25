@@ -97,7 +97,7 @@ export default class Cart extends Component {
             } else {
               return (
                 <div className="cart">
-                  <h1 className="brandTitle">I'm empty right now</h1>
+                  <h2 className="brandTitle">I'm empty right now</h2>
                 </div>
               );
             }

@@ -45,6 +45,7 @@ export default class Checkout extends React.Component {
                               <img
                                 className="checkout-image"
                                 src={item.images[0]}
+                                alt="checkout"
                               />
                             </td>
                           </tbody>

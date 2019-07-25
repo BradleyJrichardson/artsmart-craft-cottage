@@ -25,10 +25,10 @@ export default class NewReleaseSection extends Component {
                 }
               }}
             >
-              <div className="card d-flex w-100 p-1">
-                <h3 className="new-release-text">New Release</h3>
-                <img className="card-img-top" src={home2} alt="placeholder" />
-              </div>
+            <section className='newRealeseSection'>
+              <h3 className="new-release-text">New Release</h3>
+              <img className="new-released-img" src={home2} alt="placeholder" />
+            </section>
             </Link>
           );
         }}

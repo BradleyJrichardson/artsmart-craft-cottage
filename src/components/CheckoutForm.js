@@ -70,8 +70,6 @@ class CheckoutForm extends Component {
         if (state.coupon) {
           order.coupon = state.coupon;
         }
-        console.log(token);
-        console.log(process.env.REACT_APP_BACK_URL + "/stripe/order/");
         axios
           .post(process.env.REACT_APP_BACK_URL + "/stripe/order/", {
             order,
@@ -84,12 +82,10 @@ class CheckoutForm extends Component {
           })
           .catch(error => {
             this.setState({ fetching: false });
-            console.log(error.response);
           });
       })
       .catch(error => {
         this.setState({ fetching: false });
-        console.log(error);
       });
   }
 

@@ -9,7 +9,7 @@ const SubCategoryCards = props => {
         src={image}
         alt="categoryDisplay"
       />
-      <p className = 'home-page-text mt-2 mb-2'>{name}</p>
+      <p className="mt-2 mb-2">{name}</p>
     </div>
   );
 };

@@ -26,7 +26,6 @@ export default class Cart extends Component {
                           </tr>
                           <tr>
                             <td>{item.title}</td>
-
                             <div className="row ">
                               <td className="mr-3 w-100 d-flex justify-content-around">
                                 {item.quantity}
@@ -41,7 +40,6 @@ export default class Cart extends Component {
                                     {" "}
                                     +{" "}
                                   </button>
-
                                   <button
                                     type="button"
                                     className="btn btn-outline-warning mr-2"
@@ -52,7 +50,6 @@ export default class Cart extends Component {
                                     {" "}
                                     -{" "}
                                   </button>
-
                                   <button
                                     type="button"
                                     className="btn btn-outline-danger"
@@ -66,7 +63,6 @@ export default class Cart extends Component {
                                 </div>
                               </td>
                             </div>
-
                             <td>{item.price}</td>
                           </tr>
                         </table>

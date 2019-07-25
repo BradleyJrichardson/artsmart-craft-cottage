@@ -13,41 +13,46 @@ export default class Checkout extends React.Component {
             if (value.cart !== null) {
               return (
                 <React.Fragment>
-                  {value.cart.map((item, index) => {
-                    return (
-                      <div className="table-responsive">
-                        <thead>
-                          <th scope="col" className="w-25">
-                            Title
-                          </th>
-                          <th scope="col" className="w-25">
+                  <div className="table-responsive">
+                    <table className="table">
+                      <thead className="thead-light ">
+                        <th scope="col" className="w-25 ">
+                          <p className="checkout-fonts">Title</p>
+                        </th>
+                        <th scope="col" className="w-25">
+                          <p className="checkout-fonts">
                             Individual Item Price
-                          </th>
-                          <th scope="col" className="w-25">
-                            Quantity
-                          </th>
-                          <th scope="col" className="w-25">
-                            Total
-                          </th>
-                          <th scope="col" className="w-25">
-                            {" "}
-                          </th>
-                        </thead>
-                        <tbody>
-                          <td>{item.title}</td>
-                          <td>${item.price}</td>
-                          <td>{item.quantity}</td>
-                          <td>${item.totalPrice}</td>
-                          <td>
-                            <img
-                              className="checkout-image"
-                              src={item.images[0]}
-                            />
-                          </td>
-                        </tbody>
-                      </div>
-                    );
-                  })}
+                          </p>
+                        </th>
+                        <th scope="col" className="w-25">
+                          <p className="checkout-fonts">Quantity</p>
+                        </th>
+                        <th scope="col" className="w-25">
+                          <p className="checkout-fonts">Total</p>
+                        </th>
+                        <th scope="col" className="w-25">
+                          {" "}
+                        </th>
+                      </thead>
+                      {value.cart.map((item, index) => {
+                        return (
+                          <tbody>
+                            <td>{item.title}</td>
+                            <td>${item.price}</td>
+                            <td>{item.quantity}</td>
+                            <td>${item.totalPrice}</td>
+                            <td>
+                              <img
+                                className="checkout-image"
+                                src={item.images[0]}
+                                alt="checkout"
+                              />
+                            </td>
+                          </tbody>
+                        );
+                      })}
+                    </table>
+                  </div>
                   <CheckoutForm value={value} />
                 </React.Fragment>
               );

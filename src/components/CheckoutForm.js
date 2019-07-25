@@ -44,12 +44,10 @@ class CheckoutForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let cart = this.props.value.cart;
-    console.log();
     this.setState({ fetching: true });
     let { name, email, phone, address, coupon } = this.state;
 
     let items = cart.map(item => {
-      console.log(item.price);
       return {
         parent: item.sku,
         amount: item.price,

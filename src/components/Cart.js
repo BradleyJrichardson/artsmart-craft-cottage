@@ -17,54 +17,58 @@ export default class Cart extends Component {
                     return (
                       <div className="table-responsive">
                         <table className="table">
-                          <tr>
-                            <th scope="col" className="w-50">
-                              Item
-                            </th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
-                          </tr>
-                          <tr>
-                            <td>{item.title}</td>
-                            <div className="row ">
-                              <td className="mr-3 w-100 d-flex justify-content-around">
-                                {item.quantity}
-                                <div className="d-flex justify-content-end">
-                                  <button
-                                    type="button"
-                                    className="btn btn-outline-success mr-2"
-                                    onClick={e => {
-                                      value.increment(item.product_id);
-                                    }}
-                                  >
-                                    {" "}
-                                    +{" "}
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="btn btn-outline-warning mr-2"
-                                    onClick={() => {
-                                      value.decrement(item.product_id);
-                                    }}
-                                  >
-                                    {" "}
-                                    -{" "}
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="btn btn-outline-danger"
-                                    onClick={() => {
-                                      value.removeItem(item.product_id);
-                                    }}
-                                  >
-                                    {" "}
-                                    x{" "}
-                                  </button>
-                                </div>
-                              </td>
-                            </div>
-                            <td>{item.price}</td>
-                          </tr>
+                          <thead>
+                            <tr>
+                              <th scope="col" className="w-50">
+                                Item
+                              </th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>{item.title}</td>
+                              <div className="row ">
+                                <td className="mr-3 w-100 d-flex justify-content-around">
+                                  {item.quantity}
+                                  <div className="d-flex justify-content-end">
+                                    <button
+                                      type="button"
+                                      className="btn btn-outline-success mr-2"
+                                      onClick={e => {
+                                        value.increment(item.product_id);
+                                      }}
+                                    >
+                                      {" "}
+                                      +{" "}
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="btn btn-outline-warning mr-2"
+                                      onClick={() => {
+                                        value.decrement(item.product_id);
+                                      }}
+                                    >
+                                      {" "}
+                                      -{" "}
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="btn btn-outline-danger"
+                                      onClick={() => {
+                                        value.removeItem(item.product_id);
+                                      }}
+                                    >
+                                      {" "}
+                                      x{" "}
+                                    </button>
+                                  </div>
+                                </td>
+                              </div>
+                              <td>{item.price}</td>
+                            </tr>
+                          </tbody>
                         </table>
                       </div>
                     );
@@ -93,7 +97,7 @@ export default class Cart extends Component {
             } else {
               return (
                 <div className="cart">
-                  <h1 className="brandTitle">I'm empty right now</h1>
+                  <h2 className="brandTitle">I'm empty right now</h2>
                 </div>
               );
             }

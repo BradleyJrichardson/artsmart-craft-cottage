@@ -188,7 +188,7 @@ export default class Navbar extends Component {
                 <a
                   className="nav-link dropdown-toggle"
                   data-toggle="dropdown"
-                  href="#"
+                  href="/#"
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"

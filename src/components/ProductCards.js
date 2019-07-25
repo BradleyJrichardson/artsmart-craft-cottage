@@ -6,9 +6,9 @@ const ProductCards = props => {
   return (
     <div className="card-deck ">
       <div id="product-card" className="card text-center">
-        <img src={images[0]} class="card-img-top" alt="product" />
+        <img src={images[0]} className="card-img-top" alt="product" />
         <div className="card-body">
-          <h5 classN="card-text">{title}</h5>
+          <h5 className="card-text">{title}</h5>
           <h4
             className="card-text"
             style={{ fontFamily: "Alex Brush", fontWeight: "600" }}
@@ -28,7 +28,6 @@ const ProductCards = props => {
             </p>
           </li>
           <li className="list-group-item">
-
             {sub_categories[0] !== undefined && sub_categories[0] !== null ? (
               <p>
                 <span

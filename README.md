@@ -371,11 +371,22 @@ Discussion with client that established an MVP order processing dashboard system
 
 ### Sunday 21<sup>th</sup> July 2019
 
-Visit to the clients house to help them upload the required content for production. Discussion for future plans of the project outside the scope of the timeframe.
+Visit to the clients house to help them upload the required content for production. Discussion for future plans of the project outside the scope of the time-frame.
 
 <br><br>
 
 # Post Project Review
+
+The initial project requirements we to match or improve on the existing sites Search Engine Optimisation, this was achieved in every measured measurement.
+
+The project was completed on time and delivered in a working bug free state, in retrospect the project scope was achievable and adding anymore would have stretched the teams abilities.  so no major add functionality would have been realistically achievable under current skill levels.
+
+## Project Lessons
+Communication - there were instances where components were worked in after someone had recently finished, this did lead to double handling.
+
+Git - while we all merged every day and worked from a fresh master, there were inconsistent git commits.  This would be something that would be addressed in the next project.
+
+Workload - underestimating the amount of work involved in what seemed like a relatively simple workplace.
 
 <br><br>
 
@@ -386,13 +397,12 @@ Visit to the clients house to help them upload the required content for producti
   <li>If any, what areas does the new website improve on your existing site?</li>
   <li>Do the design and layout elements meet the expectations?</li>
   <li>Are you happy with the colours and fonts?</li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>What areas could be improved on?</li>
+  <li>Do you think the website would increase visitors and sales?</li>
+  <li>On a scale of 1 to 10 would you recommend us to others.</li>
+  <li>On a scale of 1 to 10 how happy are you with the outcome</li>
+  <li>What was the reason for the above score?</li>
 </ol>
 <br><br>
 
-# <div align="center">2. Application Design</div>
+<!-- # <div align="center">2. Application Design</div> -->
